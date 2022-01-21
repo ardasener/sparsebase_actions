@@ -34,13 +34,13 @@ jobs:
 
     - name: Examples
       working-directory: ${{github.workspace}}/build/examples
-      run: |
-      ./custom_order/custom_order ./data/com-dblp.uedgelist
-      ./degree_order/degree_order ./data/com-dblp.uedgelist
-      ./rcm_order/rcm_order ./data/com-dblp.uedgelist
-      ./format_conversion/example_conversion
-      ./sparse_format/csr_coo ./data/ash958.mtx
-      ./sparse_reader/sparse_reader ./data/ash958.mtx
+      run: >-
+        ./custom_order/custom_order ./data/com-dblp.uedgelist ;
+        ./degree_order/degree_order ./data/com-dblp.uedgelist ;
+        ./rcm_order/rcm_order ./data/com-dblp.uedgelist ;
+        ./format_conversion/example_conversion ;
+        ./sparse_format/csr_coo ./data/ash958.mtx ;
+        ./sparse_reader/sparse_reader ./data/ash958.mtx ;
       
 
     #- name: Test
