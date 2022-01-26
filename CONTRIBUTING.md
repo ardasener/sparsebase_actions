@@ -1,5 +1,7 @@
 # Contribution Guidelines
 
+Hello World
+
 Thank you for choosing to contribute to sparsebase. This document will explain the exact flow of making a contribution. That includes creating an issue, making a pull request, reviewing it, and merging it. 
 
 ## Creatin an Issue
