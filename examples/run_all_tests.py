@@ -1,5 +1,6 @@
 import os
 import subprocess as sp
+import sys
 
 # Each element should be a pair
 # - First element is the directory and executable name (these two should be the same)
@@ -25,7 +26,11 @@ def RunExample(exe_filename, data_filename):
         data_path = os.path.join("data", data_filename)
         cmd.append(data_path)
 
-    sp.run(cmd)
+    result = sp.run(cmd)
+
+    if result.returncode != 0:
+        print("cmd=", cmd, "has failed!!!")
+        sys.exit(1)
 
 if __name__ == "__main__":
     for name, data in examples:
