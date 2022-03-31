@@ -8,7 +8,7 @@ import subprocess as sp
 examples = [
     ["custom_format", None],
     ["custom_order", "com-dblp.uedgelist"],
-    ["degree_distribution", "com-dblp.uedgelist"],
+    #["degree_distribution", "com-dblp.uedgelist"],
     ["degree_order", "com-dblp.uedgelist"],
     ["format_conversion", None],
     ["rcm_order", "com-dblp.uedgelist"],
@@ -21,8 +21,8 @@ def RunExample(exe_filename, data_filename):
     exe_path = os.path.join(exe_filename, exe_filename)
     cmd = [exe_path]
 
-    if data is not None:
-        data_path = os.path.join("data", data)
+    if data_filename is not None:
+        data_path = os.path.join("data", data_filename)
         cmd.append(data_path)
 
     sp.run(cmd)
