@@ -34,7 +34,7 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_CMakeLists_8txt_1a38c371107125da6c75e7989e41bbfa4d`
-
 - :ref:`exhale_function_CMakeLists_8txt_1a9987f805d77740b579cfe1b2d67c8b8b`
+
+- :ref:`exhale_function_CMakeLists_8txt_1a38c371107125da6c75e7989e41bbfa4d`
 
