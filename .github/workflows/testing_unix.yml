@@ -25,7 +25,7 @@ jobs:
       with:
         brew: gcc@9 bison flex swig readline libomp python3
         apt-get:  build-essential bison flex swig libreadline-dev libomp-dev python3
-   
+
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
@@ -38,7 +38,7 @@ jobs:
     - name: Copy Data & Script
       run: |
         cp -r ${{github.workspace}}/examples/data ${{github.workspace}}/build/examples/
-        cp -r ${{github.workspace}}/examples/run_all_tests.py ${{github.workspace}}/build/examples/
+        cp ${{github.workspace}}/examples/run_all_tests.py ${{github.workspace}}/build/examples/
 
     - name: Run Examples
       working-directory: ${{github.workspace}}/build/examples
