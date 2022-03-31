@@ -7,8 +7,6 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -36,6 +34,9 @@ jobs:
       - name: Build
         working-directory: docs/
         run: make html
+        
+      - name: Bypass Jekyll
+        run: touch docs/_build/html/.nojekyll
         
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.2
