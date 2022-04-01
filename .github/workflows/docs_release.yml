@@ -55,7 +55,7 @@ jobs:
 
       - name: Build Header Only Release
         run: |
-          cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D_HEADER_ONLY=ON
+          cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D_HEADER_ONLY=ON -DRUN_EXAMPLES=OFF
           cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
           zip -r header_only.zip ${{github.workspace}}/build 
 
@@ -64,6 +64,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
+          automatic_release_tag: "latest"
           title: "Development Build"
           files: | 
             LICENSE

@@ -8,6 +8,7 @@ endif()
 
 project( SparseBase_project VERSION 0.1.5 )
 option(RUN_TESTS "Enable running tests" OFF)
+option(RUN_EXAMPLES "Enable running examples" ON)
 option(_HEADER_ONLY "Use the library as a header only library?" OFF)
 option(CUDA "Enable CUDA" OFF)
 option(USE_PIGO "Use PIGO for parallel I/O" ON)
@@ -61,7 +62,10 @@ if (MSVC)
     add_compile_options("/bigobj")
 endif()
 add_subdirectory(src)
+
+if( RUN_EXAMPLES )
 add_subdirectory(examples)
+endif()
 
 add_custom_target(format
     COMMAND bash ${CMAKE_SOURCE_DIR}/.format.bash ${CMAKE_SOURCE_DIR}
