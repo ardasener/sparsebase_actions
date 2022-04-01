@@ -75,4 +75,4 @@ jobs:
           files: | 
             LICENSE
             docs/_build/latex/*.pdf
-            ${{github.workspace}}/build/header_only.zip
+            ${{github.workspace}}/sparsebase_install/header_only.zip
