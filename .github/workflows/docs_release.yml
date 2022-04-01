@@ -28,7 +28,7 @@ jobs:
         run: | 
           sudo apt update
           sudo apt -y install python3 python3-pip doxygen build-essential 
-          sudo apt -y install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
+          sudo apt -y install latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
       
       - name: Install Python Dependencies
         working-directory: docs/
