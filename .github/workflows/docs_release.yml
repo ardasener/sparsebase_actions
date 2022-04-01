@@ -73,4 +73,4 @@ jobs:
           files: | 
             LICENSE
             docs/_build/latex/*.pdf
-            header_only.zip
+            ${{github.workspace}}/build/header_only.zip
