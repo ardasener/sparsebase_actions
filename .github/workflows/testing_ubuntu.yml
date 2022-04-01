@@ -1,4 +1,4 @@
-name: Testing Header Only
+name: Testing Ubuntu
 
 on:
   push:
@@ -19,13 +19,12 @@ jobs:
     - name: Install Requirements
       uses: mstksg/get-package@v1
       with:
-        brew: gcc@9 bison flex swig readline libomp python3
         apt-get:  build-essential bison flex swig libreadline-dev libomp-dev python3
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D_HEADER_ONLY=ON
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
       # Build your program with the given configuration
@@ -43,4 +42,29 @@ jobs:
     #- name: Run Tests
     #  working-directory: ${{github.workspace}}/build
     #  run: ctest -V
-      
+
+    - name: Clean
+      working-directory: ${{github.workspace}}
+      run: rm -rf build
+
+    - name: Configure CMake (Header Only)
+      # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
+      # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D_HEADER_ONLY=ON
+
+    - name: Build (Header Only)
+      # Build your program with the given configuration
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: Copy Data & Script (Header Only)
+      run: |
+        cp -r ${{github.workspace}}/examples/data ${{github.workspace}}/build/examples/
+        cp ${{github.workspace}}/examples/run_all_tests.py ${{github.workspace}}/build/examples/
+
+    - name: Run Examples (Header Only)
+      working-directory: ${{github.workspace}}/build/examples
+      run: python3 run_all_tests.py
+
+    #- name: Run Tests (Header Only)
+    #  working-directory: ${{github.workspace}}/build
+    #  run: ctest -V
