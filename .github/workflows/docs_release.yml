@@ -55,7 +55,7 @@ jobs:
 
       - name: Build Header Only Release
         run: |
-          cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D_HEADER_ONLY=ON -DRUN_EXAMPLES=OFF
+          cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D_HEADER_ONLY=ON -DBUILD_EXAMPLES=OFF
           cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
           mkdir -p ${{github.workspace}}/sparsebase_install
           cmake --install ${{github.workspace}}/build --prefix ${{github.workspace}}/sparsebase_install      
@@ -63,7 +63,10 @@ jobs:
 
       - name: Create Zip File
         working-directory: ${{github.workspace}}/sparsebase_install
-        run: zip -r header_only.zip .
+        run: zip -r sparsebase_header_only.zip .
+
+      - name: Rename the Documentation
+        run: mv docs/_build/latex/sparsebase.pdf docs/_build/latex/sparsebase_docs.pdf
 
       - name: Create Release
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -75,4 +78,4 @@ jobs:
           files: | 
             LICENSE
             docs/_build/latex/*.pdf
-            ${{github.workspace}}/sparsebase_install/header_only.zip
+            ${{github.workspace}}/sparsebase_install/*.zip
