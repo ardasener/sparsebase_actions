@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: recursive
 
     - name: Install Requirements
       run: sudo apt update && sudo apt install -y build-essential bison flex swig libreadline-dev libomp-dev python3

@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: recursive
 
     - name: Install Requirements
       run: brew update && brew install gcc@9 bison flex swig readline libomp python3
