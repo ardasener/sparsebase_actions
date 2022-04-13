@@ -1,0 +1,13 @@
+.. _exhale_typedef_preprocess_8h_1a08943ed3402a21e0646f82e9dc7aecda:
+
+Typedef sparsebase::preprocess::PreprocessFunction
+==================================================
+
+- Defined in :ref:`file_src_sparsebase_preprocess_preprocess.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: sparsebase::preprocess::PreprocessFunction

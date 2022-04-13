@@ -1,0 +1,16 @@
+.. _exhale_struct_structpigo_1_1detail_1_1get__value__impl___3_01S_00_01T_00_01false_00_01true_00_01false_01_4:
+
+Template Struct get_value_impl_< S, T, false, true, false >
+===========================================================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: pigo::detail::get_value_impl_< S, T, false, true, false >
+   :members:
+   :protected-members:
+   :undoc-members:

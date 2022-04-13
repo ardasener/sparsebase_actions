@@ -1,0 +1,26 @@
+.. _exhale_struct_structnlohmann_1_1detail_1_1is__ordered__map:
+
+Template Struct is_ordered_map
+==============================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structnlohmann_1_1detail_1_1is__ordered__map_1_1two`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: nlohmann::detail::is_ordered_map
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,13 @@
+.. _exhale_enum_namespacenlohmann_1_1detail_1a58bb1ef1a9ad287a9cfaf1855784d9ac:
+
+Enum cbor_tag_handler_t
+=======================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: nlohmann::detail::cbor_tag_handler_t

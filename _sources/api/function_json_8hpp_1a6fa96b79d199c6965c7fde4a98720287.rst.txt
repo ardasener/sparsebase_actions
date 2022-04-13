@@ -1,0 +1,13 @@
+.. _exhale_function_json_8hpp_1a6fa96b79d199c6965c7fde4a98720287:
+
+Template Function nlohmann::detail2::begin
+==========================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: nlohmann::detail2::begin(T&&)

@@ -1,0 +1,16 @@
+.. _exhale_struct_structnlohmann_1_1detail_1_1utility__internal_1_1Extend:
+
+Template Struct Extend
+======================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: nlohmann::detail::utility_internal::Extend
+   :members:
+   :protected-members:
+   :undoc-members:

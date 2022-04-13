@@ -1,0 +1,16 @@
+.. _exhale_class_classnlohmann_1_1detail_1_1iterator__input__adapter:
+
+Template Class iterator_input_adapter
+=====================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: nlohmann::detail::iterator_input_adapter
+   :members:
+   :protected-members:
+   :undoc-members:

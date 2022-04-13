@@ -1,0 +1,13 @@
+.. _exhale_define_json_8hpp_1ad22f878b4987246e5a4f4f258228e775:
+
+Define NLOHMANN_DEFINE_TYPE_INTRUSIVE
+=====================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: NLOHMANN_DEFINE_TYPE_INTRUSIVE

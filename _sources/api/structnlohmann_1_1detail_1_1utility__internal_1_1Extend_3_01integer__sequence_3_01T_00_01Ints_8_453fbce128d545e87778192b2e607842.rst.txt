@@ -1,0 +1,16 @@
+.. _exhale_struct_structnlohmann_1_1detail_1_1utility__internal_1_1Extend_3_01integer__sequence_3_01T_00_01Ints_8_453fbce128d545e87778192b2e607842:
+
+Template Struct Extend< integer_sequence< T, Ints... >, SeqSize, 0 >
+====================================================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: nlohmann::detail::utility_internal::Extend< integer_sequence< T, Ints... >, SeqSize, 0 >
+   :members:
+   :protected-members:
+   :undoc-members:

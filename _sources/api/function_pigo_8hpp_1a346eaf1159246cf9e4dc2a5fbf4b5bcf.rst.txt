@@ -1,0 +1,13 @@
+.. _exhale_function_pigo_8hpp_1a346eaf1159246cf9e4dc2a5fbf4b5bcf:
+
+Template Function pigo::detail::weight_size_
+============================================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: pigo::detail::weight_size_(O)

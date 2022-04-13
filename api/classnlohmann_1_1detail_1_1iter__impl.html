@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Template Class iter_impl &mdash; SparseBase v0.1.5 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Template Class iteration_proxy" href="classnlohmann_1_1detail_1_1iteration__proxy.html" />
+    <link rel="prev" title="Class invalid_iterator" href="classnlohmann_1_1detail_1_1invalid__iterator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SparseBase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/contributing/index.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SparseBase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="library_root.html">Library API</a> &raquo;</li>
+      <li>Template Class iter_impl</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/classnlohmann_1_1detail_1_1iter__impl.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="template-class-iter-impl">
+<span id="exhale-class-classnlohmann-1-1detail-1-1iter-impl"></span><h1>Template Class iter_impl<a class="headerlink" href="#template-class-iter-impl" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_src_sparsebase_external_json_json.hpp.html#file-src-sparsebase-external-json-json-hpp"><span class="std std-ref">File json.hpp</span></a></p></li>
+</ul>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN8nlohmann6detail9iter_implE">
+<span id="_CPPv3I0EN8nlohmann6detail9iter_implE"></span><span id="_CPPv2I0EN8nlohmann6detail9iter_implE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BasicJsonType</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classnlohmann_1_1detail_1_1iter__impl"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">nlohmann</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">detail</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">iter_impl</span></span></span><a class="headerlink" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>a template for a bidirectional iterator for the <a class="reference internal" href="classnlohmann_1_1basic__json.html#classnlohmann_1_1basic__json"><span class="std std-ref">basic_json</span></a> class This class implements a both iterators (iterator and const_iterator) for the <a class="reference internal" href="classnlohmann_1_1basic__json.html#classnlohmann_1_1basic__json"><span class="std std-ref">basic_json</span></a> class. </p>
+<p><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An iterator is called <em>initialized</em> when a pointer to a JSON value has been set (e.g., by a constructor or a copy assignment). If the iterator is default-constructed, it is <em>uninitialized</em> and most methods are undefined. The library uses assertions to detect calls on uninitialized iterators.** &#64;requirement The class satisfies the following concept requirements:<ul class="simple">
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/named_req/BidirectionalIterator">BidirectionalIterator</a>: The iterator that can be moved can be moved in both directions (i.e. incremented and decremented). </p></li>
+</ul>
+</p>
+</div>
+<dl class="simple">
+<dt><strong>Since</strong></dt><dd><p>version 1.0.0, simplified in version 2.0.9, change to bidirectional iterators in version 3.0.0 (see <a class="reference external" href="https://github.com/nlohmann/json/issues/593">https://github.com/nlohmann/json/issues/593</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_impl17iterator_categoryE">
+<span id="_CPPv3N8nlohmann6detail9iter_impl17iterator_categoryE"></span><span id="_CPPv2N8nlohmann6detail9iter_impl17iterator_categoryE"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1ad9e091f5c70b34b5b1abc1ab15fd9106"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">iterator_category</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">bidirectional_iterator_tag</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_impl17iterator_categoryE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The std::iterator class template (used as a base class to provide typedefs) is deprecated in C++17. The C++ Standard has never required user-defined iterators to derive from std::iterator. A user-defined iterator should provide publicly accessible typedefs named iterator_category, value_type, difference_type, pointer, and reference. Note that value_type is required to be non-const, even for constant iterators. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_impl10value_typeE">
+<span id="_CPPv3N8nlohmann6detail9iter_impl10value_typeE"></span><span id="_CPPv2N8nlohmann6detail9iter_impl10value_typeE"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1ab35586a44f2222272c5346baa3013f67"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">value_type</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value_type</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_impl10value_typeE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>the type of the values when the iterator is dereferenced </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_impl15difference_typeE">
+<span id="_CPPv3N8nlohmann6detail9iter_impl15difference_typeE"></span><span id="_CPPv2N8nlohmann6detail9iter_impl15difference_typeE"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a2f7ea9f7022850809c60fc3263775840"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">difference_type</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">difference_type</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_impl15difference_typeE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>a type to represent differences between iterators </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_impl7pointerE">
+<span id="_CPPv3N8nlohmann6detail9iter_impl7pointerE"></span><span id="_CPPv2N8nlohmann6detail9iter_impl7pointerE"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a69e52f890ce8c556fd68ce109e24b360"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pointer</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">conditional</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_const</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">const_pointer</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pointer</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_impl7pointerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>defines a pointer to the type iterated over (value_type) </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_impl9referenceE">
+<span id="_CPPv3N8nlohmann6detail9iter_impl9referenceE"></span><span id="_CPPv2N8nlohmann6detail9iter_impl9referenceE"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a5be8001be099c6b82310f4d387b953ce"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reference</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">conditional</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_const</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">const_reference</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">reference</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_impl9referenceE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>defines a reference to the type iterated over (value_type) </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_impl9iter_implEv">
+<span id="_CPPv3N8nlohmann6detail9iter_impl9iter_implEv"></span><span id="_CPPv2N8nlohmann6detail9iter_impl9iter_implEv"></span><span id="nlohmann::detail::iter_impl::iter_impl"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a31090f248ce10fd7b386027c1a19c16f"></span><span class="sig-name descname"><span class="n"><span class="pre">iter_impl</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_impl9iter_implEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_implD0Ev">
+<span id="_CPPv3N8nlohmann6detail9iter_implD0Ev"></span><span id="_CPPv2N8nlohmann6detail9iter_implD0Ev"></span><span id="nlohmann::detail::iter_impl::~iter_impl"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a3fc5c9a782628d91047aa35f40bb7fdc"></span><span class="sig-name descname"><span class="n"><span class="pre">~iter_impl</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_implD0Ev" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_impl9iter_implERR9iter_impl">
+<span id="_CPPv3N8nlohmann6detail9iter_impl9iter_implERR9iter_impl"></span><span id="_CPPv2N8nlohmann6detail9iter_impl9iter_implERR9iter_impl"></span><span id="nlohmann::detail::iter_impl::iter_impl__iter_implRR"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a603ba9c477f878a69ed281becca6f56a"></span><span class="sig-name descname"><span class="n"><span class="pre">iter_impl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl9iter_implERR9iter_impl" title="nlohmann::detail::iter_impl::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_impl9iter_implERR9iter_impl" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_implaSERR9iter_impl">
+<span id="_CPPv3N8nlohmann6detail9iter_implaSERR9iter_impl"></span><span id="_CPPv2N8nlohmann6detail9iter_implaSERR9iter_impl"></span><span id="nlohmann::detail::iter_impl::assign-operator__iter_implRR"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1ae3dc277c25007ac952d57f9a1972ce79"></span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_implaSERR9iter_impl" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_impl9iter_implE7pointer">
+<span id="_CPPv3N8nlohmann6detail9iter_impl9iter_implE7pointer"></span><span id="_CPPv2N8nlohmann6detail9iter_impl9iter_implE7pointer"></span><span id="nlohmann::detail::iter_impl::iter_impl__pointer"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a88a00484ac201c52fc5f613d88a2918b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">iter_impl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl7pointerE" title="nlohmann::detail::iter_impl::pointer"><span class="n"><span class="pre">pointer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">object</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_impl9iter_implE7pointer" title="Permalink to this definition"></a><br /></dt>
+<dd><p>constructor for a given JSON instance </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>object</strong> – <strong>[in]</strong> pointer to a JSON object for this iterator </p>
+</dd>
+<dt class="field-even">Pre</dt>
+<dd class="field-even"><p>object != nullptr </p>
+</dd>
+<dt class="field-odd">Post</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_impl9iter_implERK9iter_implIK13BasicJsonTypeE">
+<span id="_CPPv3N8nlohmann6detail9iter_impl9iter_implERK9iter_implIK13BasicJsonTypeE"></span><span id="_CPPv2N8nlohmann6detail9iter_impl9iter_implERK9iter_implIK13BasicJsonTypeE"></span><span id="nlohmann::detail::iter_impl::iter_impl__iter_impl:BasicJsonTypeC:CR"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a71f84fb6e009619f12972bcf9002b8cd"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">iter_impl</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl9iter_implERK9iter_implIK13BasicJsonTypeE" title="nlohmann::detail::iter_impl::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_impl9iter_implERK9iter_implIK13BasicJsonTypeE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>const copy constructor </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The conventional copy constructor and copy assignment are implicitly defined. Combined with the following converting constructor and assignment, they support: (1) copy from iterator to iterator, (2) copy from const iterator to const iterator, and (3) conversion from iterator to const iterator. However conversion from const iterator to iterator is not defined.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This copy constructor had to be defined explicitly to circumvent a bug occurring on msvc v19.0 compiler (VS 2015) debug build. For more information refer to: <a class="reference external" href="https://github.com/nlohmann/json/issues/1608">https://github.com/nlohmann/json/issues/1608</a> </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – <strong>[in]</strong> const iterator to copy from </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_implaSERK9iter_implIK13BasicJsonTypeE">
+<span id="_CPPv3N8nlohmann6detail9iter_implaSERK9iter_implIK13BasicJsonTypeE"></span><span id="_CPPv2N8nlohmann6detail9iter_implaSERK9iter_implIK13BasicJsonTypeE"></span><span id="nlohmann::detail::iter_impl::assign-operator__iter_impl:BasicJsonTypeC:CR"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a9a5cd7864a8f848ef107d3f5a330f5e7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_implaSERK9iter_implIK13BasicJsonTypeE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>converting assignment </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is not checked whether <em>other</em> is initialized. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – <strong>[in]</strong> const iterator to copy from </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>const/non-const iterator </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_impl9iter_implERK9iter_implINSt12remove_constI13BasicJsonTypeE4typeEE">
+<span id="_CPPv3N8nlohmann6detail9iter_impl9iter_implERK9iter_implINSt12remove_constI13BasicJsonTypeE4typeEE"></span><span id="_CPPv2N8nlohmann6detail9iter_impl9iter_implERK9iter_implINSt12remove_constI13BasicJsonTypeE4typeEE"></span><span id="nlohmann::detail::iter_impl::iter_impl__iter_impl:std::remove_const:BasicJsonType:::type:CR"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a867f7eb55091be31b013adb3e46816d3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">iter_impl</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl9iter_implERK9iter_implINSt12remove_constI13BasicJsonTypeE4typeEE" title="nlohmann::detail::iter_impl::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">remove_const</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_impl9iter_implERK9iter_implINSt12remove_constI13BasicJsonTypeE4typeEE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>converting constructor </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is not checked whether <em>other</em> is initialized. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – <strong>[in]</strong> non-const iterator to copy from </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_implaSERK9iter_implINSt12remove_constI13BasicJsonTypeE4typeEE">
+<span id="_CPPv3N8nlohmann6detail9iter_implaSERK9iter_implINSt12remove_constI13BasicJsonTypeE4typeEE"></span><span id="_CPPv2N8nlohmann6detail9iter_implaSERK9iter_implINSt12remove_constI13BasicJsonTypeE4typeEE"></span><span id="nlohmann::detail::iter_impl::assign-operator__iter_impl:std::remove_const:BasicJsonType:::type:CR"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a7159ed1cfe7c423a2baef8bea0c94509"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">remove_const</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_implaSERK9iter_implINSt12remove_constI13BasicJsonTypeE4typeEE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>converting assignment </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is not checked whether <em>other</em> is initialized. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – <strong>[in]</strong> non-const iterator to copy from </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>const/non-const iterator </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail9iter_implmlEv">
+<span id="_CPPv3NK8nlohmann6detail9iter_implmlEv"></span><span id="_CPPv2NK8nlohmann6detail9iter_implmlEv"></span><span id="nlohmann::detail::iter_impl::mul-operatorC"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a5ca57856d9bba54a5fc51cee891de827"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl9referenceE" title="nlohmann::detail::iter_impl::reference"><span class="n"><span class="pre">reference</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail9iter_implmlEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>return a reference to the value pointed to by the iterator </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail9iter_implptEv">
+<span id="_CPPv3NK8nlohmann6detail9iter_implptEv"></span><span id="_CPPv2NK8nlohmann6detail9iter_implptEv"></span><span id="nlohmann::detail::iter_impl::pointer-operatorC"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a6da3d2b34528aff328f3dcb513076dec"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl7pointerE" title="nlohmann::detail::iter_impl::pointer"><span class="n"><span class="pre">pointer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-&gt;</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail9iter_implptEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>dereference the iterator </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_implppEi">
+<span id="_CPPv3N8nlohmann6detail9iter_implppEi"></span><span id="_CPPv2N8nlohmann6detail9iter_implppEi"></span><span id="nlohmann::detail::iter_impl::inc-operator__i"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a60f3b0a96cc0bff9a7e6ab84ca538a45"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">++</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_implppEi" title="Permalink to this definition"></a><br /></dt>
+<dd><p>post-increment (it++) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_implppEv">
+<span id="_CPPv3N8nlohmann6detail9iter_implppEv"></span><span id="_CPPv2N8nlohmann6detail9iter_implppEv"></span><span id="nlohmann::detail::iter_impl::inc-operator"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1abdfe2a7f464400a7ab572782d14b922f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">++</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_implppEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>pre-increment (++it) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_implmmEi">
+<span id="_CPPv3N8nlohmann6detail9iter_implmmEi"></span><span id="_CPPv2N8nlohmann6detail9iter_implmmEi"></span><span id="nlohmann::detail::iter_impl::dec-operator__i"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1af91fb0bb9b2a2e96af030564ded2d92c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">--</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_implmmEi" title="Permalink to this definition"></a><br /></dt>
+<dd><p>post-decrement (it) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_implmmEv">
+<span id="_CPPv3N8nlohmann6detail9iter_implmmEv"></span><span id="_CPPv2N8nlohmann6detail9iter_implmmEv"></span><span id="nlohmann::detail::iter_impl::dec-operator"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a84e689fb581d651d130039f7cb81494a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">--</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_implmmEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>pre-decrement (it) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_N6detail11enable_if_tIXooNSt7is_sameI8IterImpl9iter_implE5valueENSt7is_sameI8IterImpl15other_iter_implE5valueEENSt9nullptr_tEEEENK8nlohmann6detail9iter_impleqEbRK8IterImpl">
+<span id="_CPPv3I0_N6detail11enable_if_tIXooNSt7is_sameI8IterImpl9iter_implE5valueENSt7is_sameI8IterImpl15other_iter_implE5valueEENSt9nullptr_tEEEENK8nlohmann6detail9iter_impleqERK8IterImpl"></span><span id="_CPPv2I0_N6detail11enable_if_tIX(std::is_same<IterImpl, iter_impl>::value || std::is_same<IterImpl, other_iter_impl>::value)ENSt9nullptr_tEEEENK8nlohmann6detail9iter_impleqERK8IterImpl"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IterImpl</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">detail</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespacenlohmann_1_1detail_1a02bcbc878bee413f25b985ada771aa9c.html#_CPPv4I_b0EN8nlohmann6detail11enable_if_tE" title="nlohmann::detail::enable_if_t"><span class="n"><span class="pre">enable_if_t</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_same</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_N6detail11enable_if_tIXooNSt7is_sameI8IterImpl9iter_implE5valueENSt7is_sameI8IterImpl15other_iter_implE5valueEENSt9nullptr_tEEEENK8nlohmann6detail9iter_impleqEbRK8IterImpl" title="nlohmann::detail::iter_impl::operator==::IterImpl"><span class="n"><span class="pre">IterImpl</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="w"> </span><span class="o"><span class="pre">||</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_same</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_N6detail11enable_if_tIXooNSt7is_sameI8IterImpl9iter_implE5valueENSt7is_sameI8IterImpl15other_iter_implE5valueEENSt9nullptr_tEEEENK8nlohmann6detail9iter_impleqEbRK8IterImpl" title="nlohmann::detail::iter_impl::operator==::IterImpl"><span class="n"><span class="pre">IterImpl</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">other_iter_impl</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nullptr_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1aaddab83c2b4023cb0f0fdbc757c54f65"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">==</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_N6detail11enable_if_tIXooNSt7is_sameI8IterImpl9iter_implE5valueENSt7is_sameI8IterImpl15other_iter_implE5valueEENSt9nullptr_tEEEENK8nlohmann6detail9iter_impleqEbRK8IterImpl" title="nlohmann::detail::iter_impl::operator==::IterImpl"><span class="n"><span class="pre">IterImpl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4I0_N6detail11enable_if_tIXooNSt7is_sameI8IterImpl9iter_implE5valueENSt7is_sameI8IterImpl15other_iter_implE5valueEENSt9nullptr_tEEEENK8nlohmann6detail9iter_impleqEbRK8IterImpl" title="Permalink to this definition"></a><br /></dt>
+<dd><p>comparison: equal </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_N6detail11enable_if_tIXooNSt7is_sameI8IterImpl9iter_implE5valueENSt7is_sameI8IterImpl15other_iter_implE5valueEENSt9nullptr_tEEEENK8nlohmann6detail9iter_implneEbRK8IterImpl">
+<span id="_CPPv3I0_N6detail11enable_if_tIXooNSt7is_sameI8IterImpl9iter_implE5valueENSt7is_sameI8IterImpl15other_iter_implE5valueEENSt9nullptr_tEEEENK8nlohmann6detail9iter_implneERK8IterImpl"></span><span id="_CPPv2I0_N6detail11enable_if_tIX(std::is_same<IterImpl, iter_impl>::value || std::is_same<IterImpl, other_iter_impl>::value)ENSt9nullptr_tEEEENK8nlohmann6detail9iter_implneERK8IterImpl"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IterImpl</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">detail</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="typedef_namespacenlohmann_1_1detail_1a02bcbc878bee413f25b985ada771aa9c.html#_CPPv4I_b0EN8nlohmann6detail11enable_if_tE" title="nlohmann::detail::enable_if_t"><span class="n"><span class="pre">enable_if_t</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_same</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_N6detail11enable_if_tIXooNSt7is_sameI8IterImpl9iter_implE5valueENSt7is_sameI8IterImpl15other_iter_implE5valueEENSt9nullptr_tEEEENK8nlohmann6detail9iter_implneEbRK8IterImpl" title="nlohmann::detail::iter_impl::operator!=::IterImpl"><span class="n"><span class="pre">IterImpl</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="w"> </span><span class="o"><span class="pre">||</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_same</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_N6detail11enable_if_tIXooNSt7is_sameI8IterImpl9iter_implE5valueENSt7is_sameI8IterImpl15other_iter_implE5valueEENSt9nullptr_tEEEENK8nlohmann6detail9iter_implneEbRK8IterImpl" title="nlohmann::detail::iter_impl::operator!=::IterImpl"><span class="n"><span class="pre">IterImpl</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">other_iter_impl</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nullptr_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a190077df326c10886020bbcfaa169b20"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">!=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0_N6detail11enable_if_tIXooNSt7is_sameI8IterImpl9iter_implE5valueENSt7is_sameI8IterImpl15other_iter_implE5valueEENSt9nullptr_tEEEENK8nlohmann6detail9iter_implneEbRK8IterImpl" title="nlohmann::detail::iter_impl::operator!=::IterImpl"><span class="n"><span class="pre">IterImpl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4I0_N6detail11enable_if_tIXooNSt7is_sameI8IterImpl9iter_implE5valueENSt7is_sameI8IterImpl15other_iter_implE5valueEENSt9nullptr_tEEEENK8nlohmann6detail9iter_implneEbRK8IterImpl" title="Permalink to this definition"></a><br /></dt>
+<dd><p>comparison: not equal </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail9iter_implltERK9iter_impl">
+<span id="_CPPv3NK8nlohmann6detail9iter_implltERK9iter_impl"></span><span id="_CPPv2NK8nlohmann6detail9iter_implltERK9iter_impl"></span><span id="nlohmann::detail::iter_impl::lt-operator__iter_implCRC"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a0d14cd76203e00bdcef6a64a5d055cc7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail9iter_implltERK9iter_impl" title="Permalink to this definition"></a><br /></dt>
+<dd><p>comparison: smaller </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail9iter_implleERK9iter_impl">
+<span id="_CPPv3NK8nlohmann6detail9iter_implleERK9iter_impl"></span><span id="_CPPv2NK8nlohmann6detail9iter_implleERK9iter_impl"></span><span id="nlohmann::detail::iter_impl::lte-operator__iter_implCRC"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1ac6f71b36d7c87e427d1fee83f2600fad"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail9iter_implleERK9iter_impl" title="Permalink to this definition"></a><br /></dt>
+<dd><p>comparison: less than or equal </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail9iter_implgtERK9iter_impl">
+<span id="_CPPv3NK8nlohmann6detail9iter_implgtERK9iter_impl"></span><span id="_CPPv2NK8nlohmann6detail9iter_implgtERK9iter_impl"></span><span id="nlohmann::detail::iter_impl::gt-operator__iter_implCRC"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1aaf3620b8dfa4bed8a9ac2b51dd55dbd7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail9iter_implgtERK9iter_impl" title="Permalink to this definition"></a><br /></dt>
+<dd><p>comparison: greater than </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail9iter_implgeERK9iter_impl">
+<span id="_CPPv3NK8nlohmann6detail9iter_implgeERK9iter_impl"></span><span id="_CPPv2NK8nlohmann6detail9iter_implgeERK9iter_impl"></span><span id="nlohmann::detail::iter_impl::gte-operator__iter_implCRC"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a634f85da575cb60b012a687efa26e11a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail9iter_implgeERK9iter_impl" title="Permalink to this definition"></a><br /></dt>
+<dd><p>comparison: greater than or equal </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_implpLE15difference_type">
+<span id="_CPPv3N8nlohmann6detail9iter_implpLE15difference_type"></span><span id="_CPPv2N8nlohmann6detail9iter_implpLE15difference_type"></span><span id="nlohmann::detail::iter_impl::add-assign-operator__difference_type"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a3eef94f9d167046e7f773aeb6b78090c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl15difference_typeE" title="nlohmann::detail::iter_impl::difference_type"><span class="n"><span class="pre">difference_type</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_implpLE15difference_type" title="Permalink to this definition"></a><br /></dt>
+<dd><p>add to iterator </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail9iter_implmIE15difference_type">
+<span id="_CPPv3N8nlohmann6detail9iter_implmIE15difference_type"></span><span id="_CPPv2N8nlohmann6detail9iter_implmIE15difference_type"></span><span id="nlohmann::detail::iter_impl::sub-assign-operator__difference_type"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1abcc9d51bc52f2e8483bbe4018f05e978"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl15difference_typeE" title="nlohmann::detail::iter_impl::difference_type"><span class="n"><span class="pre">difference_type</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail9iter_implmIE15difference_type" title="Permalink to this definition"></a><br /></dt>
+<dd><p>subtract from iterator </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail9iter_implplE15difference_type">
+<span id="_CPPv3NK8nlohmann6detail9iter_implplE15difference_type"></span><span id="_CPPv2NK8nlohmann6detail9iter_implplE15difference_type"></span><span id="nlohmann::detail::iter_impl::add-operator__difference_typeC"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a8ef76aeb5a5032768f0f61f48ac189c0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl15difference_typeE" title="nlohmann::detail::iter_impl::difference_type"><span class="n"><span class="pre">difference_type</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail9iter_implplE15difference_type" title="Permalink to this definition"></a><br /></dt>
+<dd><p>add to iterator </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail9iter_implmiE15difference_type">
+<span id="_CPPv3NK8nlohmann6detail9iter_implmiE15difference_type"></span><span id="_CPPv2NK8nlohmann6detail9iter_implmiE15difference_type"></span><span id="nlohmann::detail::iter_impl::sub-operator__difference_typeC"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a0dd9c415b94a02ff2aa25da75e52da30"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl15difference_typeE" title="nlohmann::detail::iter_impl::difference_type"><span class="n"><span class="pre">difference_type</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail9iter_implmiE15difference_type" title="Permalink to this definition"></a><br /></dt>
+<dd><p>subtract from iterator </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail9iter_implmiERK9iter_impl">
+<span id="_CPPv3NK8nlohmann6detail9iter_implmiERK9iter_impl"></span><span id="_CPPv2NK8nlohmann6detail9iter_implmiERK9iter_impl"></span><span id="nlohmann::detail::iter_impl::sub-operator__iter_implCRC"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a49bf3e708a9c1c88c415011735962d06"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl15difference_typeE" title="nlohmann::detail::iter_impl::difference_type"><span class="n"><span class="pre">difference_type</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail9iter_implE" title="nlohmann::detail::iter_impl"><span class="n"><span class="pre">iter_impl</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail9iter_implmiERK9iter_impl" title="Permalink to this definition"></a><br /></dt>
+<dd><p>return difference </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail9iter_implixE15difference_type">
+<span id="_CPPv3NK8nlohmann6detail9iter_implixE15difference_type"></span><span id="_CPPv2NK8nlohmann6detail9iter_implixE15difference_type"></span><span id="nlohmann::detail::iter_impl::subscript-operator__difference_typeC"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1ac0b9276f1102ed4b9cd3f5f56287e3ce"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl9referenceE" title="nlohmann::detail::iter_impl::reference"><span class="n"><span class="pre">reference</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl15difference_typeE" title="nlohmann::detail::iter_impl::difference_type"><span class="n"><span class="pre">difference_type</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail9iter_implixE15difference_type" title="Permalink to this definition"></a><br /></dt>
+<dd><p>access to successor </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail9iter_impl3keyEv">
+<span id="_CPPv3NK8nlohmann6detail9iter_impl3keyEv"></span><span id="_CPPv2NK8nlohmann6detail9iter_impl3keyEv"></span><span id="nlohmann::detail::iter_impl::keyC"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a15dfb2744fed2ef40c12a9e9a20d6dbc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">object_t</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">key_type</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">key</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail9iter_impl3keyEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>return the key of an object iterator </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail9iter_impl5valueEv">
+<span id="_CPPv3NK8nlohmann6detail9iter_impl5valueEv"></span><span id="_CPPv2NK8nlohmann6detail9iter_impl5valueEv"></span><span id="nlohmann::detail::iter_impl::valueC"></span><span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1ab447c50354c6611fa2ae0100ac17845c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail9iter_impl9referenceE" title="nlohmann::detail::iter_impl::reference"><span class="n"><span class="pre">reference</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">value</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail9iter_impl5valueEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>return the value of an iterator </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="classnlohmann_1_1detail_1_1iter__impl_1a94108d1a7563e103534f23eb5c1ee175"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">friend</span> <span class="pre">friend</span> <span class="pre">iter_impl</span> <span class="pre">operator+</span> <span class="pre">(difference_type</span> <span class="pre">i,</span> <span class="pre">const</span> <span class="pre">iter_impl</span> <span class="pre">&amp;it)</span></span></dt>
+<dd><p>addition of distance and iterator </p>
+<dl class="field-list simple">
+<dt class="field-odd">Pre</dt>
+<dd class="field-odd"><p>The iterator is initialized; i.e. <code class="docutils literal notranslate"><span class="pre">m_object</span> <span class="pre">!=</span> <span class="pre">nullptr</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classnlohmann_1_1detail_1_1invalid__iterator.html" class="btn btn-neutral float-left" title="Class invalid_iterator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classnlohmann_1_1detail_1_1iteration__proxy.html" class="btn btn-neutral float-right" title="Template Class iteration_proxy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, SparCity Project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

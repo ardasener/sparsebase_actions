@@ -1,0 +1,44 @@
+
+.. _namespace_nlohmann__detail2:
+
+Namespace nlohmann::detail2
+===========================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structnlohmann_1_1detail2_1_1begin__tag`
+
+- :ref:`exhale_struct_structnlohmann_1_1detail2_1_1end__tag`
+
+- :ref:`exhale_struct_structnlohmann_1_1detail2_1_1would__call__std__begin`
+
+- :ref:`exhale_struct_structnlohmann_1_1detail2_1_1would__call__std__end`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_json_8hpp_1a6fa96b79d199c6965c7fde4a98720287`
+
+- :ref:`exhale_function_json_8hpp_1a114f1eae7b073e4df657ddfd62e04ecf`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_json_8hpp_1a37d4740b11bf3133d7db38785eb8458e`
+
+- :ref:`exhale_typedef_json_8hpp_1ae9f4acf9ca31d86977b51a445b899b11`

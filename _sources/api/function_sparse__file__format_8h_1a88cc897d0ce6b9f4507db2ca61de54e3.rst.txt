@@ -1,0 +1,13 @@
+.. _exhale_function_sparse__file__format_8h_1a88cc897d0ce6b9f4507db2ca61de54e3:
+
+Function sparsebase::utils::io::ReadHeader
+==========================================
+
+- Defined in :ref:`file_src_sparsebase_utils_io_sparse_file_format.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: sparsebase::utils::io::ReadHeader(SbffReadOnlyFile&)

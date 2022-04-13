@@ -1,0 +1,16 @@
+.. _exhale_struct_structnlohmann_1_1detail2_1_1would__call__std__end:
+
+Template Struct would_call_std_end
+==================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: nlohmann::detail2::would_call_std_end
+   :members:
+   :protected-members:
+   :undoc-members:

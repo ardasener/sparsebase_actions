@@ -1,0 +1,13 @@
+.. _exhale_function_json_8hpp_1ae90d59ab420a183cd5fb8588bdc95e06:
+
+Function operator""_json
+========================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: operator""_json(const char *, std::size_t)

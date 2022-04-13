@@ -1,0 +1,13 @@
+.. _exhale_variable_generate__explicit__instantiations_8py_1a43b321a1a228592f1b2dae525109b848:
+
+Variable generate_explicit_instantiations::file_created
+=======================================================
+
+- Defined in :ref:`file_src_generate_explicit_instantiations.py`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: generate_explicit_instantiations::file_created

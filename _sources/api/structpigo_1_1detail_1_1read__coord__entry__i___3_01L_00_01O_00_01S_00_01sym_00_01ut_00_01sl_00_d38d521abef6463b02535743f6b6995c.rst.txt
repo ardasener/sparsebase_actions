@@ -1,0 +1,16 @@
+.. _exhale_struct_structpigo_1_1detail_1_1read__coord__entry__i___3_01L_00_01O_00_01S_00_01sym_00_01ut_00_01sl_00_d38d521abef6463b02535743f6b6995c:
+
+Template Struct read_coord_entry_i_< L, O, S, sym, ut, sl, wgt, W, WS, false >
+==============================================================================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: pigo::detail::read_coord_entry_i_< L, O, S, sym, ut, sl, wgt, W, WS, false >
+   :members:
+   :protected-members:
+   :undoc-members:

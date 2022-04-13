@@ -1,0 +1,25 @@
+.. _exhale_class_classpigo_1_1BaseGraph:
+
+Template Class BaseGraph
+========================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public pigo::CSR< uint32_t, uint32_t, uint32_t *, uint32_t *, false, float, float * >`` (:ref:`exhale_class_classpigo_1_1CSR`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: pigo::BaseGraph
+   :members:
+   :protected-members:
+   :undoc-members:

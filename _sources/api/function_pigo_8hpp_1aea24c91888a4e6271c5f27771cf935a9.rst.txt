@@ -1,0 +1,13 @@
+.. _exhale_function_pigo_8hpp_1aea24c91888a4e6271c5f27771cf935a9:
+
+Template Function pigo::detail::copy_weight
+===========================================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: pigo::detail::copy_weight(WS&, O, COOWS&, O)

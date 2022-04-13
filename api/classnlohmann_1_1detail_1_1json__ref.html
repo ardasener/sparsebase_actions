@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Template Class json_ref &mdash; SparseBase v0.1.5 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Template Class json_reverse_iterator" href="classnlohmann_1_1detail_1_1json__reverse__iterator.html" />
+    <link rel="prev" title="Template Class iterator_input_adapter" href="classnlohmann_1_1detail_1_1iterator__input__adapter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SparseBase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/contributing/index.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SparseBase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="library_root.html">Library API</a> &raquo;</li>
+      <li>Template Class json_ref</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/classnlohmann_1_1detail_1_1json__ref.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="template-class-json-ref">
+<span id="exhale-class-classnlohmann-1-1detail-1-1json-ref"></span><h1>Template Class json_ref<a class="headerlink" href="#template-class-json-ref" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_src_sparsebase_external_json_json.hpp.html#file-src-sparsebase-external-json-json-hpp"><span class="std std-ref">File json.hpp</span></a></p></li>
+</ul>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN8nlohmann6detail8json_refE">
+<span id="_CPPv3I0EN8nlohmann6detail8json_refE"></span><span id="_CPPv2I0EN8nlohmann6detail8json_refE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BasicJsonType</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classnlohmann_1_1detail_1_1json__ref"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">nlohmann</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">detail</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">json_ref</span></span></span><a class="headerlink" href="#_CPPv4I0EN8nlohmann6detail8json_refE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail8json_ref10value_typeE">
+<span id="_CPPv3N8nlohmann6detail8json_ref10value_typeE"></span><span id="_CPPv2N8nlohmann6detail8json_ref10value_typeE"></span><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1a78d76cf288141049568c0d670ed670ef"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">value_type</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail8json_refE" title="nlohmann::detail::json_ref::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><a class="headerlink" href="#_CPPv4N8nlohmann6detail8json_ref10value_typeE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail8json_ref8json_refERR10value_type">
+<span id="_CPPv3N8nlohmann6detail8json_ref8json_refERR10value_type"></span><span id="_CPPv2N8nlohmann6detail8json_ref8json_refERR10value_type"></span><span id="nlohmann::detail::json_ref::json_ref__value_typeRR"></span><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1ae1adf5bcee8b6fa0c358710604fb1938"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">json_ref</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail8json_ref10value_typeE" title="nlohmann::detail::json_ref::value_type"><span class="n"><span class="pre">value_type</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail8json_ref8json_refERR10value_type" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail8json_ref8json_refERK10value_type">
+<span id="_CPPv3N8nlohmann6detail8json_ref8json_refERK10value_type"></span><span id="_CPPv2N8nlohmann6detail8json_ref8json_refERK10value_type"></span><span id="nlohmann::detail::json_ref::json_ref__value_typeCR"></span><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1a8c3eb3c6e952ed0cd7eece586ab4047c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">json_ref</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail8json_ref10value_typeE" title="nlohmann::detail::json_ref::value_type"><span class="n"><span class="pre">value_type</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail8json_ref8json_refERK10value_type" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail8json_ref8json_refENSt16initializer_listI8json_refEE">
+<span id="_CPPv3N8nlohmann6detail8json_ref8json_refENSt16initializer_listI8json_refEE"></span><span id="_CPPv2N8nlohmann6detail8json_ref8json_refENSt16initializer_listI8json_refEE"></span><span id="nlohmann::detail::json_ref::json_ref__std::initializer_list:json_ref:"></span><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1adfba2db547283a7c6a5df9a32e72efc5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">json_ref</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">initializer_list</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N8nlohmann6detail8json_ref8json_refENSt16initializer_listI8json_refEE" title="nlohmann::detail::json_ref::json_ref"><span class="n"><span class="pre">json_ref</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail8json_ref8json_refENSt16initializer_listI8json_refEE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4IDp_11enable_if_tINSt16is_constructibleI10value_typeDp4ArgsE5valueEiEEN8nlohmann6detail8json_ref8json_refEDpRR4Args">
+<span id="_CPPv3IDp_11enable_if_tINSt16is_constructibleI10value_typeDp4ArgsE5valueEiEEN8nlohmann6detail8json_ref8json_refEDpRR4Args"></span><span id="_CPPv2IDp_11enable_if_tINSt16is_constructibleI10value_typeDp4ArgsE5valueEiEEN8nlohmann6detail8json_ref8json_refEDpRR4Args"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="sig-name descname"><span class="n"><span class="pre">Args</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="typedef_namespacenlohmann_1_1detail_1a02bcbc878bee413f25b985ada771aa9c.html#_CPPv4I_b0EN8nlohmann6detail11enable_if_tE" title="nlohmann::detail::enable_if_t"><span class="n"><span class="pre">enable_if_t</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_constructible</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N8nlohmann6detail8json_ref10value_typeE" title="nlohmann::detail::json_ref::value_type"><span class="n"><span class="pre">value_type</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4IDp_11enable_if_tINSt16is_constructibleI10value_typeDp4ArgsE5valueEiEEN8nlohmann6detail8json_ref8json_refEDpRR4Args" title="nlohmann::detail::json_ref::json_ref::Args"><span class="n"><span class="pre">Args</span></span></a><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1a8a31d6c588d6c3c06b62008fd5d36c6c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">json_ref</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4IDp_11enable_if_tINSt16is_constructibleI10value_typeDp4ArgsE5valueEiEEN8nlohmann6detail8json_ref8json_refEDpRR4Args" title="nlohmann::detail::json_ref::json_ref::Args"><span class="n"><span class="pre">Args</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">...</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">args</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IDp_11enable_if_tINSt16is_constructibleI10value_typeDp4ArgsE5valueEiEEN8nlohmann6detail8json_ref8json_refEDpRR4Args" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail8json_ref8json_refERR8json_ref">
+<span id="_CPPv3N8nlohmann6detail8json_ref8json_refERR8json_ref"></span><span id="_CPPv2N8nlohmann6detail8json_ref8json_refERR8json_ref"></span><span id="nlohmann::detail::json_ref::json_ref__json_refRR"></span><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1a4ec90f097b33e7ea8ea7473b6b6c4015"></span><span class="sig-name descname"><span class="n"><span class="pre">json_ref</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail8json_ref8json_refERR8json_ref" title="nlohmann::detail::json_ref::json_ref"><span class="n"><span class="pre">json_ref</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail8json_ref8json_refERR8json_ref" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail8json_ref8json_refERK8json_ref">
+<span id="_CPPv3N8nlohmann6detail8json_ref8json_refERK8json_ref"></span><span id="_CPPv2N8nlohmann6detail8json_ref8json_refERK8json_ref"></span><span id="nlohmann::detail::json_ref::json_ref__json_refCR"></span><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1a4c68db46934e03588bbd73b00147c0dd"></span><span class="sig-name descname"><span class="n"><span class="pre">json_ref</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail8json_ref8json_refERK8json_ref" title="nlohmann::detail::json_ref::json_ref"><span class="n"><span class="pre">json_ref</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail8json_ref8json_refERK8json_ref" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail8json_refaSERK8json_ref">
+<span id="_CPPv3N8nlohmann6detail8json_refaSERK8json_ref"></span><span id="_CPPv2N8nlohmann6detail8json_refaSERK8json_ref"></span><span id="nlohmann::detail::json_ref::assign-operator__json_refCR"></span><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1a98956ba676b1ae16b62346f9c4fb752e"></span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail8json_refE" title="nlohmann::detail::json_ref"><span class="n"><span class="pre">json_ref</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail8json_refE" title="nlohmann::detail::json_ref"><span class="n"><span class="pre">json_ref</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail8json_refaSERK8json_ref" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail8json_refaSERR8json_ref">
+<span id="_CPPv3N8nlohmann6detail8json_refaSERR8json_ref"></span><span id="_CPPv2N8nlohmann6detail8json_refaSERR8json_ref"></span><span id="nlohmann::detail::json_ref::assign-operator__json_refRR"></span><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1a9a73363d9be6b300ddd30745786c50a6"></span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail8json_refE" title="nlohmann::detail::json_ref"><span class="n"><span class="pre">json_ref</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail8json_refE" title="nlohmann::detail::json_ref"><span class="n"><span class="pre">json_ref</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail8json_refaSERR8json_ref" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail8json_refD0Ev">
+<span id="_CPPv3N8nlohmann6detail8json_refD0Ev"></span><span id="_CPPv2N8nlohmann6detail8json_refD0Ev"></span><span id="nlohmann::detail::json_ref::~json_ref"></span><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1a8bcd4cfcafe952ce5140f8cb35ebe2f6"></span><span class="sig-name descname"><span class="n"><span class="pre">~json_ref</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail8json_refD0Ev" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail8json_ref15moved_or_copiedEv">
+<span id="_CPPv3NK8nlohmann6detail8json_ref15moved_or_copiedEv"></span><span id="_CPPv2NK8nlohmann6detail8json_ref15moved_or_copiedEv"></span><span id="nlohmann::detail::json_ref::moved_or_copiedC"></span><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1ae39e523218bf05cac3fb5b5b1cd5efb6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail8json_ref10value_typeE" title="nlohmann::detail::json_ref::value_type"><span class="n"><span class="pre">value_type</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">moved_or_copied</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail8json_ref15moved_or_copiedEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail8json_refmlEv">
+<span id="_CPPv3NK8nlohmann6detail8json_refmlEv"></span><span id="_CPPv2NK8nlohmann6detail8json_refmlEv"></span><span id="nlohmann::detail::json_ref::mul-operatorC"></span><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1aa3100e41472dba02ab78ccc1607e44ab"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail8json_ref10value_typeE" title="nlohmann::detail::json_ref::value_type"><span class="n"><span class="pre">value_type</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail8json_refmlEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8nlohmann6detail8json_refptEv">
+<span id="_CPPv3NK8nlohmann6detail8json_refptEv"></span><span id="_CPPv2NK8nlohmann6detail8json_refptEv"></span><span id="nlohmann::detail::json_ref::pointer-operatorC"></span><span class="target" id="classnlohmann_1_1detail_1_1json__ref_1adb652774a67829876449dc0b30637456"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail8json_ref10value_typeE" title="nlohmann::detail::json_ref::value_type"><span class="n"><span class="pre">value_type</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-&gt;</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8nlohmann6detail8json_refptEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classnlohmann_1_1detail_1_1iterator__input__adapter.html" class="btn btn-neutral float-left" title="Template Class iterator_input_adapter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classnlohmann_1_1detail_1_1json__reverse__iterator.html" class="btn btn-neutral float-right" title="Template Class json_reverse_iterator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, SparCity Project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

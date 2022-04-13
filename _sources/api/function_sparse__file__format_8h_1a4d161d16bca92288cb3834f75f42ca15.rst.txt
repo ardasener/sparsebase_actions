@@ -1,0 +1,13 @@
+.. _exhale_function_sparse__file__format_8h_1a4d161d16bca92288cb3834f75f42ca15:
+
+Function sparsebase::utils::io::GetEndian
+=========================================
+
+- Defined in :ref:`file_src_sparsebase_utils_io_sparse_file_format.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: sparsebase::utils::io::GetEndian()

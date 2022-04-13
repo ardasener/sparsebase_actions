@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Template Class json_sax_acceptor &mdash; SparseBase v0.1.5 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Template Class json_sax_dom_callback_parser" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html" />
+    <link rel="prev" title="Template Class json_reverse_iterator" href="classnlohmann_1_1detail_1_1json__reverse__iterator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SparseBase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/contributing/index.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SparseBase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="library_root.html">Library API</a> &raquo;</li>
+      <li>Template Class json_sax_acceptor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/classnlohmann_1_1detail_1_1json__sax__acceptor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="template-class-json-sax-acceptor">
+<span id="exhale-class-classnlohmann-1-1detail-1-1json-sax-acceptor"></span><h1>Template Class json_sax_acceptor<a class="headerlink" href="#template-class-json-sax-acceptor" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_src_sparsebase_external_json_json.hpp.html#file-src-sparsebase-external-json-json-hpp"><span class="std std-ref">File json.hpp</span></a></p></li>
+</ul>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN8nlohmann6detail17json_sax_acceptorE">
+<span id="_CPPv3I0EN8nlohmann6detail17json_sax_acceptorE"></span><span id="_CPPv2I0EN8nlohmann6detail17json_sax_acceptorE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BasicJsonType</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">nlohmann</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">detail</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">json_sax_acceptor</span></span></span><a class="headerlink" href="#_CPPv4I0EN8nlohmann6detail17json_sax_acceptorE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor16number_integer_tE">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor16number_integer_tE"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor16number_integer_tE"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a41876b17c0e8bdb55580eaf5e4e2ded8"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">number_integer_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail17json_sax_acceptorE" title="nlohmann::detail::json_sax_acceptor::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">number_integer_t</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor16number_integer_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor17number_unsigned_tE">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor17number_unsigned_tE"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor17number_unsigned_tE"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1ae07454608ea6f3cfb765f95e3c850043"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">number_unsigned_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail17json_sax_acceptorE" title="nlohmann::detail::json_sax_acceptor::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">number_unsigned_t</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor17number_unsigned_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor14number_float_tE">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor14number_float_tE"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor14number_float_tE"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a5502f483fc60a1bcd73e0e46b6ab36e4"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">number_float_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail17json_sax_acceptorE" title="nlohmann::detail::json_sax_acceptor::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">number_float_t</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor14number_float_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor8string_tE">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor8string_tE"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor8string_tE"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a3a8078bbf865ec355106f6048241609a"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">string_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail17json_sax_acceptorE" title="nlohmann::detail::json_sax_acceptor::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string_t</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor8string_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor8binary_tE">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor8binary_tE"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor8binary_tE"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a56346d95ee4e539eaded2e6826fecf66"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">binary_t</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN8nlohmann6detail17json_sax_acceptorE" title="nlohmann::detail::json_sax_acceptor::BasicJsonType"><span class="n"><span class="pre">BasicJsonType</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">binary_t</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor8binary_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor4nullEv">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor4nullEv"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor4nullEv"></span><span id="nlohmann::detail::json_sax_acceptor::null"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1ad7ad55168af6e03ed8b844c94a17b9ce"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">null</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor4nullEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor7booleanEb">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor7booleanEb"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor7booleanEb"></span><span id="nlohmann::detail::json_sax_acceptor::boolean__b"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a3f5fe42a9b195de8d251d6d98d5ee92c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">boolean</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">bool</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor7booleanEb" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor14number_integerE16number_integer_t">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor14number_integerE16number_integer_t"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor14number_integerE16number_integer_t"></span><span id="nlohmann::detail::json_sax_acceptor::number_integer__number_integer_t"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a976bf4ce6e9a2ffe48f683ddff80af00"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">number_integer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor16number_integer_tE" title="nlohmann::detail::json_sax_acceptor::number_integer_t"><span class="n"><span class="pre">number_integer_t</span></span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor14number_integerE16number_integer_t" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor15number_unsignedE17number_unsigned_t">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor15number_unsignedE17number_unsigned_t"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor15number_unsignedE17number_unsigned_t"></span><span id="nlohmann::detail::json_sax_acceptor::number_unsigned__number_unsigned_t"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1ad15b288f3351287edbe289502f595491"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">number_unsigned</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor17number_unsigned_tE" title="nlohmann::detail::json_sax_acceptor::number_unsigned_t"><span class="n"><span class="pre">number_unsigned_t</span></span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor15number_unsignedE17number_unsigned_t" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor12number_floatE14number_float_tRK8string_t">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor12number_floatE14number_float_tRK8string_t"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor12number_floatE14number_float_tRK8string_t"></span><span id="nlohmann::detail::json_sax_acceptor::number_float__number_float_t.string_tCR"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1aebf8800023eb20d472f111f86b189e60"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">number_float</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor14number_float_tE" title="nlohmann::detail::json_sax_acceptor::number_float_t"><span class="n"><span class="pre">number_float_t</span></span></a>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor8string_tE" title="nlohmann::detail::json_sax_acceptor::string_t"><span class="n"><span class="pre">string_t</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor12number_floatE14number_float_tRK8string_t" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor6stringER8string_t">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor6stringER8string_t"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor6stringER8string_t"></span><span id="nlohmann::detail::json_sax_acceptor::string__string_tR"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1aaa69255e757a6ecc4403a2aa4931fc60"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">string</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor8string_tE" title="nlohmann::detail::json_sax_acceptor::string_t"><span class="n"><span class="pre">string_t</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor6stringER8string_t" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor6binaryER8binary_t">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor6binaryER8binary_t"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor6binaryER8binary_t"></span><span id="nlohmann::detail::json_sax_acceptor::binary__binary_tR"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a3d193985aac764f99398e3ae8ba0c5db"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">binary</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor8binary_tE" title="nlohmann::detail::json_sax_acceptor::binary_t"><span class="n"><span class="pre">binary_t</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor6binaryER8binary_t" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor12start_objectENSt6size_tE">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor12start_objectENSt6size_tE"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor12start_objectENSt6size_tE"></span><span id="nlohmann::detail::json_sax_acceptor::start_object__std::s"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a271f0709144d1b25534d6260c600a607"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">start_object</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">static_cast</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="o"><span class="pre">-</span></span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor12start_objectENSt6size_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor3keyER8string_t">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor3keyER8string_t"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor3keyER8string_t"></span><span id="nlohmann::detail::json_sax_acceptor::key__string_tR"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a59e1ea5e9c8d25346a564bf9287a5c2a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">key</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor8string_tE" title="nlohmann::detail::json_sax_acceptor::string_t"><span class="n"><span class="pre">string_t</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor3keyER8string_t" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor10end_objectEv">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor10end_objectEv"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor10end_objectEv"></span><span id="nlohmann::detail::json_sax_acceptor::end_object"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a919645fd1827a561a994d70a435e3f19"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">end_object</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor10end_objectEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor11start_arrayENSt6size_tE">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor11start_arrayENSt6size_tE"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor11start_arrayENSt6size_tE"></span><span id="nlohmann::detail::json_sax_acceptor::start_array__std::s"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a9255aab848624a21f0dabd1e172b0c8b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">start_array</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">static_cast</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="o"><span class="pre">-</span></span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor11start_arrayENSt6size_tE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor9end_arrayEv">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor9end_arrayEv"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor9end_arrayEv"></span><span id="nlohmann::detail::json_sax_acceptor::end_array"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a22ef94ca5476a9563dcaca15b7d6e654"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">end_array</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor9end_arrayEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail17json_sax_acceptor11parse_errorENSt6size_tERKNSt6stringERKN6detail9exceptionE">
+<span id="_CPPv3N8nlohmann6detail17json_sax_acceptor11parse_errorENSt6size_tERKNSt6stringERKN6detail9exceptionE"></span><span id="_CPPv2N8nlohmann6detail17json_sax_acceptor11parse_errorENSt6size_tERKNSt6stringERKN6detail9exceptionE"></span><span id="nlohmann::detail::json_sax_acceptor::parse_error__std::s.ssCR.detail::exceptionCR"></span><span class="target" id="classnlohmann_1_1detail_1_1json__sax__acceptor_1a95bb3e8b6feaa523ecda8106fb5e38e3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">parse_error</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&amp;</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">detail</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classnlohmann_1_1detail_1_1exception.html#_CPPv4N8nlohmann6detail9exceptionE" title="nlohmann::detail::exception"><span class="n"><span class="pre">exception</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail17json_sax_acceptor11parse_errorENSt6size_tERKNSt6stringERKN6detail9exceptionE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classnlohmann_1_1detail_1_1json__reverse__iterator.html" class="btn btn-neutral float-left" title="Template Class json_reverse_iterator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html" class="btn btn-neutral float-right" title="Template Class json_sax_dom_callback_parser" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, SparCity Project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

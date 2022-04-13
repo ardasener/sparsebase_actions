@@ -1,0 +1,13 @@
+.. _exhale_function_pigo_8hpp_1aa9d5875c92c7f302ecd18f9accb45434:
+
+Template Function pigo::detail::if_true_
+========================================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: pigo::detail::if_true_()

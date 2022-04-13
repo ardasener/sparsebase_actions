@@ -1,0 +1,13 @@
+.. _exhale_function_namespacenlohmann_1_1detail_1a690f7e555056ce490bd47dd5cdf9b48d:
+
+Template Function nlohmann::detail::input_adapter(CharT)
+========================================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: nlohmann::detail::input_adapter(CharT)

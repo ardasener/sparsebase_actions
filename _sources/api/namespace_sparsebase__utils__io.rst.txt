@@ -1,0 +1,67 @@
+
+.. _namespace_sparsebase__utils__io:
+
+Namespace sparsebase::utils::io
+===============================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structsparsebase_1_1utils_1_1io_1_1SbffObject`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1BinaryReaderOrderOne`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1BinaryReaderOrderTwo`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1BinaryWriterOrderOne`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1BinaryWriterOrderTwo`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1MTXReader`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1Reader`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1ReadsArray`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1ReadsCOO`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1ReadsCSR`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1SbffArray`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1SbffReadOnlyFile`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1SbffWriteFile`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1UedgelistReader`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1Writer`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1WritesArray`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1WritesCOO`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1WritesCSR`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_sparse__file__format_8h_1a4d161d16bca92288cb3834f75f42ca15`
+
+- :ref:`exhale_function_sparse__file__format_8h_1a3baeef9a9e276669748c94e5a619728f`
+
+- :ref:`exhale_function_sparse__file__format_8h_1a88cc897d0ce6b9f4507db2ca61de54e3`
+
+- :ref:`exhale_function_sparse__file__format_8h_1afed1e3c9367291c0120210557d7241d4`

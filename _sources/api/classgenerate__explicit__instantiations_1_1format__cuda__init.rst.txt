@@ -1,0 +1,25 @@
+.. _exhale_class_classgenerate__explicit__instantiations_1_1format__cuda__init:
+
+Class format_cuda_init
+======================
+
+- Defined in :ref:`file_src_generate_explicit_instantiations.py`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public generate_explicit_instantiations.explicit_initialization`` (:ref:`exhale_class_classgenerate__explicit__instantiations_1_1explicit__initialization`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: generate_explicit_instantiations::format_cuda_init
+   :members:
+   :protected-members:
+   :undoc-members:

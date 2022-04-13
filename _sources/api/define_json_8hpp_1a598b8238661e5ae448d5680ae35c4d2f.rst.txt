@@ -1,0 +1,13 @@
+.. _exhale_define_json_8hpp_1a598b8238661e5ae448d5680ae35c4d2f:
+
+Define JSON_HEDLEY_INTEL_CL_VERSION_CHECK
+=========================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: JSON_HEDLEY_INTEL_CL_VERSION_CHECK

@@ -1,0 +1,13 @@
+.. _exhale_function_namespacenlohmann_1_1detail_1a611bebbfa9ee64dd8fee1e8c4bc3cbf6:
+
+Template Function nlohmann::detail::input_adapter(const ContainerType&)
+=======================================================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: nlohmann::detail::input_adapter(const ContainerType&)

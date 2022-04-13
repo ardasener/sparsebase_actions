@@ -1,0 +1,25 @@
+.. _exhale_class_classnlohmann_1_1detail_1_1lexer__base:
+
+Template Class lexer_base
+=========================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public nlohmann::detail::lexer< BasicJsonType, InputAdapterType >`` (:ref:`exhale_class_classnlohmann_1_1detail_1_1lexer`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: nlohmann::detail::lexer_base
+   :members:
+   :protected-members:
+   :undoc-members:

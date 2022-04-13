@@ -1,0 +1,16 @@
+.. _exhale_struct_structpigo_1_1detail_1_1weight__size__i__:
+
+Template Struct weight_size_i_
+==============================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: pigo::detail::weight_size_i_
+   :members:
+   :protected-members:
+   :undoc-members:

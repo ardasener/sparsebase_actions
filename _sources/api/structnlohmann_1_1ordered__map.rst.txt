@@ -1,0 +1,16 @@
+.. _exhale_struct_structnlohmann_1_1ordered__map:
+
+Template Struct ordered_map
+===========================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: nlohmann::ordered_map
+   :members:
+   :protected-members:
+   :undoc-members:

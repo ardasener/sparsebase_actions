@@ -1,0 +1,13 @@
+.. _exhale_define_json_8hpp_1a0c4b607b1dda665174dcd4c6cfe6ce95:
+
+Define JSON_HEDLEY_TI_CL430_VERSION_CHECK
+=========================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: JSON_HEDLEY_TI_CL430_VERSION_CHECK

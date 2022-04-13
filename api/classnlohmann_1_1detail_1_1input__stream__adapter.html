@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class input_stream_adapter &mdash; SparseBase v0.1.5 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class invalid_iterator" href="classnlohmann_1_1detail_1_1invalid__iterator.html" />
+    <link rel="prev" title="Class file_input_adapter" href="classnlohmann_1_1detail_1_1file__input__adapter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SparseBase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/contributing/index.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SparseBase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="library_root.html">Library API</a> &raquo;</li>
+      <li>Class input_stream_adapter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/classnlohmann_1_1detail_1_1input__stream__adapter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="class-input-stream-adapter">
+<span id="exhale-class-classnlohmann-1-1detail-1-1input-stream-adapter"></span><h1>Class input_stream_adapter<a class="headerlink" href="#class-input-stream-adapter" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_src_sparsebase_external_json_json.hpp.html#file-src-sparsebase-external-json-json-hpp"><span class="std std-ref">File json.hpp</span></a></p></li>
+</ul>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail20input_stream_adapterE">
+<span id="_CPPv3N8nlohmann6detail20input_stream_adapterE"></span><span id="_CPPv2N8nlohmann6detail20input_stream_adapterE"></span><span id="nlohmann::detail::input_stream_adapter"></span><span class="target" id="classnlohmann_1_1detail_1_1input__stream__adapter"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">nlohmann</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">detail</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">input_stream_adapter</span></span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail20input_stream_adapterE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Input adapter for a (caching) istream. Ignores a UFT Byte Order Mark at beginning of input. Does not support changing the underlying std::streambuf in mid-input. Maintains underlying std::istream and std::streambuf to support subsequent use of standard std::istream operations to process any input characters following those used in parsing the JSON input. Clears the std::istream flags; any input errors (e.g., EOF) will be detected by the first subsequent call for input from the std::istream. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail20input_stream_adapter9char_typeE">
+<span id="_CPPv3N8nlohmann6detail20input_stream_adapter9char_typeE"></span><span id="_CPPv2N8nlohmann6detail20input_stream_adapter9char_typeE"></span><span class="target" id="classnlohmann_1_1detail_1_1input__stream__adapter_1a72f0713587f6bb3f3fbaae7d34c0ca39"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">char_type</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail20input_stream_adapter9char_typeE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail20input_stream_adapterD0Ev">
+<span id="_CPPv3N8nlohmann6detail20input_stream_adapterD0Ev"></span><span id="_CPPv2N8nlohmann6detail20input_stream_adapterD0Ev"></span><span id="nlohmann::detail::input_stream_adapter::~input_stream_adapter"></span><span class="target" id="classnlohmann_1_1detail_1_1input__stream__adapter_1a1d29416acc75b02bfaf251d9d8ef8f36"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~input_stream_adapter</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail20input_stream_adapterD0Ev" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail20input_stream_adapter20input_stream_adapterERNSt7istreamE">
+<span id="_CPPv3N8nlohmann6detail20input_stream_adapter20input_stream_adapterERNSt7istreamE"></span><span id="_CPPv2N8nlohmann6detail20input_stream_adapter20input_stream_adapterERNSt7istreamE"></span><span id="nlohmann::detail::input_stream_adapter::input_stream_adapter__isR"></span><span class="target" id="classnlohmann_1_1detail_1_1input__stream__adapter_1af487152e4606d013eb4ec6a90eaf82ea"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">input_stream_adapter</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">istream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail20input_stream_adapter20input_stream_adapterERNSt7istreamE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail20input_stream_adapter20input_stream_adapterERK20input_stream_adapter">
+<span id="_CPPv3N8nlohmann6detail20input_stream_adapter20input_stream_adapterERK20input_stream_adapter"></span><span id="_CPPv2N8nlohmann6detail20input_stream_adapter20input_stream_adapterERK20input_stream_adapter"></span><span id="nlohmann::detail::input_stream_adapter::input_stream_adapter__input_stream_adapterCR"></span><span class="target" id="classnlohmann_1_1detail_1_1input__stream__adapter_1a5190fe4d0c5ff2e3b348b28ee3bb2218"></span><span class="sig-name descname"><span class="n"><span class="pre">input_stream_adapter</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8nlohmann6detail20input_stream_adapter20input_stream_adapterERK20input_stream_adapter" title="nlohmann::detail::input_stream_adapter::input_stream_adapter"><span class="n"><span class="pre">input_stream_adapter</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail20input_stream_adapter20input_stream_adapterERK20input_stream_adapter" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail20input_stream_adapteraSER20input_stream_adapter">
+<span id="_CPPv3N8nlohmann6detail20input_stream_adapteraSER20input_stream_adapter"></span><span id="_CPPv2N8nlohmann6detail20input_stream_adapteraSER20input_stream_adapter"></span><span id="nlohmann::detail::input_stream_adapter::assign-operator__input_stream_adapterR"></span><span class="target" id="classnlohmann_1_1detail_1_1input__stream__adapter_1aeac5048221929b8f7558d1698dd0fb3a"></span><a class="reference internal" href="#_CPPv4N8nlohmann6detail20input_stream_adapterE" title="nlohmann::detail::input_stream_adapter"><span class="n"><span class="pre">input_stream_adapter</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail20input_stream_adapterE" title="nlohmann::detail::input_stream_adapter"><span class="n"><span class="pre">input_stream_adapter</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail20input_stream_adapteraSER20input_stream_adapter" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail20input_stream_adapteraSERR20input_stream_adapter">
+<span id="_CPPv3N8nlohmann6detail20input_stream_adapteraSERR20input_stream_adapter"></span><span id="_CPPv2N8nlohmann6detail20input_stream_adapteraSERR20input_stream_adapter"></span><span id="nlohmann::detail::input_stream_adapter::assign-operator__input_stream_adapterRR"></span><span class="target" id="classnlohmann_1_1detail_1_1input__stream__adapter_1a3577dff99cc91968557b52959b0363e4"></span><a class="reference internal" href="#_CPPv4N8nlohmann6detail20input_stream_adapterE" title="nlohmann::detail::input_stream_adapter"><span class="n"><span class="pre">input_stream_adapter</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail20input_stream_adapterE" title="nlohmann::detail::input_stream_adapter"><span class="n"><span class="pre">input_stream_adapter</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail20input_stream_adapteraSERR20input_stream_adapter" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail20input_stream_adapter20input_stream_adapterERR20input_stream_adapter">
+<span id="_CPPv3N8nlohmann6detail20input_stream_adapter20input_stream_adapterERR20input_stream_adapter"></span><span id="_CPPv2N8nlohmann6detail20input_stream_adapter20input_stream_adapterERR20input_stream_adapter"></span><span id="nlohmann::detail::input_stream_adapter::input_stream_adapter__input_stream_adapterRR"></span><span class="target" id="classnlohmann_1_1detail_1_1input__stream__adapter_1a0be44ef098e88e8453eb4c31c9b14421"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">input_stream_adapter</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8nlohmann6detail20input_stream_adapter20input_stream_adapterERR20input_stream_adapter" title="nlohmann::detail::input_stream_adapter::input_stream_adapter"><span class="n"><span class="pre">input_stream_adapter</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">rhs</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N8nlohmann6detail20input_stream_adapter20input_stream_adapterERR20input_stream_adapter" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8nlohmann6detail20input_stream_adapter13get_characterEv">
+<span id="_CPPv3N8nlohmann6detail20input_stream_adapter13get_characterEv"></span><span id="_CPPv2N8nlohmann6detail20input_stream_adapter13get_characterEv"></span><span id="nlohmann::detail::input_stream_adapter::get_character"></span><span class="target" id="classnlohmann_1_1detail_1_1input__stream__adapter_1ac6c760c5df3a85b5800b4271c09e8671"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">char_traits</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">int_type</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_character</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8nlohmann6detail20input_stream_adapter13get_characterEv" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classnlohmann_1_1detail_1_1file__input__adapter.html" class="btn btn-neutral float-left" title="Class file_input_adapter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classnlohmann_1_1detail_1_1invalid__iterator.html" class="btn btn-neutral float-right" title="Class invalid_iterator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, SparCity Project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+.. _exhale_variable_generate__explicit__instantiations_8py_1ab6bbe09c68262e120a60f35887720b95:
+
+Variable generate_explicit_instantiations::temp_suffix
+======================================================
+
+- Defined in :ref:`file_src_generate_explicit_instantiations.py`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: generate_explicit_instantiations::temp_suffix

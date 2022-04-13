@@ -1,0 +1,25 @@
+.. _exhale_struct_structnlohmann_1_1detail_1_1is__constructible_3_01std_1_1pair_3_01T1_00_01T2_01_4_01_4:
+
+Template Struct is_constructible< std::pair< T1, T2 > >
+=======================================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public nlohmann::detail::is_default_constructible< std::pair< T1, T2 > >`` (:ref:`exhale_struct_structnlohmann_1_1detail_1_1is__default__constructible_3_01std_1_1pair_3_01T1_00_01T2_01_4_01_4`)
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: nlohmann::detail::is_constructible< std::pair< T1, T2 > >
+   :members:
+   :protected-members:
+   :undoc-members:

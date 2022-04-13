@@ -1,0 +1,13 @@
+.. _exhale_enum_namespacenlohmann_1_1detail_1a59e696b1dad6d0d99c172ac4518c2042:
+
+Enum parse_event_t
+==================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: nlohmann::detail::parse_event_t

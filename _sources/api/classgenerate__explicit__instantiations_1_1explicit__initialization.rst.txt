@@ -1,0 +1,35 @@
+.. _exhale_class_classgenerate__explicit__instantiations_1_1explicit__initialization:
+
+Class explicit_initialization
+=============================
+
+- Defined in :ref:`file_src_generate_explicit_instantiations.py`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public generate_explicit_instantiations.converter_cuda_init`` (:ref:`exhale_class_classgenerate__explicit__instantiations_1_1converter__cuda__init`)
+- ``public generate_explicit_instantiations.converter_init`` (:ref:`exhale_class_classgenerate__explicit__instantiations_1_1converter__init`)
+- ``public generate_explicit_instantiations.feature_init`` (:ref:`exhale_class_classgenerate__explicit__instantiations_1_1feature__init`)
+- ``public generate_explicit_instantiations.format_cuda_init`` (:ref:`exhale_class_classgenerate__explicit__instantiations_1_1format__cuda__init`)
+- ``public generate_explicit_instantiations.format_init`` (:ref:`exhale_class_classgenerate__explicit__instantiations_1_1format__init`)
+- ``public generate_explicit_instantiations.object_init`` (:ref:`exhale_class_classgenerate__explicit__instantiations_1_1object__init`)
+- ``public generate_explicit_instantiations.pigo_reader_init`` (:ref:`exhale_class_classgenerate__explicit__instantiations_1_1pigo__reader__init`)
+- ``public generate_explicit_instantiations.preprocess_cuda_init`` (:ref:`exhale_class_classgenerate__explicit__instantiations_1_1preprocess__cuda__init`)
+- ``public generate_explicit_instantiations.preprocess_init`` (:ref:`exhale_class_classgenerate__explicit__instantiations_1_1preprocess__init`)
+- ``public generate_explicit_instantiations.reader_init`` (:ref:`exhale_class_classgenerate__explicit__instantiations_1_1reader__init`)
+- ``public generate_explicit_instantiations.writer_init`` (:ref:`exhale_class_classgenerate__explicit__instantiations_1_1writer__init`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: generate_explicit_instantiations::explicit_initialization
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,13 @@
+.. _exhale_enum_namespacepigo_1ab814dbeab8ec060a418c135c62a30158:
+
+Enum FileType
+=============
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: pigo::FileType

@@ -1,0 +1,16 @@
+.. _exhale_class_classpigo_1_1FileReader:
+
+Class FileReader
+================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: pigo::FileReader
+   :members:
+   :protected-members:
+   :undoc-members:

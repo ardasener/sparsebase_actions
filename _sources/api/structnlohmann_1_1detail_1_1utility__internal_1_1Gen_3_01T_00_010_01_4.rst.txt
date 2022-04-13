@@ -1,0 +1,16 @@
+.. _exhale_struct_structnlohmann_1_1detail_1_1utility__internal_1_1Gen_3_01T_00_010_01_4:
+
+Template Struct Gen< T, 0 >
+===========================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: nlohmann::detail::utility_internal::Gen< T, 0 >
+   :members:
+   :protected-members:
+   :undoc-members:

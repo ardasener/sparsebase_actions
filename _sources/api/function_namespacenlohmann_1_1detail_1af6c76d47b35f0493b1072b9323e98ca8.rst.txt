@@ -1,0 +1,13 @@
+.. _exhale_function_namespacenlohmann_1_1detail_1af6c76d47b35f0493b1072b9323e98ca8:
+
+Template Function nlohmann::detail::conditional_static_cast
+===========================================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: nlohmann::detail::conditional_static_cast(U)

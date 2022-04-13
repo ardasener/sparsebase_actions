@@ -1,0 +1,13 @@
+.. _exhale_function_pigo_8hpp_1af950e219104c6df29434f595ac6218ea:
+
+Template Function pigo::detail::fail_if_weighted
+================================================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: pigo::detail::fail_if_weighted()

@@ -1,0 +1,30 @@
+
+.. _namespace_sparsebase:
+
+Namespace sparsebase
+====================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_sparsebase__context`
+
+- :ref:`namespace_sparsebase__feature`
+
+- :ref:`namespace_sparsebase__format`
+
+- :ref:`namespace_sparsebase__object`
+
+- :ref:`namespace_sparsebase__preprocess`
+
+- :ref:`namespace_sparsebase__utils`

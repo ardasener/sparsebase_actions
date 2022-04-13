@@ -1,0 +1,13 @@
+.. _exhale_typedef_converter_8h_1a300c36dc027c9efc3501b158ff0e3a9e:
+
+Typedef sparsebase::utils::converter::EdgeConditional
+=====================================================
+
+- Defined in :ref:`file_src_sparsebase_utils_converter_converter.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: sparsebase::utils::converter::EdgeConditional

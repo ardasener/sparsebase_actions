@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacenlohmann_1_1detail_1a80fec4347d326965ddd1197dbb56454c:
+
+Typedef nlohmann::detail::result_of_begin
+=========================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: nlohmann::detail::result_of_begin

@@ -1,0 +1,26 @@
+.. _exhale_class_classpigo_1_1File:
+
+Class File
+==========
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public pigo::ROFile`` (:ref:`exhale_class_classpigo_1_1ROFile`)
+- ``public pigo::WFile`` (:ref:`exhale_class_classpigo_1_1WFile`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: pigo::File
+   :members:
+   :protected-members:
+   :undoc-members:

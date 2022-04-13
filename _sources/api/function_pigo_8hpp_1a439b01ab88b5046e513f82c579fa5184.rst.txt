@@ -1,0 +1,13 @@
+.. _exhale_function_pigo_8hpp_1a439b01ab88b5046e513f82c579fa5184:
+
+Template Function pigo::detail::set_value_
+==========================================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: pigo::detail::set_value_(S&, size_t, T)

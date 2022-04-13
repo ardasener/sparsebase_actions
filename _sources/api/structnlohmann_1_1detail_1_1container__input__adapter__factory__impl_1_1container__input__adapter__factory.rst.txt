@@ -1,0 +1,16 @@
+.. _exhale_struct_structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapter__factory:
+
+Template Struct container_input_adapter_factory
+===============================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: nlohmann::detail::container_input_adapter_factory_impl::container_input_adapter_factory
+   :members:
+   :protected-members:
+   :undoc-members:

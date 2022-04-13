@@ -1,0 +1,13 @@
+.. _exhale_variable_namespacepigo_1a5bb109422b3d027ad825a3e2c154f067:
+
+Variable pigo::FilePos
+======================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: pigo::FilePos

@@ -1,0 +1,25 @@
+.. _exhale_struct_structnlohmann_1_1detail_1_1is__detected__lazy:
+
+Template Struct is_detected_lazy
+================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public is_detected< Op, Args... >``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: nlohmann::detail::is_detected_lazy
+   :members:
+   :protected-members:
+   :undoc-members:

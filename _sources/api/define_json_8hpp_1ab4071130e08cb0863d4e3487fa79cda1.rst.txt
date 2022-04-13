@@ -1,0 +1,13 @@
+.. _exhale_define_json_8hpp_1ab4071130e08cb0863d4e3487fa79cda1:
+
+Define NLOHMANN_JSON_PASTE33
+============================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: NLOHMANN_JSON_PASTE33

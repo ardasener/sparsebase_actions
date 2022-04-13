@@ -1,0 +1,279 @@
+
+.. _file_src_sparsebase_external_pigo_pigo.hpp:
+
+File pigo.hpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir_src_sparsebase_external_pigo>` (``src/sparsebase/external/pigo``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/sparsebase/external/pigo/pigo.hpp``)
+------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_src_sparsebase_external_pigo_pigo.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``algorithm``
+
+- ``atomic``
+
+- ``cmath``
+
+- ``cstring``
+
+- ``fcntl.h``
+
+- ``memory``
+
+- ``omp.h``
+
+- ``stdexcept``
+
+- ``stdlib.h``
+
+- ``string``
+
+- ``sys/mman.h``
+
+- ``sys/stat.h``
+
+- ``sys/types.h``
+
+- ``type_traits``
+
+- ``unistd.h``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_pigo`
+
+- :ref:`namespace_pigo__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1allocate__impl__`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1allocate__impl___3_01false_00_01T_00_01ptr__flag_00_01vec__flag_00_01sptr__flag_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1allocate__impl___3_01true_00_01T_00_01false_00_01false_00_01true_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1allocate__impl___3_01true_00_01T_00_01false_00_01true_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1allocate__impl___3_01true_00_01T_00_01true_00_01false_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1copy__weight__i__`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1copy__weight__i___3_01true_00_01W_00_01WS_00_01COOW_00_01COOWS_00_01O_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1fail__if__weighted__i__`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1fail__if__weighted__i___3_01true_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1free__impl__`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1free__impl___3_01true_00_01T_00_01false_00_01false_00_01true_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1free__impl___3_01true_00_01T_00_01false_00_01true_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1free__impl___3_01true_00_01T_00_01true_00_01false_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1get__raw__data__impl__`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1get__raw__data__impl___3_01T_00_01false_00_01false_00_01true_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1get__raw__data__impl___3_01T_00_01false_00_01true_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1get__raw__data__impl___3_01T_00_01true_00_01false_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1get__value__impl__`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1get__value__impl___3_01S_00_01T_00_01false_00_01false_00_01true_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1get__value__impl___3_01S_00_01T_00_01false_00_01true_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1get__value__impl___3_01S_00_01T_00_01true_00_01false_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1if__true__i__`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1if__true__i___3_01true_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1read__coord__entry__i__`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1read__coord__entry__i___3_01L_00_01O_00_01S_00_01false_00_01false_00_01f140259c07839b6e0f4e769296b4f9b39`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1read__coord__entry__i___3_01L_00_01O_00_01S_00_01false_00_01false_00_01fe9b06005cd4135fdc8b73895e72efca8`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1read__coord__entry__i___3_01L_00_01O_00_01S_00_01sym_00_01ut_00_01sl_00_d38d521abef6463b02535743f6b6995c`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1read__coord__entry__i___3_01L_00_01O_00_01S_00_01sym_00_01ut_00_01sl_00_37a9a9a078b303f50f78ac1732ca8875`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1read__wgt__i__`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1read__wgt__i___3_01true_00_01false_00_01true_00_01true_00_01W_00_01WS_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1read__wgt__i___3_01true_00_01false_00_01true_00_01true_00_01W_00_01WS_00_01true_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1read__wgt__i___3_01true_00_01true_00_01false_00_01false_00_01W_00_01WS_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1read__wgt__i___3_01true_00_01true_00_01false_00_01false_00_01W_00_01WS_00_01true_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1read__wgt__i___3_01true_00_01true_00_01true_00_01false_00_01W_00_01WS_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1read__wgt__i___3_01true_00_01true_00_01true_00_01false_00_01W_00_01WS_00_01true_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1set__value__impl__`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1set__value__impl___3_01S_00_01T_00_01false_00_01false_00_01true_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1set__value__impl___3_01S_00_01T_00_01false_00_01true_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1set__value__impl___3_01S_00_01T_00_01true_00_01false_00_01false_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1weight__size__i__`
+
+- :ref:`exhale_struct_structpigo_1_1detail_1_1weight__size__i___3_01true_00_01W_00_01O_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1is__sptr`
+
+- :ref:`exhale_struct_structpigo_1_1is__sptr_3_01std_1_1shared__ptr_3_01Args_8_8_8_01_4_01_4`
+
+- :ref:`exhale_struct_structpigo_1_1is__vector`
+
+- :ref:`exhale_struct_structpigo_1_1is__vector_3_01std_1_1vector_3_01Args_8_8_8_01_4_01_4`
+
+- :ref:`exhale_class_classpigo_1_1BaseGraph`
+
+- :ref:`exhale_class_classpigo_1_1COO`
+
+- :ref:`exhale_class_classpigo_1_1CSC`
+
+- :ref:`exhale_class_classpigo_1_1CSR`
+
+- :ref:`exhale_class_classpigo_1_1DiGraph`
+
+- :ref:`exhale_class_classpigo_1_1EdgeIt`
+
+- :ref:`exhale_class_classpigo_1_1EdgeItT`
+
+- :ref:`exhale_class_classpigo_1_1Error`
+
+- :ref:`exhale_class_classpigo_1_1File`
+
+- :ref:`exhale_class_classpigo_1_1FileReader`
+
+- :ref:`exhale_class_classpigo_1_1Matrix`
+
+- :ref:`exhale_class_classpigo_1_1NotYetImplemented`
+
+- :ref:`exhale_class_classpigo_1_1ROFile`
+
+- :ref:`exhale_class_classpigo_1_1SymMatrix`
+
+- :ref:`exhale_class_classpigo_1_1WFile`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_namespacepigo_1ab814dbeab8ec060a418c135c62a30158`
+
+- :ref:`exhale_enum_namespacepigo_1a9152dcc5b8c20cbd394d17e5f2cae5c7`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_pigo_8hpp_1ab6f8fd25bdd6fb096b6fa7d83958c155`
+
+- :ref:`exhale_function_pigo_8hpp_1aea24c91888a4e6271c5f27771cf935a9`
+
+- :ref:`exhale_function_pigo_8hpp_1af950e219104c6df29434f595ac6218ea`
+
+- :ref:`exhale_function_pigo_8hpp_1a1c1d031fe1ffe70167920eb95edc39a6`
+
+- :ref:`exhale_function_pigo_8hpp_1ab26c8799ee1cad2712355f11b6a64226`
+
+- :ref:`exhale_function_pigo_8hpp_1a52258bf9ba2c0177544f96067bb44a21`
+
+- :ref:`exhale_function_pigo_8hpp_1a731e3eeb1a9b1a48fa786d2246aec568`
+
+- :ref:`exhale_function_pigo_8hpp_1aa9d5875c92c7f302ecd18f9accb45434`
+
+- :ref:`exhale_function_pigo_8hpp_1ab1271f8191717537e90d696f85bfcdf3`
+
+- :ref:`exhale_function_pigo_8hpp_1a0b3e261d9e2d9ce4729b11fd8a025810`
+
+- :ref:`exhale_function_pigo_8hpp_1a439b01ab88b5046e513f82c579fa5184`
+
+- :ref:`exhale_function_pigo_8hpp_1a346eaf1159246cf9e4dc2a5fbf4b5bcf`
+
+- :ref:`exhale_function_pigo_8hpp_1a797ecfad6bfa93afe4cd28eff21087a4`
+
+- :ref:`exhale_function_namespacepigo_1a5e6d948197c0f6bf9a3a4cf8ca3a7a50`
+
+- :ref:`exhale_function_namespacepigo_1af628160ffd7aad8fd7457837326cec78`
+
+- :ref:`exhale_function_namespacepigo_1ae65142d00014b5fd5a86fee4c8f2bac7`
+
+- :ref:`exhale_function_namespacepigo_1aef2902e700f21e3896c093f2187732aa`
+
+- :ref:`exhale_function_namespacepigo_1a296e2ae965ac24639f75a9a1380243c5`
+
+- :ref:`exhale_function_namespacepigo_1aea2f882d8d68f44a79a2c8f9f62cacfe`
+
+- :ref:`exhale_function_namespacepigo_1a942f91d3bca01579fd0bcb23280e24fd`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_namespacepigo_1a80854341d7736da9a21095b5ce964dee`
+
+- :ref:`exhale_typedef_namespacepigo_1ae60aa165af86f94f8515501c977f1e67`
+
+- :ref:`exhale_typedef_namespacepigo_1a49edfd8bc6aa141f8713d26e11314672`
+
+- :ref:`exhale_typedef_namespacepigo_1a67f8aaebe5cd8462277baf7cee4e7e99`
+
+- :ref:`exhale_typedef_namespacepigo_1a83c69fad0f49bfef1727592861f5da9e`
+
+- :ref:`exhale_typedef_namespacepigo_1a83341f6fe0fb38d36447396247d18265`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespacepigo_1a5bb109422b3d027ad825a3e2c154f067`
+

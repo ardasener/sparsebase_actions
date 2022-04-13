@@ -1,0 +1,26 @@
+.. _exhale_class_classsparsebase_1_1utils_1_1io_1_1ReadsCSR:
+
+Template Class ReadsCSR
+=======================
+
+- Defined in :ref:`file_src_sparsebase_utils_io_reader.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public sparsebase::utils::io::BinaryReaderOrderTwo< IDType, NNZType, ValueType >`` (:ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1BinaryReaderOrderTwo`)
+- ``public sparsebase::utils::io::UedgelistReader< IDType, NNZType, ValueType >`` (:ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1UedgelistReader`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: sparsebase::utils::io::ReadsCSR
+   :members:
+   :protected-members:
+   :undoc-members:

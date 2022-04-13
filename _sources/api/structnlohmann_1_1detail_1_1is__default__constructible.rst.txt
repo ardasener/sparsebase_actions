@@ -1,0 +1,25 @@
+.. _exhale_struct_structnlohmann_1_1detail_1_1is__default__constructible:
+
+Template Struct is_default_constructible
+========================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public std::is_default_constructible< T >``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: nlohmann::detail::is_default_constructible
+   :members:
+   :protected-members:
+   :undoc-members:

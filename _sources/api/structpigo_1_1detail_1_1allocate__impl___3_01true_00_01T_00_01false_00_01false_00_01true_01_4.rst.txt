@@ -1,0 +1,16 @@
+.. _exhale_struct_structpigo_1_1detail_1_1allocate__impl___3_01true_00_01T_00_01false_00_01false_00_01true_01_4:
+
+Template Struct allocate_impl_< true, T, false, false, true >
+=============================================================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: pigo::detail::allocate_impl_< true, T, false, false, true >
+   :members:
+   :protected-members:
+   :undoc-members:

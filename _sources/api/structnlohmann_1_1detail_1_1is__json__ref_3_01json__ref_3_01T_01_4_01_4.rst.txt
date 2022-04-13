@@ -1,0 +1,25 @@
+.. _exhale_struct_structnlohmann_1_1detail_1_1is__json__ref_3_01json__ref_3_01T_01_4_01_4:
+
+Template Struct is_json_ref< json_ref< T > >
+============================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public true_type``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: nlohmann::detail::is_json_ref< json_ref< T > >
+   :members:
+   :protected-members:
+   :undoc-members:

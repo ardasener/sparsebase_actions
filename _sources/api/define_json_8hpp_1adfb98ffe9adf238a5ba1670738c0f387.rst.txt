@@ -1,0 +1,13 @@
+.. _exhale_define_json_8hpp_1adfb98ffe9adf238a5ba1670738c0f387:
+
+Define JSON_HEDLEY_WARN_UNUSED_RESULT_MSG
+=========================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: JSON_HEDLEY_WARN_UNUSED_RESULT_MSG

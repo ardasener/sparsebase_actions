@@ -1,0 +1,13 @@
+.. _exhale_function_pigo_8hpp_1a1c1d031fe1ffe70167920eb95edc39a6:
+
+Template Function pigo::detail::free_mem_
+=========================================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: pigo::detail::free_mem_(T&)

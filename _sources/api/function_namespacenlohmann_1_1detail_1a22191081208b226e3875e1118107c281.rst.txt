@@ -1,0 +1,13 @@
+.. _exhale_function_namespacenlohmann_1_1detail_1a22191081208b226e3875e1118107c281:
+
+Template Function nlohmann::detail::to_json(BasicJsonType&, const typename BasicJsonType::binary_t&)
+====================================================================================================
+
+- Defined in :ref:`file_src_sparsebase_external_json_json.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: nlohmann::detail::to_json(BasicJsonType&, const typename BasicJsonType::binary_t&)

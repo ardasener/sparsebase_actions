@@ -1,0 +1,13 @@
+.. _exhale_variable_generate__explicit__instantiations_8py_1ad4d2cd8ef8f2e68ebe179fbec7b0f59f:
+
+Variable generate_explicit_instantiations::use_cuda
+===================================================
+
+- Defined in :ref:`file_src_generate_explicit_instantiations.py`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: generate_explicit_instantiations::use_cuda

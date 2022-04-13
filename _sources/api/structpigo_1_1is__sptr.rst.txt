@@ -1,0 +1,25 @@
+.. _exhale_struct_structpigo_1_1is__sptr:
+
+Template Struct is_sptr
+=======================
+
+- Defined in :ref:`file_src_sparsebase_external_pigo_pigo.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public false_type``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: pigo::is_sptr
+   :members:
+   :protected-members:
+   :undoc-members:
