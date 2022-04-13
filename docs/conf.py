@@ -60,6 +60,7 @@ exhale_args = {
         INPUT = ../src
         EXTRACT_PRIVATE = YES
         EXCLUDE_PATTERNS = */external/*
+        EXCLUDE_PATTERNS += *.py
     """
 }
 

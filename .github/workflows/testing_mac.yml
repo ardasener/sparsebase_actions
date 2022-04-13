@@ -19,7 +19,7 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Install Requirements
+    - name: Install Dependencies
       run: brew update && brew install gcc@9 bison flex swig readline libomp python3
 
     - name: Configure CMake
