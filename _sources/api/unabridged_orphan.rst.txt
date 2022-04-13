@@ -26,21 +26,6 @@ Directories
 .. toctree::
    :maxdepth: 5
 
-   dir_src_sparsebase_external.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   dir_src_sparsebase_external_json.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   dir_src_sparsebase_external_pigo.rst
-
-.. toctree::
-   :maxdepth: 5
-
    dir_src_sparsebase_feature.rst
 
 .. toctree::
@@ -135,22 +120,12 @@ Files
 .. toctree::
    :maxdepth: 5
 
-   file_src_sparsebase_external_json_json.hpp.rst
-
-.. toctree::
-   :maxdepth: 5
-
    file_src_sparsebase_object_object.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
    file_src_sparsebase_object_object.h.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   file_src_sparsebase_external_pigo_pigo.hpp.rst
 
 .. toctree::
    :maxdepth: 5
@@ -191,12 +166,3 @@ Files
    :maxdepth: 5
 
    file_src_sparsebase_utils_io_writer.h.rst
-
-Pages
-*****
-
-
-.. toctree::
-   :maxdepth: 5
-
-   page_deprecated.rst

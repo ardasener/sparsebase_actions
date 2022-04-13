@@ -33,7 +33,7 @@ Includes
 
 - ``iostream``
 
-- ``sparsebase/external/json/json.hpp`` (:ref:`file_src_sparsebase_external_json_json.hpp`)
+- ``sparsebase/external/json/json.hpp``
 
 - ``string``
 

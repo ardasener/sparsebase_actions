@@ -15,7 +15,6 @@ Subdirectories
 --------------
 
 - :ref:`dir_src_sparsebase_context`
-- :ref:`dir_src_sparsebase_external`
 - :ref:`dir_src_sparsebase_feature`
 - :ref:`dir_src_sparsebase_format`
 - :ref:`dir_src_sparsebase_object`
