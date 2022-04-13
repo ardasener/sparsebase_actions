@@ -57,8 +57,9 @@ exhale_args = {
     # "treeViewIsBootstrap": True,
     "exhaleExecutesDoxygen": True,
     "exhaleDoxygenStdin":    """
-    INPUT = ../src
-    EXTRACT_PRIVATE = YES
+        INPUT = ../src
+        EXTRACT_PRIVATE = YES
+        EXCLUDE_PATTERNS = */external/*
     """
 }
 
