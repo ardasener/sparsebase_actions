@@ -17,6 +17,5 @@ Files
 -----
 
 - :ref:`file_src_CMakeLists.txt`
-- :ref:`file_src_generate_explicit_instantiations.py`
 
 

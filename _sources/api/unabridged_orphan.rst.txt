@@ -115,11 +115,6 @@ Files
 .. toctree::
    :maxdepth: 5
 
-   file_src_generate_explicit_instantiations.py.rst
-
-.. toctree::
-   :maxdepth: 5
-
    file_src_sparsebase_object_object.cc.rst
 
 .. toctree::

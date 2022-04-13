@@ -9,11 +9,6 @@ Namespaces
 .. toctree::
    :maxdepth: 5
 
-   namespace_generate_explicit_instantiations.rst
-
-.. toctree::
-   :maxdepth: 5
-
    namespace_sparsebase.rst
 
 .. toctree::
@@ -144,66 +139,6 @@ Classes and Structs
    :maxdepth: 5
 
    structsparsebase_1_1utils_1_1io_1_1SbffObject.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classgenerate__explicit__instantiations_1_1converter__cuda__init.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classgenerate__explicit__instantiations_1_1converter__init.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classgenerate__explicit__instantiations_1_1explicit__initialization.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classgenerate__explicit__instantiations_1_1feature__init.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classgenerate__explicit__instantiations_1_1format__cuda__init.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classgenerate__explicit__instantiations_1_1format__init.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classgenerate__explicit__instantiations_1_1object__init.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classgenerate__explicit__instantiations_1_1pigo__reader__init.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classgenerate__explicit__instantiations_1_1preprocess__cuda__init.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classgenerate__explicit__instantiations_1_1preprocess__init.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classgenerate__explicit__instantiations_1_1reader__init.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classgenerate__explicit__instantiations_1_1writer__init.rst
 
 .. toctree::
    :maxdepth: 5
@@ -511,11 +446,6 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_generate__explicit__instantiations_8py_1a4ec4e016cac1027b87c32b22eb46c164.rst
-
-.. toctree::
-   :maxdepth: 5
-
    function_CMakeLists_8txt_1a5b57ce92dd547c6442539335f6d3d1e6.rst
 
 .. toctree::
@@ -582,135 +512,6 @@ Functions
    :maxdepth: 5
 
    function_sparse__file__format_8h_1afed1e3c9367291c0120210557d7241d4.rst
-
-Variables
-*********
-
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a67535373606ab9e2b8d7b4640424d749.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1ad7aa0a56f28118b1f97cf734a5002cba.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a57f2bf29115b6a9b9a491a063149b4df.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1ac66b770c864b421985bd4feb717e808c.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1abeebe2c9ccfeddbcabcd83b762577d7f.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a6e219965162c915cfa935fdbe247a9b5.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a43b321a1a228592f1b2dae525109b848.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1ab5996bfdaa10d08773316d247e1b9a58.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1ac45312db899aec197081c3f07e44ea38.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1ac8100496a14baa804ef87dcfd5f7fb44.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1aca97dcac483a98c58012249a6fc44035.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a163f4d5314fbb00a7e7b7334f718be49.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a81cf876c3511f71d45b852bf83074348.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a030152bfb30840798cfb4fc76f13a7d7.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a95497936266073909d47bb91e5ccdf36.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1acd19dc2eda88e3da70e9911aa281faf2.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a495762f030def706a993af4bee09b416.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a1bbf3709ee367c6662cd8dfb498df818.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a1906c5e193db80baf3a87cd201ac61d9.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1ab6bbe09c68262e120a60f35887720b95.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a53f5ee2b12bbff0572804e8c28b62e11.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1ad4d2cd8ef8f2e68ebe179fbec7b0f59f.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1ad9db8c7ce240c7586a330f090e209bc0.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1a4078f801cba85f47f3447427f492f685.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   variable_generate__explicit__instantiations_8py_1aa261416a4995ae7cd031791aa555728b.rst
 
 Typedefs
 ********
