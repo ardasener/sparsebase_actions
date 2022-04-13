@@ -16,13 +16,14 @@
 
 
 # -- Project information -----------------------------------------------------
+import os
 
 project = 'SparseBase'
 copyright = '2022, SparCity Project'
 author = 'SparCity Project Members'
 
 # The full version, including alpha/beta/rc tags
-release = 'v0.1.5'
+release = os.popen("git describe --tags").read().strip()
 
 
 # -- General configuration ---------------------------------------------------
