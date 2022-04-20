@@ -31,11 +31,6 @@ jobs:
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
-    - name: Copy Data & Script
-      run: |
-        cp -r ${{github.workspace}}/examples/data ${{github.workspace}}/build/examples/
-        cp ${{github.workspace}}/examples/run_all_examples.py ${{github.workspace}}/build/examples/
-
     - name: Run Examples
       working-directory: ${{github.workspace}}/build/examples
       run: python3 run_all_examples.py
@@ -57,15 +52,31 @@ jobs:
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
-    - name: Copy Data & Script (Header Only)
-      run: |
-        cp -r ${{github.workspace}}/examples/data ${{github.workspace}}/build/examples/
-        cp ${{github.workspace}}/examples/run_all_examples.py ${{github.workspace}}/build/examples/
-
     - name: Run Examples (Header Only)
       working-directory: ${{github.workspace}}/build/examples
       run: python3 run_all_examples.py
 
     - name: Run Tests (Header Only)
+      working-directory: ${{github.workspace}}/build
+      run: ctest -V
+
+    - name: Clean
+      working-directory: ${{github.workspace}}
+      run: rm -rf build
+
+    - name: Configure CMake (Debug)
+      # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
+      # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Debug -DRUN_TESTS=ON
+
+    - name: Build (Debug)
+      # Build your program with the given configuration
+      run: cmake --build ${{github.workspace}}/build --config Debug
+
+    - name: Run Examples (Debug)
+      working-directory: ${{github.workspace}}/build/examples
+      run: python3 run_all_examples.py
+
+    - name: Run Tests (Debug)
       working-directory: ${{github.workspace}}/build
       run: ctest -V

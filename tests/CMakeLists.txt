@@ -7,3 +7,7 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_source_dir})
 add_executable(sparseformat_tests.test suites/SparseFormat_tests.cpp)
 target_link_libraries(sparseformat_tests.test sparsebase)
 target_link_libraries(sparseformat_tests.test gtest gtest_main)
+
+add_executable(io_tests.test suites/io_tests.cc)
+target_link_libraries(io_tests.test sparsebase)
+target_link_libraries(io_tests.test gtest gtest_main)
