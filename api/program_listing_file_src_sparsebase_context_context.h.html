@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File context.h &mdash; SparseBase v0.1.10 documentation</title>
+  <title>Program Listing for File context.h &mdash; SparseBase v0.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -85,27 +85,24 @@
 <span class="k">namespace</span> <span class="n">sparsebase</span> <span class="p">{</span>
 
 <span class="k">namespace</span> <span class="n">context</span> <span class="p">{</span>
-<span class="k">struct</span> <span class="n">Context</span><span class="p">{</span>
-  <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">IsEquivalent</span><span class="p">(</span><span class="n">Context</span><span class="o">*</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">struct</span> <span class="n">Context</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">IsEquivalent</span><span class="p">(</span><span class="n">Context</span> <span class="o">*</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_context_type_member</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="o">~</span><span class="n">Context</span><span class="p">();</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">ContextType</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="nl">ContextImplementation</span> <span class="p">:</span> <span class="k">public</span> <span class="n">Context</span> <span class="p">{</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">ContextType</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="nl">ContextImplementation</span> <span class="p">:</span> <span class="k">public</span> <span class="n">Context</span> <span class="p">{</span>
   <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_context_type_member</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">typeid</span><span class="p">(</span><span class="n">ContextType</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_context_type</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">typeid</span><span class="p">(</span><span class="n">ContextType</span><span class="p">);</span>
-  <span class="p">}</span>
+  <span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_context_type</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">typeid</span><span class="p">(</span><span class="n">ContextType</span><span class="p">);</span> <span class="p">}</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="nl">CPUContext</span> <span class="p">:</span> <span class="n">ContextImplementation</span><span class="o">&lt;</span><span class="n">CPUContext</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="k">struct</span> <span class="nl">CPUContext</span> <span class="p">:</span> <span class="n">ContextImplementation</span><span class="o">&lt;</span><span class="n">CPUContext</span><span class="o">&gt;</span> <span class="p">{</span>
   <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">IsEquivalent</span><span class="p">(</span><span class="n">Context</span> <span class="o">*</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="p">};</span>
-<span class="p">};</span>
+<span class="p">};</span> <span class="c1">// namespace context</span>
+<span class="p">};</span> <span class="c1">// namespace sparsebase</span>
 <span class="cp">#ifdef _HEADER_ONLY</span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/context/context.cc&quot;</span><span class="cp"></span>
 <span class="cp">#endif</span>

@@ -61,9 +61,9 @@ Included By
 
 - :ref:`file_src_sparsebase_format_format.cc`
 
-- :ref:`file_src_sparsebase_object_object.cc`
-
 - :ref:`file_src_sparsebase_object_object.h`
+
+- :ref:`file_src_sparsebase_object_object.cc`
 
 - :ref:`file_src_sparsebase_preprocess_preprocess.h`
 

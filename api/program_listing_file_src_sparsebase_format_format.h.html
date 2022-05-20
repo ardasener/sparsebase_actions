@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File format.h &mdash; SparseBase v0.1.10 documentation</title>
+  <title>Program Listing for File format.h &mdash; SparseBase v0.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -77,8 +77,8 @@
 <span class="cp">#define SPARSEBASE_SPARSEBASE_FORMAT_FORMAT_H_</span>
 
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/config.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;sparsebase/utils/exception.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/context/context.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;sparsebase/utils/exception.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
@@ -128,7 +128,7 @@
   <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">DimensionType</span><span class="o">&gt;</span> <span class="n">get_dimensions</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="n">DimensionType</span> <span class="nf">get_num_nnz</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="n">DimensionType</span> <span class="nf">get_order</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">virtual</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span> <span class="n">get_context</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">get_context</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_context_type</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="o">*</span><span class="n">As</span><span class="p">()</span> <span class="p">{</span>
@@ -141,21 +141,13 @@
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">FormatType</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">FormatImplementation</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Format</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">DimensionType</span><span class="o">&gt;</span> <span class="n">get_dimensions</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
+  <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">DimensionType</span><span class="o">&gt;</span> <span class="n">get_dimensions</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">dimension_</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="k">virtual</span> <span class="n">DimensionType</span> <span class="n">get_num_nnz</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
-    <span class="k">return</span> <span class="n">nnz_</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">virtual</span> <span class="n">DimensionType</span> <span class="n">get_order</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
-    <span class="k">return</span> <span class="n">order_</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">virtual</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span> <span class="n">get_context</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
-    <span class="k">return</span> <span class="n">context_</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_format_id</span><span class="p">()</span> <span class="k">final</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">typeid</span><span class="p">(</span><span class="n">FormatType</span><span class="p">);</span>
-  <span class="p">}</span>
+  <span class="k">virtual</span> <span class="n">DimensionType</span> <span class="n">get_num_nnz</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">nnz_</span><span class="p">;</span> <span class="p">}</span>
+  <span class="k">virtual</span> <span class="n">DimensionType</span> <span class="n">get_order</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">order_</span><span class="p">;</span> <span class="p">}</span>
+  <span class="k">virtual</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">get_context</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">context_</span><span class="p">.</span><span class="n">get</span><span class="p">();</span> <span class="p">}</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_format_id</span><span class="p">()</span> <span class="k">final</span> <span class="p">{</span> <span class="k">return</span> <span class="k">typeid</span><span class="p">(</span><span class="n">FormatType</span><span class="p">);</span> <span class="p">}</span>
   <span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_format_id_static</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">typeid</span><span class="p">(</span><span class="n">FormatType</span><span class="p">);</span> <span class="p">}</span>
 
   <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_context_type</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
@@ -208,8 +200,7 @@
   <span class="n">Array</span><span class="p">(</span><span class="n">DimensionType</span> <span class="n">nnz</span><span class="p">,</span> <span class="n">ValueType</span> <span class="o">*</span><span class="n">row_ptr</span><span class="p">,</span> <span class="n">Ownership</span> <span class="n">own</span> <span class="o">=</span> <span class="n">kNotOwned</span><span class="p">);</span>
   <span class="n">Array</span><span class="p">(</span><span class="k">const</span> <span class="n">Array</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="p">);</span>
   <span class="n">Array</span><span class="p">(</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span><span class="p">);</span>
-  <span class="n">Array</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">&amp;</span>
-  <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Array</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="p">);</span>
+  <span class="n">Array</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Array</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="p">);</span>
   <span class="n">Format</span> <span class="o">*</span><span class="nf">Clone</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="o">~</span><span class="n">Array</span><span class="p">();</span>
   <span class="n">ValueType</span> <span class="o">*</span><span class="nf">get_vals</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>

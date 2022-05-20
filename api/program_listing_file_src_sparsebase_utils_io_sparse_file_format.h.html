@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File sparse_file_format.h &mdash; SparseBase v0.1.10 documentation</title>
+  <title>Program Listing for File sparse_file_format.h &mdash; SparseBase v0.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -81,9 +81,9 @@
 <span class="cp">#endif</span>
 
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/external/json/json.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;climits&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;climits&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
 
 <span class="k">namespace</span> <span class="n">sparsebase</span><span class="o">::</span><span class="n">utils</span><span class="o">::</span><span class="n">io</span> <span class="p">{</span>
@@ -95,12 +95,9 @@
   <span class="n">pigo</span><span class="o">::</span><span class="n">WFile</span> <span class="n">file</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
+  <span class="n">SbffWriteFile</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="o">:</span> <span class="n">file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span> <span class="p">{}</span>
 
-  <span class="n">SbffWriteFile</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span><span class="o">:</span> <span class="n">file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">size</span><span class="p">){}</span>
-
-  <span class="kt">void</span> <span class="n">Write</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">){</span>
-    <span class="n">file</span><span class="p">.</span><span class="n">parallel_write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
-  <span class="p">}</span>
+  <span class="kt">void</span> <span class="n">Write</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span> <span class="n">file</span><span class="p">.</span><span class="n">parallel_write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span> <span class="p">}</span>
 <span class="p">};</span>
 
 <span class="k">class</span> <span class="nc">SbffReadOnlyFile</span> <span class="p">{</span>
@@ -108,11 +105,9 @@
   <span class="n">pigo</span><span class="o">::</span><span class="n">ROFile</span> <span class="n">file</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">explicit</span> <span class="n">SbffReadOnlyFile</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">)</span><span class="o">:</span> <span class="n">file</span><span class="p">(</span><span class="n">filename</span><span class="p">){}</span>
+  <span class="k">explicit</span> <span class="n">SbffReadOnlyFile</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">)</span> <span class="o">:</span> <span class="n">file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="p">{}</span>
 
-  <span class="kt">void</span> <span class="n">Read</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">){</span>
-    <span class="n">file</span><span class="p">.</span><span class="n">parallel_read</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
-  <span class="p">}</span>
+  <span class="kt">void</span> <span class="n">Read</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span> <span class="n">file</span><span class="p">.</span><span class="n">parallel_read</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span> <span class="p">}</span>
 <span class="p">};</span>
 
 <span class="cp">#else</span>
@@ -122,16 +117,11 @@
   <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">ofs</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-
-  <span class="n">SbffWriteFile</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">){</span>
+  <span class="n">SbffWriteFile</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">ofs</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">out</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">binary</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="o">~</span><span class="n">SbffWriteFile</span><span class="p">(){</span>
-    <span class="n">ofs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="kt">void</span> <span class="n">Write</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">){</span>
-    <span class="n">ofs</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
-  <span class="p">}</span>
+  <span class="o">~</span><span class="n">SbffWriteFile</span><span class="p">()</span> <span class="p">{</span> <span class="n">ofs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span> <span class="p">}</span>
+  <span class="kt">void</span> <span class="n">Write</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span> <span class="n">ofs</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span> <span class="p">}</span>
 <span class="p">};</span>
 
 <span class="k">class</span> <span class="nc">SbffReadOnlyFile</span> <span class="p">{</span>
@@ -139,15 +129,11 @@
   <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">ifs</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">explicit</span> <span class="n">SbffReadOnlyFile</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">){</span>
-    <span class="n">ifs</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span>  <span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">in</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">binary</span><span class="p">);</span>
+  <span class="k">explicit</span> <span class="n">SbffReadOnlyFile</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ifs</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">in</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">binary</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="o">~</span><span class="n">SbffReadOnlyFile</span><span class="p">(){</span>
-    <span class="n">ifs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
-  <span class="p">}</span>
-  <span class="kt">void</span> <span class="n">Read</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">){</span>
-    <span class="n">ifs</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
-  <span class="p">}</span>
+  <span class="o">~</span><span class="n">SbffReadOnlyFile</span><span class="p">()</span> <span class="p">{</span> <span class="n">ifs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span> <span class="p">}</span>
+  <span class="kt">void</span> <span class="n">Read</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span> <span class="n">ifs</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span> <span class="p">}</span>
 <span class="p">};</span>
 
 <span class="cp">#endif</span>
@@ -204,8 +190,6 @@
   <span class="k">return</span> <span class="n">header_bytes</span><span class="p">;</span>
 <span class="p">}</span>
 
-
-
 <span class="k">class</span> <span class="nc">SbffArray</span> <span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>
   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
@@ -257,7 +241,7 @@
 
       <span class="n">sbas_arr</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">sbas_arr</span><span class="p">.</span><span class="n">array_size</span> <span class="o">*</span> <span class="n">sbas_arr</span><span class="p">.</span><span class="n">type_size</span><span class="p">];</span>
       <span class="n">file</span><span class="p">.</span><span class="n">Read</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">sbas_arr</span><span class="p">.</span><span class="n">data</span><span class="p">,</span>
-                         <span class="n">sbas_arr</span><span class="p">.</span><span class="n">array_size</span> <span class="o">*</span> <span class="n">sbas_arr</span><span class="p">.</span><span class="n">type_size</span><span class="p">);</span>
+                <span class="n">sbas_arr</span><span class="p">.</span><span class="n">array_size</span> <span class="o">*</span> <span class="n">sbas_arr</span><span class="p">.</span><span class="n">type_size</span><span class="p">);</span>
 
       <span class="k">return</span> <span class="n">sbas_arr</span><span class="p">;</span>
 
@@ -291,7 +275,7 @@
 <span class="k">public</span><span class="o">:</span>
   <span class="k">explicit</span> <span class="n">SbffObject</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">)</span> <span class="o">:</span> <span class="n">name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">{}</span>
 
-  <span class="kt">void</span> <span class="n">AddDimensions</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span> <span class="n">dims</span><span class="p">){</span>
+  <span class="kt">void</span> <span class="n">AddDimensions</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">dims</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">dimensions</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">dimensions</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">dims</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">dims</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
   <span class="p">}</span>
 
@@ -350,8 +334,6 @@
     <span class="p">}</span>
   <span class="p">}</span>
 
-
-
   <span class="kt">void</span> <span class="n">WriteObject</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">SbffWriteFile</span> <span class="n">file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">total_size</span><span class="p">);</span>
     <span class="n">WriteObject</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
@@ -399,21 +381,13 @@
     <span class="k">return</span> <span class="nf">ReadObject</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
   <span class="p">}</span>
 
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">get_name</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">name</span><span class="p">;</span> <span class="p">}</span>
 
+  <span class="kt">size_t</span> <span class="n">get_array_count</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">arrays</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="p">}</span>
 
-  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">get_name</span><span class="p">(){</span>
-    <span class="k">return</span> <span class="n">name</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="kt">size_t</span> <span class="n">get_array_count</span><span class="p">(){</span>
-    <span class="k">return</span> <span class="n">arrays</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-  <span class="p">}</span>
-
-  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">get_dimensions</span><span class="p">(){</span>
-    <span class="k">return</span> <span class="n">dimensions</span><span class="p">;</span>
-  <span class="p">}</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">get_dimensions</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">dimensions</span><span class="p">;</span> <span class="p">}</span>
 <span class="p">};</span>
-<span class="p">}</span>
+<span class="p">}</span> <span class="c1">// namespace sparsebase::utils::io</span>
 
 <span class="cp">#endif </span><span class="c1">// SPARSEBASE_SPARSEBASE_UTILS_IO_SPARSE_FILE_FORMAT_H_</span>
 </pre></div>

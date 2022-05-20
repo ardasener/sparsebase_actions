@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File exception.h &mdash; SparseBase v0.1.10 documentation</title>
+  <title>Program Listing for File exception.h &mdash; SparseBase v0.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -132,22 +132,27 @@
 
 <span class="k">class</span> <span class="nc">FeatureException</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Exception</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">msg_</span><span class="p">;</span>
+
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">FeatureException</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">feature</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">extractor</span><span class="p">)</span> <span class="o">:</span> <span class="n">msg_</span><span class="p">(</span><span class="s">&quot;ERROR! &quot;</span> <span class="o">+</span> <span class="n">feature</span> <span class="o">+</span> <span class="s">&quot; is not registered in &quot;</span> <span class="o">+</span> <span class="n">extractor</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="p">){}</span>
+  <span class="n">FeatureException</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">feature</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">extractor</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">msg_</span><span class="p">(</span><span class="s">&quot;ERROR! &quot;</span> <span class="o">+</span> <span class="n">feature</span> <span class="o">+</span> <span class="s">&quot; is not registered in &quot;</span> <span class="o">+</span> <span class="n">extractor</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">}</span>
   <span class="k">virtual</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">what</span><span class="p">()</span> <span class="k">const</span> <span class="k">throw</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">msg_</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span> <span class="p">}</span>
 <span class="p">};</span>
 
 <span class="k">class</span> <span class="nc">FeatureParamsException</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Exception</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">msg_</span><span class="p">;</span>
+
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">FeatureParamsException</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">feature</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">type</span><span class="p">)</span> <span class="o">:</span> <span class="n">msg_</span><span class="p">(</span><span class="s">&quot;ERROR! &quot;</span> <span class="o">+</span> <span class="n">feature</span> <span class="o">+</span> <span class="s">&quot; do not store params for &quot;</span> <span class="o">+</span> <span class="n">type</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="p">){}</span>
+  <span class="n">FeatureParamsException</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">feature</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">type</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">msg_</span><span class="p">(</span><span class="s">&quot;ERROR! &quot;</span> <span class="o">+</span> <span class="n">feature</span> <span class="o">+</span> <span class="s">&quot; do not store params for &quot;</span> <span class="o">+</span> <span class="n">type</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="p">)</span> <span class="p">{}</span>
   <span class="k">virtual</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">what</span><span class="p">()</span> <span class="k">const</span> <span class="k">throw</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">msg_</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span> <span class="p">}</span>
 <span class="p">};</span>
 
 <span class="k">class</span> <span class="nc">CUDADeviceException</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Exception</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">msg_</span><span class="p">;</span>
 
-  <span class="k">public</span><span class="o">:</span>
+<span class="k">public</span><span class="o">:</span>
   <span class="n">CUDADeviceException</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">available_devices</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">requested_device</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">msg_</span> <span class="o">=</span> <span class="s">&quot;Attempting to use CUDA device &quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">requested_device</span><span class="p">)</span> <span class="o">+</span>
            <span class="s">&quot; when only &quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">available_devices</span><span class="p">)</span> <span class="o">+</span>

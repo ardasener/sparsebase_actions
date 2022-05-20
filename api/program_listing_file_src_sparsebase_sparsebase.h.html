@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File sparsebase.h &mdash; SparseBase v0.1.10 documentation</title>
+  <title>Program Listing for File sparsebase.h &mdash; SparseBase v0.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -76,19 +76,19 @@
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef SPARSEBASE_SPARSEBASE_H_</span>
 <span class="cp">#define SPARSEBASE_SPARSEBASE_H_</span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/config.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;sparsebase/context/context.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/format/format.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/object/object.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/preprocess/preprocess.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;sparsebase/utils/converter/converter.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/utils/exception.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/utils/io/reader.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/utils/io/writer.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;sparsebase/utils/converter/converter.h&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;sparsebase/context/context.h&quot;</span><span class="cp"></span>
 <span class="cp">#ifdef CUDA</span>
+<span class="cp">#include</span> <span class="cpf">&quot;sparsebase/context/cuda/context.cuh&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/format/cuda/format.cuh&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/preprocess/cuda/preprocess.cuh&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/utils/converter/cuda/converter.cuh&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;sparsebase/context/cuda/context.cuh&quot;</span><span class="cp"></span>
 <span class="cp">#endif</span>
 <span class="cp">#endif</span>
 </pre></div>

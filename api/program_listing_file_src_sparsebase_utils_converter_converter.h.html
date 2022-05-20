@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File converter.h &mdash; SparseBase v0.1.10 documentation</title>
+  <title>Program Listing for File converter.h &mdash; SparseBase v0.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -76,11 +76,11 @@
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef SPARSEBASE_SPARSEBASE_UTILS_CONVERTER_CONVERTER_H_</span>
 <span class="cp">#define SPARSEBASE_SPARSEBASE_UTILS_CONVERTER_CONVERTER_H_</span>
 
-<span class="cp">#include</span> <span class="cpf">&quot;sparsebase/format/format.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/config.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;sparsebase/format/format.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;functional&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;tuple&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;unordered_map&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;functional&gt;</span><span class="cp"></span>
 <span class="cp">#ifdef CUDA</span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/format/cuda/format.cuh&quot;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/utils/converter/cuda/converter.cuh&quot;</span><span class="cp"></span>
@@ -90,91 +90,101 @@
 
 <span class="k">namespace</span> <span class="n">utils</span> <span class="p">{</span>
 
-<span class="k">namespace</span> <span class="n">converter</span><span class="p">{</span>
+<span class="k">namespace</span> <span class="n">converter</span> <span class="p">{</span>
 
-<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*&gt;&gt;</span> <span class="n">ConversionSchemaConditional</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*&gt;&gt;</span>
+    <span class="n">ConversionSchemaConditional</span><span class="p">;</span>
 
-<span class="k">using</span> <span class="n">ConditionalConversionFunction</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span><span class="o">*</span><span class="p">(</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="k">using</span> <span class="n">EdgeConditional</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">(</span><span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">ConditionalConversionFunction</span> <span class="o">=</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="p">(</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">EdgeConditional</span> <span class="o">=</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">(</span><span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="k">class</span> <span class="nc">Converter</span> <span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>
   <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span>
       <span class="n">std</span><span class="o">::</span><span class="n">type_index</span><span class="p">,</span>
       <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">type_index</span><span class="p">,</span>
-                         <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">EdgeConditional</span><span class="p">,</span> <span class="n">ConditionalConversionFunction</span><span class="o">&gt;&gt;&gt;&gt;</span>
+                         <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span>
+                             <span class="n">EdgeConditional</span><span class="p">,</span> <span class="n">ConditionalConversionFunction</span><span class="o">&gt;&gt;&gt;&gt;</span>
       <span class="n">conditional_map_</span><span class="p">;</span>
   <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span>
       <span class="n">std</span><span class="o">::</span><span class="n">type_index</span><span class="p">,</span>
       <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">type_index</span><span class="p">,</span>
-                         <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">EdgeConditional</span><span class="p">,</span> <span class="n">ConditionalConversionFunction</span><span class="o">&gt;&gt;&gt;&gt;</span>
+                         <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span>
+                             <span class="n">EdgeConditional</span><span class="p">,</span> <span class="n">ConditionalConversionFunction</span><span class="o">&gt;&gt;&gt;&gt;</span>
       <span class="n">conditional_move_map_</span><span class="p">;</span>
   <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span>
       <span class="n">std</span><span class="o">::</span><span class="n">type_index</span><span class="p">,</span>
       <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">type_index</span><span class="p">,</span>
-                         <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">EdgeConditional</span><span class="p">,</span> <span class="n">ConditionalConversionFunction</span><span class="o">&gt;&gt;&gt;&gt;</span> <span class="o">*</span><span class="n">get_conversion_map</span><span class="p">(</span><span class="kt">bool</span> <span class="n">is_move_conversion</span><span class="p">);</span>
+                         <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span>
+                             <span class="n">EdgeConditional</span><span class="p">,</span> <span class="n">ConditionalConversionFunction</span><span class="o">&gt;&gt;&gt;&gt;</span>
+      <span class="o">*</span><span class="n">get_conversion_map</span><span class="p">(</span><span class="kt">bool</span> <span class="n">is_move_conversion</span><span class="p">);</span>
 
 <span class="k">public</span><span class="o">:</span>
   <span class="kt">void</span> <span class="n">RegisterConditionalConversionFunction</span><span class="p">(</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">from_type</span><span class="p">,</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span>
-      <span class="n">ConditionalConversionFunction</span> <span class="n">conv_func</span><span class="p">,</span>
-      <span class="n">EdgeConditional</span> <span class="n">edge_condition</span><span class="p">,</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">from_type</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span>
+      <span class="n">ConditionalConversionFunction</span> <span class="n">conv_func</span><span class="p">,</span> <span class="n">EdgeConditional</span> <span class="n">edge_condition</span><span class="p">,</span>
       <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
   <span class="n">ConditionalConversionFunction</span>
-  <span class="nf">GetConversionFunction</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">from_type</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span> <span class="n">from_context</span><span class="p">,</span>
-                        <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span> <span class="n">to_context</span><span class="p">,</span>
+  <span class="nf">GetConversionFunction</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">from_type</span><span class="p">,</span>
+                        <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">from_context</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span>
+                        <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">to_context</span><span class="p">,</span>
                         <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="n">Convert</span><span class="p">(</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span> <span class="n">to_context</span><span class="p">,</span>
+  <span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="n">Convert</span><span class="p">(</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span>
+                          <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">to_context</span><span class="p">,</span>
                           <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">FormatType</span><span class="o">&gt;</span>
-  <span class="n">FormatType</span> <span class="o">*</span><span class="n">Convert</span><span class="p">(</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span> <span class="n">to_context</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">auto</span> <span class="o">*</span><span class="n">res</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">Convert</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">FormatType</span><span class="o">::</span><span class="n">get_format_id_static</span><span class="p">(),</span> <span class="n">to_context</span><span class="p">,</span> <span class="n">is_move_conversion</span><span class="p">);</span>
+  <span class="n">FormatType</span> <span class="o">*</span><span class="n">Convert</span><span class="p">(</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">to_context</span><span class="p">,</span>
+                      <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="o">*</span><span class="n">res</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">Convert</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">FormatType</span><span class="o">::</span><span class="n">get_format_id_static</span><span class="p">(),</span>
+                              <span class="n">to_context</span><span class="p">,</span> <span class="n">is_move_conversion</span><span class="p">);</span>
     <span class="k">return</span> <span class="n">res</span><span class="o">-&gt;</span><span class="k">template</span> <span class="n">As</span><span class="o">&lt;</span><span class="n">FormatType</span><span class="o">&gt;</span><span class="p">();</span>
   <span class="p">}</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*&gt;</span> <span class="n">CanConvert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">from_type</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span> <span class="n">from_context</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span>
-                  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*&gt;</span> <span class="n">to_contexts</span><span class="p">,</span>
-                  <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="kt">bool</span> <span class="nf">CanConvert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">from_type</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span> <span class="n">from_context</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span> <span class="n">to_context</span><span class="p">,</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*&gt;</span>
+  <span class="n">CanConvert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">from_type</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">from_context</span><span class="p">,</span>
+             <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span>
+             <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*&gt;</span> <span class="n">to_contexts</span><span class="p">,</span>
+             <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
+  <span class="kt">bool</span> <span class="nf">CanConvert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">from_type</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">from_context</span><span class="p">,</span>
+                  <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">to_context</span><span class="p">,</span>
                   <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*&gt;</span>
   <span class="n">ApplyConversionSchema</span><span class="p">(</span><span class="n">ConversionSchemaConditional</span> <span class="n">cs</span><span class="p">,</span>
                         <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*&gt;</span> <span class="n">packed_sfs</span><span class="p">,</span>
                         <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
   <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_converter_type</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">virtual</span> <span class="n">Converter</span><span class="o">*</span> <span class="nf">Clone</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="n">Converter</span> <span class="o">*</span><span class="nf">Clone</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">Reset</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="o">~</span><span class="n">Converter</span><span class="p">();</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">ConverterType</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">ConverterImpl</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Converter</span><span class="p">{</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">ConverterType</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">ConverterImpl</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Converter</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_converter_type</span><span class="p">(){</span>
-    <span class="k">return</span> <span class="k">typeid</span><span class="p">(</span><span class="n">ConverterType</span><span class="p">);</span>
-  <span class="p">}</span>
+  <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_converter_type</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">typeid</span><span class="p">(</span><span class="n">ConverterType</span><span class="p">);</span> <span class="p">}</span>
 <span class="p">};</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">ConverterOrderTwo</span> <span class="o">:</span> <span class="k">public</span> <span class="n">ConverterImpl</span><span class="o">&lt;</span><span class="n">ConverterOrderTwo</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;&gt;</span><span class="p">{</span>
+<span class="k">class</span> <span class="nc">ConverterOrderTwo</span>
+    <span class="o">:</span> <span class="k">public</span> <span class="n">ConverterImpl</span><span class="o">&lt;</span><span class="n">ConverterOrderTwo</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
   <span class="n">ConverterOrderTwo</span><span class="p">();</span>
-  <span class="k">virtual</span> <span class="n">Converter</span><span class="o">*</span> <span class="nf">Clone</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="n">Converter</span> <span class="o">*</span><span class="nf">Clone</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">Reset</span><span class="p">();</span>
 <span class="p">};</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">ConverterOrderOne</span> <span class="o">:</span> <span class="k">public</span> <span class="n">ConverterImpl</span><span class="o">&lt;</span><span class="n">ConverterOrderOne</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;&gt;</span><span class="p">{</span>
+<span class="k">class</span> <span class="nc">ConverterOrderOne</span> <span class="o">:</span> <span class="k">public</span> <span class="n">ConverterImpl</span><span class="o">&lt;</span><span class="n">ConverterOrderOne</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
   <span class="n">ConverterOrderOne</span><span class="p">();</span>
-  <span class="k">virtual</span> <span class="n">Converter</span><span class="o">*</span> <span class="nf">Clone</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="k">virtual</span> <span class="n">Converter</span> <span class="o">*</span><span class="nf">Clone</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">Reset</span><span class="p">();</span>
 <span class="p">};</span>
+
+<span class="p">}</span> <span class="c1">// namespace converter</span>
 
 <span class="p">}</span> <span class="c1">// namespace utils</span>
 
 <span class="p">}</span> <span class="c1">// namespace sparsebase</span>
-
-<span class="p">}</span>
 <span class="cp">#ifdef _HEADER_ONLY</span>
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/utils/converter/converter.cc&quot;</span><span class="cp"></span>
 <span class="cp">#ifdef CUDA</span>
