@@ -26,8 +26,8 @@ if(${CUDA})
   set(CMAKE_CUDA_STANDARD_REQUIRED TRUE)
   set(CMAKE_CUDA_ARCHITECTURES 60 62 70 75)
 endif()
-if (WIN32 OR APPLE)
-  message(STATUS "PIGO is not supported on Windows and MacOS at the moment.")
+if (WIN32)
+  message(STATUS "PIGO is not supported on Windows.")
   set(USE_PIGO OFF)
 endif()
 
@@ -72,12 +72,11 @@ add_custom_target(format
 )
 
 if ( RUN_TESTS )
-  execute_process(
-    COMMAND git submodule update --recursive --init
-    ${CMAKE_CURRENT_SOURCE_DIR}
-  )
-  enable_testing()
+  execute_process(COMMAND git submodule update --recursive --init
+  ${CMAKE_CURRENT_SOURCE_DIR})
   add_subdirectory(tests)
+  enable_testing()
+  add_test(NAME sparseformat_tests COMMAND tests/sparseformat_tests.test)
 endif()
 
 # Create the sparseprocess export set

@@ -4,8 +4,10 @@ add_subdirectory(lib EXCLUDE_FROM_ALL)
 
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_source_dir})
 
-add_subdirectory(suites/sparsebase/preprocess)
-add_subdirectory(suites/sparsebase/preprocess/cuda)
-add_subdirectory(suites/sparsebase/utils/io)
-add_subdirectory(suites/sparsebase/utils/converter)
-add_subdirectory(suites/sparsebase/format)
+add_executable(sparseformat_tests.test suites/SparseFormat_tests.cpp)
+target_link_libraries(sparseformat_tests.test sparsebase)
+target_link_libraries(sparseformat_tests.test gtest gtest_main)
+
+add_executable(io_tests.test suites/io_tests.cc)
+target_link_libraries(io_tests.test sparsebase)
+target_link_libraries(io_tests.test gtest gtest_main)

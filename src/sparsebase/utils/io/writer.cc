@@ -1,19 +1,14 @@
-#include <string>
 #include "writer.h"
-#include "sparsebase/utils/exception.h"
 #include "sparse_file_format.h"
+#include "sparsebase/utils/exception.h"
+#include <string>
 
-namespace sparsebase {
-
-namespace utils {
-
-namespace io {
+namespace sparsebase::utils::io {
 
 template <typename IDType, typename NNZType, typename ValueType>
 BinaryWriterOrderTwo<IDType, NNZType, ValueType>::BinaryWriterOrderTwo(
     std::string filename)
     : filename_(filename) {}
-
 
 template <typename IDType, typename NNZType, typename ValueType>
 void BinaryWriterOrderTwo<IDType, NNZType, ValueType>::WriteCOO(
@@ -63,12 +58,4 @@ void BinaryWriterOrderOne<T>::WriteArray(format::Array<T> *arr) const {
   sbff.WriteObject(filename_);
 }
 
-#if !defined(_HEADER_ONLY)
-#include "init/writer.inc"
-#endif
-
-} // namespace io
-
-} // namespace utils
-
-} // namespace sparsebase
+} // namespace sparsebase::utils::io

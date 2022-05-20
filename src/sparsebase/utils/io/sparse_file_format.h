@@ -6,16 +6,12 @@
 #endif
 
 #include "sparsebase/external/json/json.hpp"
+#include <climits>
 #include <iostream>
 #include <string>
-#include <climits>
 #include <type_traits>
 
-namespace sparsebase {
-
-namespace utils {
-
-namespace io {
+namespace sparsebase::utils::io {
 
 #ifdef USE_PIGO
 
@@ -67,7 +63,57 @@ public:
 
 #endif
 
+// Thanks StackOverflow
+// This will fail if sizeof(int) == 1
+// which might be the case on some embedded systems
+std::string GetEndian() {
+  const int value{0x01};
+  const void *address = static_cast<const void *>(&value);
+  const auto *least_significant_address =
+      static_cast<const unsigned char *>(address);
+  return (*least_significant_address == 0x01) ? "little" : "big";
+}
 
+// Thanks StackOverflow
+template <typename T> T SwapEndian(T u) {
+  static_assert(CHAR_BIT == 8, "CHAR_BIT != 8");
+
+  union {
+    T u;
+    unsigned char u8[sizeof(T)];
+  } source, dest;
+
+  source.u = u;
+
+  for (size_t k = 0; k < sizeof(T); k++)
+    dest.u8[k] = source.u8[sizeof(T) - k - 1];
+
+  return dest.u;
+}
+
+nlohmann::json ReadHeader(SbffReadOnlyFile &file) {
+  char header_bytes[1024];
+  file.Read((char *)&header_bytes, 1024);
+  nlohmann::json header = nlohmann::json::parse(header_bytes);
+  return header;
+}
+
+std::vector<char> HeaderToBytes(nlohmann::json &header) {
+  std::string header_str = header.dump();
+  std::vector<char> header_bytes(header_str.begin(), header_str.end());
+
+  // Headers should have a maximum size of 1024 bytes
+  if (header_bytes.size() > 1024) {
+    throw sparsebase::utils::WriterException("Header size exceeds 1 KB");
+  }
+
+  // Pad the header to exactly 1024 bytes
+  while (header_bytes.size() < 1024) {
+    header_bytes.push_back(' ');
+  }
+
+  return header_bytes;
+}
 
 class SbffArray {
 private:
@@ -107,13 +153,6 @@ public:
     return sbas_arr;
   }
 
-  static nlohmann::json ReadHeader(SbffReadOnlyFile &file) {
-    char header_bytes[1024];
-    file.Read((char *)&header_bytes, 1024);
-    nlohmann::json header = nlohmann::json::parse(header_bytes);
-    return header;
-  }
-
   static SbffArray ReadArray(SbffReadOnlyFile &file, std::string endian) {
     try {
       auto header = ReadHeader(file);
@@ -138,23 +177,6 @@ public:
     }
   }
 
-  static std::vector<char> HeaderToBytes(const nlohmann::json &header) {
-    std::string header_str = header.dump();
-    std::vector<char> header_bytes(header_str.begin(), header_str.end());
-
-    // Headers should have a maximum size of 1024 bytes
-    if (header_bytes.size() > 1024) {
-      throw sparsebase::utils::WriterException("Header size exceeds 1 KB");
-    }
-
-    // Pad the header to exactly 1024 bytes
-    while (header_bytes.size() < 1024) {
-      header_bytes.push_back(' ');
-    }
-
-    return header_bytes;
-  }
-
   void WriteArray(SbffWriteFile &file) {
 
     nlohmann::json header;
@@ -166,38 +188,7 @@ public:
     file.Write((char *)HeaderToBytes(header).data(), 1024);
     file.Write((char *)data, array_size * type_size);
   }
-
-  // This will fail if sizeof(int) == 1
-  // which might be the case on some embedded systems
-  static std::string GetEndian() {
-    const int value{0x01};
-    const void *address = static_cast<const void *>(&value);
-    const auto *least_significant_address =
-        static_cast<const unsigned char *>(address);
-    return (*least_significant_address == 0x01) ? "little" : "big";
-  }
-
-   template <typename T>
-   static T SwapEndian(T u) {
-    static_assert(CHAR_BIT == 8, "CHAR_BIT != 8");
-
-    union {
-      T u;
-      unsigned char u8[sizeof(T)];
-    } source, dest;
-
-    source.u = u;
-
-    for (size_t k = 0; k < sizeof(T); k++)
-      dest.u8[k] = source.u8[sizeof(T) - k - 1];
-
-    return dest.u;
-  }
 };
-
-
-
-
 
 struct SbffObject {
 private:
@@ -209,7 +200,7 @@ private:
 public:
   explicit SbffObject(std::string name) : name(name) {}
 
-  void AddDimensions(const std::vector<format::DimensionType> &dims) {
+  void AddDimensions(const std::vector<int> &dims) {
     dimensions.insert(dimensions.end(), dims.begin(), dims.end());
   }
 
@@ -253,10 +244,10 @@ public:
 
       ptr = (T *)arr.data;
 
-      if (arr.endian != SbffArray::GetEndian()) {
-#pragma omp parallel for shared(ptr, arr) default(none)
+      if (arr.endian != GetEndian()) {
+#pragma omp parallel for shared(ptr, arr)
         for (size_t i = 0; i < arr.array_size; i++) {
-          ptr[i] = SbffArray::SwapEndian(ptr[i]);
+          ptr[i] = SwapEndian(ptr[i]);
         }
       }
 
@@ -278,9 +269,9 @@ public:
     header["name"] = name;
     header["array_count"] = arrays.size();
     header["dimensions"] = dimensions;
-    header["endian"] = SbffArray::GetEndian();
+    header["endian"] = GetEndian();
 
-    file.Write((char *)SbffArray::HeaderToBytes(header).data(), 1024);
+    file.Write((char *)HeaderToBytes(header).data(), 1024);
 
     for (auto arr : arrays) {
       arr.second.WriteArray(file);
@@ -289,7 +280,7 @@ public:
 
   static SbffObject ReadObject(SbffReadOnlyFile &file) {
     try {
-      auto header = SbffArray::ReadHeader(file);
+      auto header = ReadHeader(file);
 
       SbffObject obj("temp");
       obj.name = header.at("name");
@@ -321,14 +312,6 @@ public:
 
   std::vector<int> get_dimensions() { return dimensions; }
 };
-
-
-
-} // namespace io
-
-} // namespace utils
-
-} // namespace sparsebase
-
+} // namespace sparsebase::utils::io
 
 #endif // SPARSEBASE_SPARSEBASE_UTILS_IO_SPARSE_FILE_FORMAT_H_

@@ -94,6 +94,7 @@ bool FunctionMatcherMixin<
   } else {
     match = false;
   }
+  std::cout << "Match :" << match << std::endl;
   return match;
 }
 //! Return the correct function for the operation and a conversion schema to
@@ -275,7 +276,7 @@ FunctionMatcherMixin<ReturnType, PreprocessingImpl, Function, Key, KeyHash,
 template <typename IDType, typename NNZType, typename ValueType>
 GenericReorder<IDType, NNZType, ValueType>::GenericReorder() {}
 template <typename IDType, typename NNZType, typename ValueType>
-DegreeReorder<IDType, NNZType, ValueType>::DegreeReorder(bool ascending) {
+DegreeReorder<IDType, NNZType, ValueType>::DegreeReorder(int hyperparameter) {
   // this->map[{kCSRFormat}]= calculate_order_csr;
   // this->RegisterFunction({kCSRFormat}, CalculateReorderCSR);
   this->SetConverter(
@@ -284,7 +285,7 @@ DegreeReorder<IDType, NNZType, ValueType>::DegreeReorder(bool ascending) {
       {CSR<IDType, NNZType, ValueType>::get_format_id_static()},
       CalculateReorderCSR);
   this->params_ = std::unique_ptr<DegreeReorderParams>(
-      new DegreeReorderParams(ascending));
+      new DegreeReorderParams(hyperparameter));
 }
 template <typename IDType, typename NNZType, typename ValueType>
 IDType *ReorderPreprocessType<IDType, NNZType, ValueType>::GetReorder(
@@ -321,7 +322,7 @@ IDType *DegreeReorder<IDType, NNZType, ValueType>::CalculateReorderCSR(
   CSR<IDType, NNZType, ValueType> *csr =
       formats[0]->As<CSR<IDType, NNZType, ValueType>>();
   DegreeReorderParams *cast_params = static_cast<DegreeReorderParams *>(params);
-  bool ascending = cast_params->ascending;
+  std::cout << cast_params->hyperparameter;
   IDType n = csr->get_dimensions()[0];
   IDType *counts = new IDType[n]();
   auto row_ptr = csr->get_row_ptr();
@@ -340,21 +341,13 @@ IDType *DegreeReorder<IDType, NNZType, ValueType>::CalculateReorderCSR(
     sorted[ec + mr[ec]] = u;
     mr[ec]++;
   }
-  if (!ascending){
-    for (IDType i = 0; i < n/2; i++){
-      IDType swp = sorted[i];
-      sorted[i] = sorted[n-i-1];
-      sorted[n-i-1] = swp;
-    }
-  }
-  auto * inverse_permutation = new IDType[n];
-  for (IDType i = 0; i < n; i++){
-      inverse_permutation[sorted[i]] = i;
-  }
+  IDType *inv_sorted = new IDType[n];
+  for (IDType i = 0; i < n; i++)
+    inv_sorted[sorted[i]] = i;
   delete[] mr;
   delete[] counts;
   delete[] sorted;
-  return inverse_permutation;
+  return inv_sorted;
 }
 template <typename IDType, typename NNZType, typename ValueType>
 RCMReorder<IDType, NNZType, ValueType>::RCMReorder(float a, float b) {

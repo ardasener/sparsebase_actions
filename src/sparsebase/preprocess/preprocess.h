@@ -116,12 +116,12 @@ public:
 template <typename IDType, typename NNZType, typename ValueType>
 class DegreeReorder : public ReorderPreprocessType<IDType, NNZType, ValueType> {
 public:
-  DegreeReorder(bool ascending);
+  DegreeReorder(int hyperparameter);
 
 protected:
   struct DegreeReorderParams : PreprocessParams {
-    bool ascending;
-    DegreeReorderParams(bool ascending) : ascending(ascending) {}
+    int hyperparameter;
+    DegreeReorderParams(int h) : hyperparameter(h) {}
   };
   static IDType *CalculateReorderCSR(std::vector<format::Format *> formats,
                                      PreprocessParams *params);
