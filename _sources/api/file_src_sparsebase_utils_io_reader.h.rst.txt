@@ -83,7 +83,13 @@ Classes
 
 - :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1BinaryReaderOrderTwo`
 
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1EdgeListReader`
+
 - :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1MTXReader`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1PigoEdgeListReader`
+
+- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1PigoMTXReader`
 
 - :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1Reader`
 
@@ -92,6 +98,4 @@ Classes
 - :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1ReadsCOO`
 
 - :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1ReadsCSR`
-
-- :ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1UedgelistReader`
 

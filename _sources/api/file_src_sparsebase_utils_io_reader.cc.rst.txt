@@ -33,6 +33,8 @@ Includes
 
 - ``cstring``
 
+- ``init/external/pigo.inc``
+
 - ``init/reader.inc``
 
 - ``iostream``

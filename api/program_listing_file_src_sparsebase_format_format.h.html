@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File format.h &mdash; SparseBase v0.2.0 documentation</title>
+  <title>Program Listing for File format.h &mdash; SparseBase v0.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -40,6 +40,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
@@ -119,17 +120,26 @@
 
 <span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">DimensionType</span><span class="p">;</span>
 
+
 <span class="k">class</span> <span class="nc">Format</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
+
   <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_format_id</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="o">~</span><span class="n">Format</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
 
   <span class="k">virtual</span> <span class="n">Format</span> <span class="o">*</span><span class="nf">Clone</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
   <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">DimensionType</span><span class="o">&gt;</span> <span class="n">get_dimensions</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
   <span class="k">virtual</span> <span class="n">DimensionType</span> <span class="nf">get_num_nnz</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
   <span class="k">virtual</span> <span class="n">DimensionType</span> <span class="nf">get_order</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
   <span class="k">virtual</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">get_context</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
   <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_context_type</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="o">*</span><span class="n">As</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_format_id</span><span class="p">()</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span><span class="p">(</span><span class="k">typeid</span><span class="p">(</span><span class="n">T</span><span class="p">)))</span> <span class="p">{</span>
@@ -139,6 +149,7 @@
   <span class="p">}</span>
 <span class="p">};</span>
 
+
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">FormatType</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">FormatImplementation</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Format</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
   <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">DimensionType</span><span class="o">&gt;</span> <span class="n">get_dimensions</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
@@ -147,7 +158,9 @@
   <span class="k">virtual</span> <span class="n">DimensionType</span> <span class="n">get_num_nnz</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">nnz_</span><span class="p">;</span> <span class="p">}</span>
   <span class="k">virtual</span> <span class="n">DimensionType</span> <span class="n">get_order</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">order_</span><span class="p">;</span> <span class="p">}</span>
   <span class="k">virtual</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">get_context</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">context_</span><span class="p">.</span><span class="n">get</span><span class="p">();</span> <span class="p">}</span>
+
   <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_format_id</span><span class="p">()</span> <span class="k">final</span> <span class="p">{</span> <span class="k">return</span> <span class="k">typeid</span><span class="p">(</span><span class="n">FormatType</span><span class="p">);</span> <span class="p">}</span>
+
   <span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_format_id_static</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">typeid</span><span class="p">(</span><span class="n">FormatType</span><span class="p">);</span> <span class="p">}</span>
 
   <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">get_context_type</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
@@ -161,11 +174,13 @@
   <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">sparsebase</span><span class="o">::</span><span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">&gt;</span> <span class="n">context_</span><span class="p">;</span>
 <span class="p">};</span>
 
+
+
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="nc">COO</span> <span class="o">:</span> <span class="k">public</span> <span class="n">FormatImplementation</span><span class="o">&lt;</span><span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
   <span class="n">COO</span><span class="p">(</span><span class="n">IDType</span> <span class="n">n</span><span class="p">,</span> <span class="n">IDType</span> <span class="n">m</span><span class="p">,</span> <span class="n">NNZType</span> <span class="n">nnz</span><span class="p">,</span> <span class="n">IDType</span> <span class="o">*</span><span class="n">row</span><span class="p">,</span> <span class="n">IDType</span> <span class="o">*</span><span class="n">col</span><span class="p">,</span>
-      <span class="n">ValueType</span> <span class="o">*</span><span class="n">vals</span><span class="p">,</span> <span class="n">Ownership</span> <span class="n">own</span> <span class="o">=</span> <span class="n">kNotOwned</span><span class="p">);</span>
+      <span class="n">ValueType</span> <span class="o">*</span><span class="n">vals</span><span class="p">,</span> <span class="n">Ownership</span> <span class="n">own</span> <span class="o">=</span> <span class="n">kNotOwned</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">ignore_sort</span><span class="o">=</span><span class="nb">false</span><span class="p">);</span>
   <span class="n">COO</span><span class="p">(</span><span class="k">const</span> <span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="p">);</span>
   <span class="n">COO</span><span class="p">(</span><span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span><span class="p">);</span>
   <span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">&amp;</span>
@@ -194,6 +209,7 @@
   <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="p">[],</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">ValueType</span> <span class="o">*</span><span class="p">)</span><span class="o">&gt;&gt;</span> <span class="n">vals_</span><span class="p">;</span>
 <span class="p">};</span>
 
+
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="nc">Array</span> <span class="o">:</span> <span class="k">public</span> <span class="n">FormatImplementation</span><span class="o">&lt;</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -215,11 +231,12 @@
   <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="p">[],</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">ValueType</span> <span class="o">*</span><span class="p">)</span><span class="o">&gt;&gt;</span> <span class="n">vals_</span><span class="p">;</span>
 <span class="p">};</span>
 
+
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="nc">CSR</span> <span class="o">:</span> <span class="k">public</span> <span class="n">FormatImplementation</span><span class="o">&lt;</span><span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
   <span class="n">CSR</span><span class="p">(</span><span class="n">IDType</span> <span class="n">n</span><span class="p">,</span> <span class="n">IDType</span> <span class="n">m</span><span class="p">,</span> <span class="n">NNZType</span> <span class="o">*</span><span class="n">row_ptr</span><span class="p">,</span> <span class="n">IDType</span> <span class="o">*</span><span class="n">col</span><span class="p">,</span> <span class="n">ValueType</span> <span class="o">*</span><span class="n">vals</span><span class="p">,</span>
-      <span class="n">Ownership</span> <span class="n">own</span> <span class="o">=</span> <span class="n">kNotOwned</span><span class="p">);</span>
+      <span class="n">Ownership</span> <span class="n">own</span> <span class="o">=</span> <span class="n">kNotOwned</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">ignore_sort</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
   <span class="n">CSR</span><span class="p">(</span><span class="k">const</span> <span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="p">);</span>
   <span class="n">CSR</span><span class="p">(</span><span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span><span class="p">);</span>
   <span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">&amp;</span>

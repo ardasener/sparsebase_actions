@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Template Class Array &mdash; SparseBase v0.2.0 documentation</title>
+  <title>Template Class Array &mdash; SparseBase v0.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -42,6 +42,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
@@ -92,7 +93,14 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4I0EN10sparsebase6format5ArrayE">
 <span id="_CPPv3I0EN10sparsebase6format5ArrayE"></span><span id="_CPPv2I0EN10sparsebase6format5ArrayE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ValueType</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classsparsebase_1_1format_1_1Array"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">sparsebase</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Array</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">sparsebase</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classsparsebase_1_1format_1_1FormatImplementation.html#_CPPv4I0EN10sparsebase6format20FormatImplementationE" title="sparsebase::format::FormatImplementation"><span class="n"><span class="pre">FormatImplementation</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN10sparsebase6format5ArrayE" title="sparsebase::format::Array"><span class="n"><span class="pre">Array</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN10sparsebase6format5ArrayE" title="sparsebase::format::Array::ValueType"><span class="n"><span class="pre">ValueType</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0EN10sparsebase6format5ArrayE" title="Permalink to this definition"></a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dd><p>One dimensional <a class="reference internal" href="classsparsebase_1_1format_1_1Format.html#classsparsebase_1_1format_1_1Format"><span class="std std-ref">Format</span></a> class that wraps a native C++ array. </p>
+<p>This class basically functions as a wrapper for native C++ arrays such that they can be used polymorphically with the rest of the <a class="reference internal" href="classsparsebase_1_1format_1_1Format.html#classsparsebase_1_1format_1_1Format"><span class="std std-ref">Format</span></a> classes <dl class="field-list simple">
+<dt class="field-odd">tparam ValueType</dt>
+<dd class="field-odd"><p>type that the array stores </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N10sparsebase6format5Array5ArrayE13DimensionTypeP9ValueType9Ownership">
@@ -117,7 +125,8 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK10sparsebase6format5Array5CloneEv">
 <span id="_CPPv3NK10sparsebase6format5Array5CloneEv"></span><span id="_CPPv2NK10sparsebase6format5Array5CloneEv"></span><span id="sparsebase::format::Array::CloneC"></span><span class="target" id="classsparsebase_1_1format_1_1Array_1a3dcbc9accc1db8a4181605eb4370c836"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="classsparsebase_1_1format_1_1Format.html#_CPPv4N10sparsebase6format6FormatE" title="sparsebase::format::Format"><span class="n"><span class="pre">Format</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">Clone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK10sparsebase6format5Array5CloneEv" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Performs a deep copy of the <a class="reference internal" href="classsparsebase_1_1format_1_1Format.html#classsparsebase_1_1format_1_1Format"><span class="std std-ref">Format</span></a> object and returns the pointer to the newly created object. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N10sparsebase6format5ArrayD0Ev">

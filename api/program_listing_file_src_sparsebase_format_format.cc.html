@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File format.cc &mdash; SparseBase v0.2.0 documentation</title>
+  <title>Program Listing for File format.cc &mdash; SparseBase v0.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -40,6 +40,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
@@ -155,7 +156,7 @@
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
 <span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;::</span><span class="n">COO</span><span class="p">(</span><span class="n">IDType</span> <span class="n">n</span><span class="p">,</span> <span class="n">IDType</span> <span class="n">m</span><span class="p">,</span> <span class="n">NNZType</span> <span class="n">nnz</span><span class="p">,</span>
                                      <span class="n">IDType</span> <span class="o">*</span><span class="n">row</span><span class="p">,</span> <span class="n">IDType</span> <span class="o">*</span><span class="n">col</span><span class="p">,</span> <span class="n">ValueType</span> <span class="o">*</span><span class="n">vals</span><span class="p">,</span>
-                                     <span class="n">Ownership</span> <span class="n">own</span><span class="p">)</span>
+                                     <span class="n">Ownership</span> <span class="n">own</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">ignore_sort</span><span class="p">)</span>
     <span class="o">:</span> <span class="n">col_</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">BlankDeleter</span><span class="o">&lt;</span><span class="n">IDType</span><span class="o">&gt;</span><span class="p">()),</span> <span class="n">row_</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">BlankDeleter</span><span class="o">&lt;</span><span class="n">IDType</span><span class="o">&gt;</span><span class="p">()),</span>
       <span class="n">vals_</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">BlankDeleter</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;</span><span class="p">())</span> <span class="p">{</span>
   <span class="k">this</span><span class="o">-&gt;</span><span class="n">nnz_</span> <span class="o">=</span> <span class="n">nnz</span><span class="p">;</span>
@@ -172,6 +173,46 @@
   <span class="p">}</span>
   <span class="k">this</span><span class="o">-&gt;</span><span class="n">context_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">sparsebase</span><span class="o">::</span><span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">&gt;</span><span class="p">(</span>
       <span class="k">new</span> <span class="n">sparsebase</span><span class="o">::</span><span class="n">context</span><span class="o">::</span><span class="n">CPUContext</span><span class="p">);</span>
+
+  <span class="kt">bool</span> <span class="n">not_sorted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ignore_sort</span><span class="p">){</span>
+    <span class="n">IDType</span> <span class="n">prev_row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">IDType</span> <span class="n">prev_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">DimensionType</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">nnz</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">prev_row</span> <span class="o">&gt;</span> <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">||</span> <span class="p">(</span><span class="n">prev_row</span> <span class="o">==</span> <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">prev_col</span> <span class="o">&gt;</span> <span class="n">col</span><span class="p">[</span><span class="n">i</span><span class="p">])){</span>
+        <span class="n">not_sorted</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="n">prev_row</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+      <span class="n">prev_col</span> <span class="o">=</span> <span class="n">col</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">not_sorted</span><span class="p">){</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;COO arrays must be sorted. Sorting...&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">IDType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;&gt;</span> <span class="n">sort_vec</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">DimensionType</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">nnz</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+      <span class="n">ValueType</span> <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">vals</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="o">?</span> <span class="n">vals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="n">sort_vec</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">value</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">sort_vec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">sort_vec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">IDType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="n">t1</span><span class="p">,</span>
+                                                   <span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">IDType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="n">t2</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t2</span><span class="p">)){</span>
+        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t2</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t2</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="n">DimensionType</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">nnz</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+      <span class="k">auto</span><span class="o">&amp;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">sort_vec</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+      <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+      <span class="n">col</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+
+      <span class="k">if</span><span class="p">(</span><span class="n">vals</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">){</span>
+        <span class="n">vals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
 <span class="n">Format</span> <span class="o">*</span><span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;::</span><span class="n">Clone</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
@@ -349,7 +390,7 @@
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
 <span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;::</span><span class="n">CSR</span><span class="p">(</span><span class="n">IDType</span> <span class="n">n</span><span class="p">,</span> <span class="n">IDType</span> <span class="n">m</span><span class="p">,</span> <span class="n">NNZType</span> <span class="o">*</span><span class="n">row_ptr</span><span class="p">,</span>
                                      <span class="n">IDType</span> <span class="o">*</span><span class="n">col</span><span class="p">,</span> <span class="n">ValueType</span> <span class="o">*</span><span class="n">vals</span><span class="p">,</span>
-                                     <span class="n">Ownership</span> <span class="n">own</span><span class="p">)</span>
+                                     <span class="n">Ownership</span> <span class="n">own</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">ignore_sort</span><span class="p">)</span>
     <span class="o">:</span> <span class="n">row_ptr_</span><span class="p">(</span><span class="n">row_ptr</span><span class="p">,</span> <span class="n">BlankDeleter</span><span class="o">&lt;</span><span class="n">NNZType</span><span class="o">&gt;</span><span class="p">()),</span>
       <span class="n">col_</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">BlankDeleter</span><span class="o">&lt;</span><span class="n">IDType</span><span class="o">&gt;</span><span class="p">()),</span>
       <span class="n">vals_</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">BlankDeleter</span><span class="o">&lt;</span><span class="n">ValueType</span><span class="o">&gt;</span><span class="p">())</span> <span class="p">{</span>
@@ -367,6 +408,53 @@
   <span class="p">}</span>
   <span class="k">this</span><span class="o">-&gt;</span><span class="n">context_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">sparsebase</span><span class="o">::</span><span class="n">context</span><span class="o">::</span><span class="n">Context</span><span class="o">&gt;</span><span class="p">(</span>
       <span class="k">new</span> <span class="n">sparsebase</span><span class="o">::</span><span class="n">context</span><span class="o">::</span><span class="n">CPUContext</span><span class="p">);</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ignore_sort</span><span class="p">){</span>
+    <span class="kt">bool</span> <span class="n">not_sorted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+
+<span class="cp">#pragma omp parallel for default(none) reduction(||: not_sorted) shared(col, row_ptr, n)</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">IDType</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">NNZType</span> <span class="n">start</span> <span class="o">=</span> <span class="n">row_ptr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">NNZType</span> <span class="n">end</span> <span class="o">=</span> <span class="n">row_ptr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+        <span class="n">IDType</span> <span class="n">prev_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">NNZType</span> <span class="n">j</span><span class="o">=</span><span class="n">start</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">end</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+          <span class="k">if</span><span class="p">(</span><span class="n">col</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">prev_value</span><span class="p">){</span>
+            <span class="n">not_sorted</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+          <span class="p">}</span>
+          <span class="n">prev_value</span> <span class="o">=</span> <span class="n">col</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">not_sorted</span><span class="p">){</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;CSR column array must be sorted. Sorting...&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="cp">#pragma omp parallel for default(none) shared(row_ptr, col, vals, n)</span>
+      <span class="k">for</span><span class="p">(</span><span class="n">IDType</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">NNZType</span> <span class="n">start</span> <span class="o">=</span> <span class="n">row_ptr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">NNZType</span> <span class="n">end</span> <span class="o">=</span> <span class="n">row_ptr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">){</span>
+          <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;&gt;</span> <span class="n">sort_vec</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">NNZType</span> <span class="n">j</span><span class="o">=</span><span class="n">start</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">end</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+          <span class="n">ValueType</span> <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="n">vals</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="o">?</span> <span class="n">vals</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+          <span class="n">sort_vec</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">col</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">val</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">sort_vec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">sort_vec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">less</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;&gt;</span><span class="p">());</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">NNZType</span> <span class="n">j</span><span class="o">=</span><span class="n">start</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">end</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+          <span class="k">if</span><span class="p">(</span><span class="n">vals</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">){</span>
+            <span class="n">vals</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">sort_vec</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="n">start</span><span class="p">].</span><span class="n">second</span><span class="p">;</span>
+          <span class="p">}</span>
+          <span class="n">col</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">sort_vec</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="n">start</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+
+    <span class="p">}</span>
+  <span class="p">}</span>
+
 <span class="p">}</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>

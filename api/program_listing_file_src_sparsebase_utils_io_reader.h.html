@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File reader.h &mdash; SparseBase v0.2.0 documentation</title>
+  <title>Program Listing for File reader.h &mdash; SparseBase v0.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -40,6 +40,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
@@ -113,34 +114,52 @@
   <span class="k">virtual</span> <span class="n">format</span><span class="o">::</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadArray</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">};</span>
 
+
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">UedgelistReader</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Reader</span><span class="p">,</span>
-                        <span class="k">public</span> <span class="n">ReadsCSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="k">class</span> <span class="nc">EdgeListReader</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Reader</span><span class="p">,</span>
+                       <span class="k">public</span> <span class="n">ReadsCSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span><span class="p">,</span>
+                       <span class="k">public</span> <span class="n">ReadsCOO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span>
+<span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">explicit</span> <span class="n">UedgelistReader</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">weighted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="n">format</span><span class="o">::</span><span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCSR</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-  <span class="o">~</span><span class="n">UedgelistReader</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
+  <span class="k">explicit</span> <span class="n">EdgeListReader</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span>
+                          <span class="kt">bool</span> <span class="n">weighted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">,</span>
+                          <span class="kt">bool</span> <span class="n">remove_duplicates</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span>
+                          <span class="kt">bool</span> <span class="n">remove_self_edges</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span>
+                          <span class="kt">bool</span> <span class="n">read_undirected_</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span>
+                          <span class="kt">bool</span> <span class="n">square</span><span class="o">=</span><span class="nb">false</span><span class="p">);</span>
+  <span class="n">format</span><span class="o">::</span><span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCSR</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+  <span class="n">format</span><span class="o">::</span><span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCOO</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+  <span class="o">~</span><span class="n">EdgeListReader</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
 
 <span class="k">private</span><span class="o">:</span>
-  <span class="k">static</span> <span class="kt">bool</span> <span class="n">SortEdge</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">IDType</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span>
-                       <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">IDType</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename_</span><span class="p">;</span>
   <span class="kt">bool</span> <span class="n">weighted_</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">remove_duplicates_</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">remove_self_edges_</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">read_undirected_</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">square_</span><span class="p">;</span>
 <span class="p">};</span>
 
+
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">MTXReader</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Reader</span><span class="p">,</span> <span class="k">public</span> <span class="n">ReadsCOO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="k">class</span> <span class="nc">MTXReader</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Reader</span><span class="p">,</span>
+                  <span class="k">public</span> <span class="n">ReadsCSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span><span class="p">,</span>
+                  <span class="k">public</span> <span class="n">ReadsCOO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">explicit</span> <span class="n">MTXReader</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">weighted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="n">format</span><span class="o">::</span><span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCOO</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="k">explicit</span> <span class="n">MTXReader</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span>
+                     <span class="kt">bool</span> <span class="n">weighted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">,</span>
+                     <span class="kt">bool</span> <span class="n">convert_to_zero_index</span> <span class="o">=</span> <span class="nb">true</span><span class="p">);</span>
+  <span class="n">format</span><span class="o">::</span><span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCOO</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+  <span class="n">format</span><span class="o">::</span><span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCSR</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
   <span class="o">~</span><span class="n">MTXReader</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
 
 <span class="k">private</span><span class="o">:</span>
   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename_</span><span class="p">;</span>
   <span class="kt">bool</span> <span class="n">weighted_</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">convert_to_zero_index_</span><span class="p">;</span>
+
 <span class="p">};</span>
 
-<span class="cp">#ifdef USE_PIGO</span>
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="nc">PigoMTXReader</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Reader</span><span class="p">,</span>
                       <span class="k">public</span> <span class="n">ReadsCOO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span><span class="p">,</span>
@@ -148,8 +167,8 @@
 <span class="k">public</span><span class="o">:</span>
   <span class="n">PigoMTXReader</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">weighted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">,</span>
                 <span class="kt">bool</span> <span class="n">convert_to_zero_index</span> <span class="o">=</span> <span class="nb">true</span><span class="p">);</span>
-  <span class="n">format</span><span class="o">::</span><span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCOO</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-  <span class="n">format</span><span class="o">::</span><span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCSR</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="n">format</span><span class="o">::</span><span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCOO</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+  <span class="n">format</span><span class="o">::</span><span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCSR</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="o">~</span><span class="n">PigoMTXReader</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
 
 <span class="k">private</span><span class="o">:</span>
@@ -158,23 +177,20 @@
   <span class="kt">bool</span> <span class="n">convert_to_zero_index_</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="c1">// Add ValueTypeed option with contexpr</span>
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="nc">PigoEdgeListReader</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Reader</span><span class="p">,</span>
                            <span class="k">public</span> <span class="n">ReadsCSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span><span class="p">,</span>
                            <span class="k">public</span> <span class="n">ReadsCOO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
   <span class="n">PigoEdgeListReader</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">weighted</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="n">format</span><span class="o">::</span><span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCSR</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-  <span class="n">format</span><span class="o">::</span><span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCOO</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="n">format</span><span class="o">::</span><span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCSR</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+  <span class="n">format</span><span class="o">::</span><span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCOO</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
   <span class="k">virtual</span> <span class="o">~</span><span class="n">PigoEdgeListReader</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
 
 <span class="k">private</span><span class="o">:</span>
   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename_</span><span class="p">;</span>
   <span class="kt">bool</span> <span class="n">weighted_</span><span class="p">;</span>
 <span class="p">};</span>
-
-<span class="cp">#endif</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="nc">BinaryReaderOrderTwo</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Reader</span><span class="p">,</span>
@@ -183,8 +199,8 @@
 <span class="k">public</span><span class="o">:</span>
   <span class="k">explicit</span> <span class="n">BinaryReaderOrderTwo</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">);</span>
   <span class="o">~</span><span class="n">BinaryReaderOrderTwo</span><span class="p">()</span> <span class="k">override</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">format</span><span class="o">::</span><span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCOO</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-  <span class="n">format</span><span class="o">::</span><span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCSR</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="n">format</span><span class="o">::</span><span class="n">COO</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCOO</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+  <span class="n">format</span><span class="o">::</span><span class="n">CSR</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadCSR</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
 
 <span class="k">private</span><span class="o">:</span>
   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename_</span><span class="p">;</span>
@@ -195,7 +211,7 @@
 <span class="k">public</span><span class="o">:</span>
   <span class="k">explicit</span> <span class="n">BinaryReaderOrderOne</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">);</span>
   <span class="o">~</span><span class="n">BinaryReaderOrderOne</span><span class="p">()</span> <span class="k">override</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
-  <span class="n">format</span><span class="o">::</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadArray</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="n">format</span><span class="o">::</span><span class="n">Array</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ReadArray</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
 
 <span class="k">private</span><span class="o">:</span>
   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename_</span><span class="p">;</span>

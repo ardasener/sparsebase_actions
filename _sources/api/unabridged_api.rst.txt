@@ -343,7 +343,22 @@ Classes and Structs
 .. toctree::
    :maxdepth: 5
 
+   classsparsebase_1_1utils_1_1io_1_1EdgeListReader.rst
+
+.. toctree::
+   :maxdepth: 5
+
    classsparsebase_1_1utils_1_1io_1_1MTXReader.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classsparsebase_1_1utils_1_1io_1_1PigoEdgeListReader.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   classsparsebase_1_1utils_1_1io_1_1PigoMTXReader.rst
 
 .. toctree::
    :maxdepth: 5
@@ -379,11 +394,6 @@ Classes and Structs
    :maxdepth: 5
 
    classsparsebase_1_1utils_1_1io_1_1SbffWriteFile.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classsparsebase_1_1utils_1_1io_1_1UedgelistReader.rst
 
 .. toctree::
    :maxdepth: 5
@@ -456,11 +466,6 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_converter_8cc_1a9547097e2bc13fddddda50f78acce402.rst
-
-.. toctree::
-   :maxdepth: 5
-
    function_converter_8cc_1aa44b813d97d13325107ac345d86aaec1.rst
 
 .. toctree::
@@ -471,47 +476,12 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_converter_8cc_1ad169707ca91cb0e45309bf1d0ddb3958.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   function_converter_8cc_1a2271761fdc08c33db769c42b7d00b5c9.rst
-
-.. toctree::
-   :maxdepth: 5
-
    function_converter_8cc_1a265185e6f117c7a0882e65621ea4aa8d.rst
 
 .. toctree::
    :maxdepth: 5
 
    function_converter_8cc_1a77377b61318e53d034e1b773cf56c570.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   function_converter_8cc_1a2aaa777922326460c51f320a37138de8.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   function_sparse__file__format_8h_1a4d161d16bca92288cb3834f75f42ca15.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   function_sparse__file__format_8h_1a3baeef9a9e276669748c94e5a619728f.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   function_sparse__file__format_8h_1a88cc897d0ce6b9f4507db2ca61de54e3.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   function_sparse__file__format_8h_1afed1e3c9367291c0120210557d7241d4.rst
 
 Typedefs
 ********

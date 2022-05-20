@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File converter.h &mdash; SparseBase v0.2.0 documentation</title>
+  <title>Program Listing for File converter.h &mdash; SparseBase v0.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -40,6 +40,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
@@ -97,8 +98,10 @@
 
 <span class="k">using</span> <span class="n">ConditionalConversionFunction</span> <span class="o">=</span>
     <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="p">(</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+
 <span class="k">using</span> <span class="n">EdgeConditional</span> <span class="o">=</span>
     <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">(</span><span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+
 <span class="k">class</span> <span class="nc">Converter</span> <span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>
   <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span>
@@ -125,14 +128,17 @@
       <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">from_type</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span>
       <span class="n">ConditionalConversionFunction</span> <span class="n">conv_func</span><span class="p">,</span> <span class="n">EdgeConditional</span> <span class="n">edge_condition</span><span class="p">,</span>
       <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
+
   <span class="n">ConditionalConversionFunction</span>
   <span class="nf">GetConversionFunction</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">from_type</span><span class="p">,</span>
                         <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">from_context</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span>
                         <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">to_context</span><span class="p">,</span>
                         <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
+
   <span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="n">Convert</span><span class="p">(</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span>
                           <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">to_context</span><span class="p">,</span>
                           <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
+
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">FormatType</span><span class="o">&gt;</span>
   <span class="n">FormatType</span> <span class="o">*</span><span class="n">Convert</span><span class="p">(</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">to_context</span><span class="p">,</span>
                       <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
@@ -140,14 +146,19 @@
                               <span class="n">to_context</span><span class="p">,</span> <span class="n">is_move_conversion</span><span class="p">);</span>
     <span class="k">return</span> <span class="n">res</span><span class="o">-&gt;</span><span class="k">template</span> <span class="n">As</span><span class="o">&lt;</span><span class="n">FormatType</span><span class="o">&gt;</span><span class="p">();</span>
   <span class="p">}</span>
+
+
   <span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*&gt;</span>
   <span class="n">CanConvert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">from_type</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">from_context</span><span class="p">,</span>
              <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span>
-             <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*&gt;</span> <span class="n">to_contexts</span><span class="p">,</span>
+             <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*&gt;&amp;</span> <span class="n">to_contexts</span><span class="p">,</span>
              <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
+
   <span class="kt">bool</span> <span class="nf">CanConvert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">from_type</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">from_context</span><span class="p">,</span>
                   <span class="n">std</span><span class="o">::</span><span class="n">type_index</span> <span class="n">to_type</span><span class="p">,</span> <span class="n">context</span><span class="o">::</span><span class="n">Context</span> <span class="o">*</span><span class="n">to_context</span><span class="p">,</span>
                   <span class="kt">bool</span> <span class="n">is_move_conversion</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
+
+
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*&gt;</span>
   <span class="n">ApplyConversionSchema</span><span class="p">(</span><span class="n">ConversionSchemaConditional</span> <span class="n">cs</span><span class="p">,</span>
                         <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*&gt;</span> <span class="n">packed_sfs</span><span class="p">,</span>

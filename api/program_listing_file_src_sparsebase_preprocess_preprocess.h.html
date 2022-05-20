@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File preprocess.h &mdash; SparseBase v0.2.0 documentation</title>
+  <title>Program Listing for File preprocess.h &mdash; SparseBase v0.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -40,6 +40,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
@@ -191,12 +192,12 @@
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">IDType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NNZType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ValueType</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="nc">DegreeReorder</span> <span class="o">:</span> <span class="k">public</span> <span class="n">ReorderPreprocessType</span><span class="o">&lt;</span><span class="n">IDType</span><span class="p">,</span> <span class="n">NNZType</span><span class="p">,</span> <span class="n">ValueType</span><span class="o">&gt;</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">DegreeReorder</span><span class="p">(</span><span class="kt">int</span> <span class="n">hyperparameter</span><span class="p">);</span>
+  <span class="n">DegreeReorder</span><span class="p">(</span><span class="kt">bool</span> <span class="n">ascending</span><span class="p">);</span>
 
 <span class="k">protected</span><span class="o">:</span>
   <span class="k">struct</span> <span class="nl">DegreeReorderParams</span> <span class="p">:</span> <span class="n">PreprocessParams</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">hyperparameter</span><span class="p">;</span>
-    <span class="n">DegreeReorderParams</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">)</span> <span class="o">:</span> <span class="n">hyperparameter</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="kt">bool</span> <span class="n">ascending</span><span class="p">;</span>
+    <span class="n">DegreeReorderParams</span><span class="p">(</span><span class="kt">bool</span> <span class="n">ascending</span><span class="p">)</span> <span class="o">:</span> <span class="n">ascending</span><span class="p">(</span><span class="n">ascending</span><span class="p">)</span> <span class="p">{}</span>
   <span class="p">};</span>
   <span class="k">static</span> <span class="n">IDType</span> <span class="o">*</span><span class="nf">CalculateReorderCSR</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">format</span><span class="o">::</span><span class="n">Format</span> <span class="o">*&gt;</span> <span class="n">formats</span><span class="p">,</span>
                                      <span class="n">PreprocessParams</span> <span class="o">*</span><span class="n">params</span><span class="p">);</span>

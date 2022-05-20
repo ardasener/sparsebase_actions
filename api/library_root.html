@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Library API &mdash; SparseBase v0.2.0 documentation</title>
+  <title>Library API &mdash; SparseBase v0.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -42,6 +42,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Library API</a><ul>
@@ -117,7 +118,10 @@
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1BinaryReaderOrderTwo.html">Template Class BinaryReaderOrderTwo</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1BinaryWriterOrderOne.html">Template Class BinaryWriterOrderOne</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1BinaryWriterOrderTwo.html">Template Class BinaryWriterOrderTwo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1EdgeListReader.html">Template Class EdgeListReader</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1MTXReader.html">Template Class MTXReader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1PigoEdgeListReader.html">Template Class PigoEdgeListReader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1PigoMTXReader.html">Template Class PigoMTXReader</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1Reader.html">Class Reader</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1ReadsArray.html">Template Class ReadsArray</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1ReadsCOO.html">Template Class ReadsCOO</a></li>
@@ -125,7 +129,6 @@
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1SbffArray.html">Class SbffArray</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1SbffReadOnlyFile.html">Class SbffReadOnlyFile</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1SbffWriteFile.html">Class SbffWriteFile</a></li>
-<li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1UedgelistReader.html">Template Class UedgelistReader</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1Writer.html">Class Writer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1WritesArray.html">Template Class WritesArray</a></li>
 <li class="toctree-l4"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1WritesCOO.html">Template Class WritesCOO</a></li>
@@ -144,18 +147,10 @@
 <li class="toctree-l4"><a class="reference internal" href="function_CMakeLists_8txt_1aed6e812f1a56ac7cc4013400c75586b4.html">Function find_package(Python COMPONENTS)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_CMakeLists_8txt_1a5b57ce92dd547c6442539335f6d3d1e6.html">Function list(JOIN NNZ_TYPES “, “)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_CMakeLists_8txt_1a010ca05c8acc41beafa2f5e64c0a3139.html">Function list(JOIN FLOAT_TYPES “, “)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_converter_8cc_1a9547097e2bc13fddddda50f78acce402.html">Template Function sparsebase::utils::converter::CooCsrFunction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_converter_8cc_1aa44b813d97d13325107ac345d86aaec1.html">Template Function sparsebase::utils::converter::CooCsrFunctionConditional</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_converter_8cc_1a169e15b1832b2d312888b7b2c27cd697.html">Template Function sparsebase::utils::converter::CooCsrMoveConditionalFunction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_converter_8cc_1ad169707ca91cb0e45309bf1d0ddb3958.html">Template Function sparsebase::utils::converter::CooCsrMoveFunction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_converter_8cc_1a2271761fdc08c33db769c42b7d00b5c9.html">Template Function sparsebase::utils::converter::CsrCooFunction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_converter_8cc_1a265185e6f117c7a0882e65621ea4aa8d.html">Template Function sparsebase::utils::converter::CsrCooFunctionConditional</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_converter_8cc_1a77377b61318e53d034e1b773cf56c570.html">Template Function sparsebase::utils::converter::CsrCooMoveConditionalFunction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_converter_8cc_1a2aaa777922326460c51f320a37138de8.html">Template Function sparsebase::utils::converter::CsrCooMoveFunction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_sparse__file__format_8h_1a4d161d16bca92288cb3834f75f42ca15.html">Function sparsebase::utils::io::GetEndian</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_sparse__file__format_8h_1a3baeef9a9e276669748c94e5a619728f.html">Function sparsebase::utils::io::HeaderToBytes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_sparse__file__format_8h_1a88cc897d0ce6b9f4507db2ca61de54e3.html">Function sparsebase::utils::io::ReadHeader</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_sparse__file__format_8h_1afed1e3c9367291c0120210557d7241d4.html">Template Function sparsebase::utils::io::SwapEndian</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#typedefs">Typedefs</a><ul>
@@ -288,7 +283,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="namespace_sparsebase__utils__io.html">Namespace sparsebase::utils::io</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="namespace_sparsebase__utils__io.html#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="namespace_sparsebase__utils__io.html#functions">Functions</a></li>
 </ul>
 </li>
 </ul>
@@ -993,12 +987,48 @@
 </div>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1EdgeListReader.html">Template Class EdgeListReader</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1EdgeListReader.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1EdgeListReader.html#base-types">Base Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1EdgeListReader.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1MTXReader.html">Template Class MTXReader</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1MTXReader.html#inheritance-relationships">Inheritance Relationships</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1MTXReader.html#base-types">Base Types</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1MTXReader.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1PigoEdgeListReader.html">Template Class PigoEdgeListReader</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1PigoEdgeListReader.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1PigoEdgeListReader.html#base-types">Base Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1PigoEdgeListReader.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1PigoMTXReader.html">Template Class PigoMTXReader</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1PigoMTXReader.html#inheritance-relationships">Inheritance Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1PigoMTXReader.html#base-types">Base Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1PigoMTXReader.html#class-documentation">Class Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1071,18 +1101,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1SbffWriteFile.html">Class SbffWriteFile</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1SbffWriteFile.html#class-documentation">Class Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1UedgelistReader.html">Template Class UedgelistReader</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1UedgelistReader.html#inheritance-relationships">Inheritance Relationships</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1UedgelistReader.html#base-types">Base Types</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1UedgelistReader.html#class-documentation">Class Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1219,14 +1237,6 @@
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="function_converter_8cc_1a9547097e2bc13fddddda50f78acce402.html">Template Function sparsebase::utils::converter::CooCsrFunction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_converter_8cc_1a9547097e2bc13fddddda50f78acce402.html#function-documentation">Function Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="function_converter_8cc_1aa44b813d97d13325107ac345d86aaec1.html">Template Function sparsebase::utils::converter::CooCsrFunctionConditional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="function_converter_8cc_1aa44b813d97d13325107ac345d86aaec1.html#function-documentation">Function Documentation</a></li>
 </ul>
@@ -1243,22 +1253,6 @@
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="function_converter_8cc_1ad169707ca91cb0e45309bf1d0ddb3958.html">Template Function sparsebase::utils::converter::CooCsrMoveFunction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_converter_8cc_1ad169707ca91cb0e45309bf1d0ddb3958.html#function-documentation">Function Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="function_converter_8cc_1a2271761fdc08c33db769c42b7d00b5c9.html">Template Function sparsebase::utils::converter::CsrCooFunction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_converter_8cc_1a2271761fdc08c33db769c42b7d00b5c9.html#function-documentation">Function Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="function_converter_8cc_1a265185e6f117c7a0882e65621ea4aa8d.html">Template Function sparsebase::utils::converter::CsrCooFunctionConditional</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="function_converter_8cc_1a265185e6f117c7a0882e65621ea4aa8d.html#function-documentation">Function Documentation</a></li>
 </ul>
@@ -1269,46 +1263,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="function_converter_8cc_1a77377b61318e53d034e1b773cf56c570.html">Template Function sparsebase::utils::converter::CsrCooMoveConditionalFunction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="function_converter_8cc_1a77377b61318e53d034e1b773cf56c570.html#function-documentation">Function Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="function_converter_8cc_1a2aaa777922326460c51f320a37138de8.html">Template Function sparsebase::utils::converter::CsrCooMoveFunction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_converter_8cc_1a2aaa777922326460c51f320a37138de8.html#function-documentation">Function Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="function_sparse__file__format_8h_1a4d161d16bca92288cb3834f75f42ca15.html">Function sparsebase::utils::io::GetEndian</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_sparse__file__format_8h_1a4d161d16bca92288cb3834f75f42ca15.html#function-documentation">Function Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="function_sparse__file__format_8h_1a3baeef9a9e276669748c94e5a619728f.html">Function sparsebase::utils::io::HeaderToBytes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_sparse__file__format_8h_1a3baeef9a9e276669748c94e5a619728f.html#function-documentation">Function Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="function_sparse__file__format_8h_1a88cc897d0ce6b9f4507db2ca61de54e3.html">Function sparsebase::utils::io::ReadHeader</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_sparse__file__format_8h_1a88cc897d0ce6b9f4507db2ca61de54e3.html#function-documentation">Function Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="function_sparse__file__format_8h_1afed1e3c9367291c0120210557d7241d4.html">Template Function sparsebase::utils::io::SwapEndian</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_sparse__file__format_8h_1afed1e3c9367291c0120210557d7241d4.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>

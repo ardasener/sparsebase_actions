@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Template Class ReadsArray &mdash; SparseBase v0.2.0 documentation</title>
+  <title>Template Class ReadsArray &mdash; SparseBase v0.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -42,6 +42,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
@@ -92,13 +93,15 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4I0EN10sparsebase5utils2io10ReadsArrayE">
 <span id="_CPPv3I0EN10sparsebase5utils2io10ReadsArrayE"></span><span id="_CPPv2I0EN10sparsebase5utils2io10ReadsArrayE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classsparsebase_1_1utils_1_1io_1_1ReadsArray"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">sparsebase</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">utils</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">io</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ReadsArray</span></span></span><a class="headerlink" href="#_CPPv4I0EN10sparsebase5utils2io10ReadsArrayE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Subclassed by <a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1BinaryReaderOrderOne.html#classsparsebase_1_1utils_1_1io_1_1BinaryReaderOrderOne"><span class="std std-ref">sparsebase::utils::io::BinaryReaderOrderOne&lt; T &gt;</span></a></p>
+<dd><p>Interface for readers that can return an Array instance. </p>
+<p>Subclassed by <a class="reference internal" href="classsparsebase_1_1utils_1_1io_1_1BinaryReaderOrderOne.html#classsparsebase_1_1utils_1_1io_1_1BinaryReaderOrderOne"><span class="std std-ref">sparsebase::utils::io::BinaryReaderOrderOne&lt; T &gt;</span></a></p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK10sparsebase5utils2io10ReadsArray9ReadArrayEv">
 <span id="_CPPv3NK10sparsebase5utils2io10ReadsArray9ReadArrayEv"></span><span id="_CPPv2NK10sparsebase5utils2io10ReadsArray9ReadArrayEv"></span><span id="sparsebase::utils::io::ReadsArray::ReadArrayC"></span><span class="target" id="classsparsebase_1_1utils_1_1io_1_1ReadsArray_1a82018f194dc44022edf679a025722de5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="classsparsebase_1_1format_1_1Array.html#_CPPv4I0EN10sparsebase6format5ArrayE" title="sparsebase::format::Array"><span class="n"><span class="pre">Array</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN10sparsebase5utils2io10ReadsArrayE" title="sparsebase::utils::io::ReadsArray::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">ReadArray</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK10sparsebase5utils2io10ReadsArray9ReadArrayEv" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>Reads the file to an Array instance and returns a pointer to it. </p>
+</dd></dl>
 
 </div>
 </dd></dl>

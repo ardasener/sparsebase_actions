@@ -13,7 +13,10 @@ Derived Types
 *************
 
 - ``public sparsebase::utils::io::BinaryReaderOrderTwo< IDType, NNZType, ValueType >`` (:ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1BinaryReaderOrderTwo`)
+- ``public sparsebase::utils::io::EdgeListReader< IDType, NNZType, ValueType >`` (:ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1EdgeListReader`)
 - ``public sparsebase::utils::io::MTXReader< IDType, NNZType, ValueType >`` (:ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1MTXReader`)
+- ``public sparsebase::utils::io::PigoEdgeListReader< IDType, NNZType, ValueType >`` (:ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1PigoEdgeListReader`)
+- ``public sparsebase::utils::io::PigoMTXReader< IDType, NNZType, ValueType >`` (:ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1PigoMTXReader`)
 
 
 Class Documentation

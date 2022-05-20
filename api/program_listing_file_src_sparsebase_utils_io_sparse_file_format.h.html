@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File sparse_file_format.h &mdash; SparseBase v0.2.0 documentation</title>
+  <title>Program Listing for File sparse_file_format.h &mdash; SparseBase v0.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -40,6 +40,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
@@ -81,12 +82,16 @@
 <span class="cp">#endif</span>
 
 <span class="cp">#include</span> <span class="cpf">&quot;sparsebase/external/json/json.hpp&quot;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;climits&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;climits&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
 
-<span class="k">namespace</span> <span class="n">sparsebase</span><span class="o">::</span><span class="n">utils</span><span class="o">::</span><span class="n">io</span> <span class="p">{</span>
+<span class="k">namespace</span> <span class="n">sparsebase</span> <span class="p">{</span>
+
+<span class="k">namespace</span> <span class="n">utils</span> <span class="p">{</span>
+
+<span class="k">namespace</span> <span class="n">io</span> <span class="p">{</span>
 
 <span class="cp">#ifdef USE_PIGO</span>
 
@@ -138,57 +143,7 @@
 
 <span class="cp">#endif</span>
 
-<span class="c1">// Thanks StackOverflow</span>
-<span class="c1">// This will fail if sizeof(int) == 1</span>
-<span class="c1">// which might be the case on some embedded systems</span>
-<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">GetEndian</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">const</span> <span class="kt">int</span> <span class="n">value</span><span class="p">{</span><span class="mh">0x01</span><span class="p">};</span>
-  <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">address</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
-  <span class="k">const</span> <span class="k">auto</span> <span class="o">*</span><span class="n">least_significant_address</span> <span class="o">=</span>
-      <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
-  <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="n">least_significant_address</span> <span class="o">==</span> <span class="mh">0x01</span><span class="p">)</span> <span class="o">?</span> <span class="s">&quot;little&quot;</span> <span class="o">:</span> <span class="s">&quot;big&quot;</span><span class="p">;</span>
-<span class="p">}</span>
 
-<span class="c1">// Thanks StackOverflow</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="n">SwapEndian</span><span class="p">(</span><span class="n">T</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n">CHAR_BIT</span> <span class="o">==</span> <span class="mi">8</span><span class="p">,</span> <span class="s">&quot;CHAR_BIT != 8&quot;</span><span class="p">);</span>
-
-  <span class="k">union</span> <span class="p">{</span>
-    <span class="n">T</span> <span class="n">u</span><span class="p">;</span>
-    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">u8</span><span class="p">[</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)];</span>
-  <span class="p">}</span> <span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">;</span>
-
-  <span class="n">source</span><span class="p">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
-
-  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">);</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
-    <span class="n">dest</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
-
-  <span class="k">return</span> <span class="n">dest</span><span class="p">.</span><span class="n">u</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="n">nlohmann</span><span class="o">::</span><span class="n">json</span> <span class="n">ReadHeader</span><span class="p">(</span><span class="n">SbffReadOnlyFile</span> <span class="o">&amp;</span><span class="n">file</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">char</span> <span class="n">header_bytes</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
-  <span class="n">file</span><span class="p">.</span><span class="n">Read</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">header_bytes</span><span class="p">,</span> <span class="mi">1024</span><span class="p">);</span>
-  <span class="n">nlohmann</span><span class="o">::</span><span class="n">json</span> <span class="n">header</span> <span class="o">=</span> <span class="n">nlohmann</span><span class="o">::</span><span class="n">json</span><span class="o">::</span><span class="n">parse</span><span class="p">(</span><span class="n">header_bytes</span><span class="p">);</span>
-  <span class="k">return</span> <span class="n">header</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">HeaderToBytes</span><span class="p">(</span><span class="n">nlohmann</span><span class="o">::</span><span class="n">json</span> <span class="o">&amp;</span><span class="n">header</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">header_str</span> <span class="o">=</span> <span class="n">header</span><span class="p">.</span><span class="n">dump</span><span class="p">();</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">header_bytes</span><span class="p">(</span><span class="n">header_str</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">header_str</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-
-  <span class="c1">// Headers should have a maximum size of 1024 bytes</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">header_bytes</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1024</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">throw</span> <span class="n">sparsebase</span><span class="o">::</span><span class="n">utils</span><span class="o">::</span><span class="n">WriterException</span><span class="p">(</span><span class="s">&quot;Header size exceeds 1 KB&quot;</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// Pad the header to exactly 1024 bytes</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">header_bytes</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">1024</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">header_bytes</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="k">return</span> <span class="n">header_bytes</span><span class="p">;</span>
-<span class="p">}</span>
 
 <span class="k">class</span> <span class="nc">SbffArray</span> <span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>
@@ -228,6 +183,13 @@
     <span class="k">return</span> <span class="n">sbas_arr</span><span class="p">;</span>
   <span class="p">}</span>
 
+  <span class="k">static</span> <span class="n">nlohmann</span><span class="o">::</span><span class="n">json</span> <span class="n">ReadHeader</span><span class="p">(</span><span class="n">SbffReadOnlyFile</span> <span class="o">&amp;</span><span class="n">file</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">header_bytes</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+    <span class="n">file</span><span class="p">.</span><span class="n">Read</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">header_bytes</span><span class="p">,</span> <span class="mi">1024</span><span class="p">);</span>
+    <span class="n">nlohmann</span><span class="o">::</span><span class="n">json</span> <span class="n">header</span> <span class="o">=</span> <span class="n">nlohmann</span><span class="o">::</span><span class="n">json</span><span class="o">::</span><span class="n">parse</span><span class="p">(</span><span class="n">header_bytes</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">header</span><span class="p">;</span>
+  <span class="p">}</span>
+
   <span class="k">static</span> <span class="n">SbffArray</span> <span class="n">ReadArray</span><span class="p">(</span><span class="n">SbffReadOnlyFile</span> <span class="o">&amp;</span><span class="n">file</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">endian</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">try</span> <span class="p">{</span>
       <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">ReadHeader</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
@@ -252,6 +214,23 @@
     <span class="p">}</span>
   <span class="p">}</span>
 
+  <span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">HeaderToBytes</span><span class="p">(</span><span class="k">const</span> <span class="n">nlohmann</span><span class="o">::</span><span class="n">json</span> <span class="o">&amp;</span><span class="n">header</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">header_str</span> <span class="o">=</span> <span class="n">header</span><span class="p">.</span><span class="n">dump</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">header_bytes</span><span class="p">(</span><span class="n">header_str</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">header_str</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+
+    <span class="c1">// Headers should have a maximum size of 1024 bytes</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">header_bytes</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1024</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="n">sparsebase</span><span class="o">::</span><span class="n">utils</span><span class="o">::</span><span class="n">WriterException</span><span class="p">(</span><span class="s">&quot;Header size exceeds 1 KB&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Pad the header to exactly 1024 bytes</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">header_bytes</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">1024</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">header_bytes</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">header_bytes</span><span class="p">;</span>
+  <span class="p">}</span>
+
   <span class="kt">void</span> <span class="n">WriteArray</span><span class="p">(</span><span class="n">SbffWriteFile</span> <span class="o">&amp;</span><span class="n">file</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="n">nlohmann</span><span class="o">::</span><span class="n">json</span> <span class="n">header</span><span class="p">;</span>
@@ -263,7 +242,38 @@
     <span class="n">file</span><span class="p">.</span><span class="n">Write</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">HeaderToBytes</span><span class="p">(</span><span class="n">header</span><span class="p">).</span><span class="n">data</span><span class="p">(),</span> <span class="mi">1024</span><span class="p">);</span>
     <span class="n">file</span><span class="p">.</span><span class="n">Write</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">data</span><span class="p">,</span> <span class="n">array_size</span> <span class="o">*</span> <span class="n">type_size</span><span class="p">);</span>
   <span class="p">}</span>
+
+  <span class="c1">// This will fail if sizeof(int) == 1</span>
+  <span class="c1">// which might be the case on some embedded systems</span>
+  <span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">GetEndian</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">value</span><span class="p">{</span><span class="mh">0x01</span><span class="p">};</span>
+    <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">address</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="o">*</span><span class="n">least_significant_address</span> <span class="o">=</span>
+        <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="n">least_significant_address</span> <span class="o">==</span> <span class="mh">0x01</span><span class="p">)</span> <span class="o">?</span> <span class="s">&quot;little&quot;</span> <span class="o">:</span> <span class="s">&quot;big&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+
+   <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+   <span class="k">static</span> <span class="n">T</span> <span class="n">SwapEndian</span><span class="p">(</span><span class="n">T</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">CHAR_BIT</span> <span class="o">==</span> <span class="mi">8</span><span class="p">,</span> <span class="s">&quot;CHAR_BIT != 8&quot;</span><span class="p">);</span>
+
+    <span class="k">union</span> <span class="p">{</span>
+      <span class="n">T</span> <span class="n">u</span><span class="p">;</span>
+      <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">u8</span><span class="p">[</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)];</span>
+    <span class="p">}</span> <span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">;</span>
+
+    <span class="n">source</span><span class="p">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">);</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+      <span class="n">dest</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">.</span><span class="n">u8</span><span class="p">[</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="n">dest</span><span class="p">.</span><span class="n">u</span><span class="p">;</span>
+  <span class="p">}</span>
 <span class="p">};</span>
+
+
+
+
 
 <span class="k">struct</span> <span class="n">SbffObject</span> <span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>
@@ -275,7 +285,7 @@
 <span class="k">public</span><span class="o">:</span>
   <span class="k">explicit</span> <span class="n">SbffObject</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">)</span> <span class="o">:</span> <span class="n">name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">{}</span>
 
-  <span class="kt">void</span> <span class="n">AddDimensions</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">dims</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n">AddDimensions</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">format</span><span class="o">::</span><span class="n">DimensionType</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">dims</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">dimensions</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">dimensions</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">dims</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">dims</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
   <span class="p">}</span>
 
@@ -319,10 +329,10 @@
 
       <span class="n">ptr</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span> <span class="o">*</span><span class="p">)</span><span class="n">arr</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
 
-      <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="n">endian</span> <span class="o">!=</span> <span class="n">GetEndian</span><span class="p">())</span> <span class="p">{</span>
-<span class="cp">#pragma omp parallel for shared(ptr, arr)</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="n">endian</span> <span class="o">!=</span> <span class="n">SbffArray</span><span class="o">::</span><span class="n">GetEndian</span><span class="p">())</span> <span class="p">{</span>
+<span class="cp">#pragma omp parallel for shared(ptr, arr) default(none)</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="p">.</span><span class="n">array_size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-          <span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">SwapEndian</span><span class="p">(</span><span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+          <span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">SbffArray</span><span class="o">::</span><span class="n">SwapEndian</span><span class="p">(</span><span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
         <span class="p">}</span>
       <span class="p">}</span>
 
@@ -344,9 +354,9 @@
     <span class="n">header</span><span class="p">[</span><span class="s">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
     <span class="n">header</span><span class="p">[</span><span class="s">&quot;array_count&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arrays</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
     <span class="n">header</span><span class="p">[</span><span class="s">&quot;dimensions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dimensions</span><span class="p">;</span>
-    <span class="n">header</span><span class="p">[</span><span class="s">&quot;endian&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">GetEndian</span><span class="p">();</span>
+    <span class="n">header</span><span class="p">[</span><span class="s">&quot;endian&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SbffArray</span><span class="o">::</span><span class="n">GetEndian</span><span class="p">();</span>
 
-    <span class="n">file</span><span class="p">.</span><span class="n">Write</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">HeaderToBytes</span><span class="p">(</span><span class="n">header</span><span class="p">).</span><span class="n">data</span><span class="p">(),</span> <span class="mi">1024</span><span class="p">);</span>
+    <span class="n">file</span><span class="p">.</span><span class="n">Write</span><span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">SbffArray</span><span class="o">::</span><span class="n">HeaderToBytes</span><span class="p">(</span><span class="n">header</span><span class="p">).</span><span class="n">data</span><span class="p">(),</span> <span class="mi">1024</span><span class="p">);</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">arr</span> <span class="p">:</span> <span class="n">arrays</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">arr</span><span class="p">.</span><span class="n">second</span><span class="p">.</span><span class="n">WriteArray</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
@@ -355,7 +365,7 @@
 
   <span class="k">static</span> <span class="n">SbffObject</span> <span class="n">ReadObject</span><span class="p">(</span><span class="n">SbffReadOnlyFile</span> <span class="o">&amp;</span><span class="n">file</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">try</span> <span class="p">{</span>
-      <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">ReadHeader</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+      <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">SbffArray</span><span class="o">::</span><span class="n">ReadHeader</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
 
       <span class="n">SbffObject</span> <span class="nf">obj</span><span class="p">(</span><span class="s">&quot;temp&quot;</span><span class="p">);</span>
       <span class="n">obj</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">header</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">);</span>
@@ -387,7 +397,15 @@
 
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">get_dimensions</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">dimensions</span><span class="p">;</span> <span class="p">}</span>
 <span class="p">};</span>
-<span class="p">}</span> <span class="c1">// namespace sparsebase::utils::io</span>
+
+
+
+<span class="p">}</span> <span class="c1">// namespace io</span>
+
+<span class="p">}</span> <span class="c1">// namespace utils</span>
+
+<span class="p">}</span> <span class="c1">// namespace sparsebase</span>
+
 
 <span class="cp">#endif </span><span class="c1">// SPARSEBASE_SPARSEBASE_UTILS_IO_SPARSE_FILE_FORMAT_H_</span>
 </pre></div>

@@ -1,7 +1,7 @@
-.. _exhale_class_classsparsebase_1_1utils_1_1io_1_1UedgelistReader:
+.. _exhale_class_classsparsebase_1_1utils_1_1io_1_1PigoMTXReader:
 
-Template Class UedgelistReader
-==============================
+Template Class PigoMTXReader
+============================
 
 - Defined in :ref:`file_src_sparsebase_utils_io_reader.h`
 
@@ -13,6 +13,7 @@ Base Types
 **********
 
 - ``public sparsebase::utils::io::Reader`` (:ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1Reader`)
+- ``public sparsebase::utils::io::ReadsCOO< IDType, NNZType, ValueType >`` (:ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1ReadsCOO`)
 - ``public sparsebase::utils::io::ReadsCSR< IDType, NNZType, ValueType >`` (:ref:`exhale_class_classsparsebase_1_1utils_1_1io_1_1ReadsCSR`)
 
 
@@ -20,7 +21,7 @@ Class Documentation
 -------------------
 
 
-.. doxygenclass:: sparsebase::utils::io::UedgelistReader
+.. doxygenclass:: sparsebase::utils::io::PigoMTXReader
    :members:
    :protected-members:
    :undoc-members:

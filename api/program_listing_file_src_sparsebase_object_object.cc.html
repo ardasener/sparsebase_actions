@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Program Listing for File object.cc &mdash; SparseBase v0.2.0 documentation</title>
+  <title>Program Listing for File object.cc &mdash; SparseBase v0.2.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
@@ -40,6 +40,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pages/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/how_to_guides/index.html">How To Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
@@ -178,7 +179,7 @@
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">VertexID</span><span class="p">,</span> <span class="k">typename</span> <span class="n">NumEdges</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Weight</span><span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">Graph</span><span class="o">&lt;</span><span class="n">VertexID</span><span class="p">,</span> <span class="n">NumEdges</span><span class="p">,</span> <span class="n">Weight</span><span class="o">&gt;::</span><span class="n">ReadConnectivityFromEdgelistToCSR</span><span class="p">(</span>
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">utils</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">UedgelistReader</span><span class="o">&lt;</span><span class="n">VertexID</span><span class="p">,</span> <span class="n">NumEdges</span><span class="p">,</span> <span class="n">Weight</span><span class="o">&gt;</span> <span class="n">reader</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+  <span class="n">utils</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">EdgeListReader</span><span class="o">&lt;</span><span class="n">VertexID</span><span class="p">,</span> <span class="n">NumEdges</span><span class="p">,</span> <span class="n">Weight</span><span class="o">&gt;</span> <span class="n">reader</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
   <span class="k">this</span><span class="o">-&gt;</span><span class="n">set_connectivity</span><span class="p">(</span><span class="n">reader</span><span class="p">.</span><span class="n">ReadCSR</span><span class="p">(),</span> <span class="nb">true</span><span class="p">);</span>
   <span class="k">this</span><span class="o">-&gt;</span><span class="n">VerifyStructure</span><span class="p">();</span>
   <span class="n">InitializeInfoFromConnection</span><span class="p">();</span>
