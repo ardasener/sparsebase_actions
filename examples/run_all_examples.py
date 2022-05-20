@@ -23,6 +23,10 @@ def run_example(exe_filename, data_filename):
     dir_path = os.path.dirname(__file__)
     exe_path = os.path.join(dir_path, exe_filename, exe_filename)
 
+    # Windows executables have ".exe" extension
+    if os.name == "nt":
+        exe_path += ".exe"
+
     if not os.path.exists(exe_path):
         print("Example is not built, skipping: ", exe_filename)
         return
@@ -33,10 +37,11 @@ def run_example(exe_filename, data_filename):
         data_path = os.path.join(dir_path, "data", data_filename)
         cmd.append(data_path)
 
+    print("Running cmd=", cmd)
     result = sp.run(cmd)
 
     if result.returncode != 0:
-        print("cmd=", cmd, "has failed!!!")
+        print("cmd=", cmd, "has failed with exit code=", result.returncode)
         sys.exit(1)
 
 
