@@ -59,14 +59,28 @@ void ClassMatcherMixin<ClassType, Key, KeyHash, KeyEqualTo>::GetClassesHelper(
     return;
   }
   bool found = false;
+  // std::cout << "remaining size: " << ordered.size() << std::endl;
+  // for (auto &el : ordered) {
+  //   std::cout << el.name() << std::endl;
+  // }
+  // std::cout << std::endl;
+
   for (unsigned int c = source.size(); !found && c > 0; c--) {
     auto r = MatchClass(source, ordered, c);
+    // std::cout << source.size() << " " << c << " " << std::get<0>(r)
+    //           << std::endl;
     if (std::get<0>(r)) {
       res.push_back(std::get<0>(r));
       ordered = std::get<1>(r);
       found = true;
     }
   }
+
+  // std::cout << "result size: " << res.size() << std::endl;
+  //  for(auto &el : res){
+  //    std::cout << el->get_feature_id().name() << std::endl;
+  //  }
+  // std::cout << std::endl;
   GetClassesHelper(source, ordered, res);
 }
 
@@ -81,6 +95,7 @@ ClassMatcherMixin<ClassType, Key, KeyHash, KeyEqualTo>::GetClasses(
     ordered.push_back(std::get<0>(el));
   }
   std::sort(ordered.begin(), ordered.end());
+  // std::cout << "Here: " << ordered.size() << std::endl;
   GetClassesHelper(source, ordered, res);
   return res;
 }
@@ -97,12 +112,20 @@ void Extractor::PrintFuncList() {
   std::cout << std::endl;
 }
 
+std::vector<preprocess::ExtractableType *> Extractor::GetFuncList() {
+  std::vector<preprocess::ExtractableType *> res;
+  for (auto &cls : map_) {
+    res.push_back(cls.second);
+  }
+  return res;
+}
+
 std::unordered_map<std::type_index, std::any>
 Extractor::Extract(std::vector<Feature> &fs, format::Format *format,
-                   const std::vector<context::Context *> &c) {
+                   const std::vector<context::Context *> &c, bool convert_input) {
   std::unordered_map<std::type_index, std::any> res;
   for (auto &el : fs) {
-    auto t = el->Extract(format, c);
+    auto t = el->Extract(format, c, convert_input);
     res.merge(t);
   }
   return res;
@@ -110,18 +133,18 @@ Extractor::Extract(std::vector<Feature> &fs, format::Format *format,
 
 std::unordered_map<std::type_index, std::any>
 Extractor::Extract(format::Format *format,
-                   const std::vector<context::Context *> &c) {
+                   const std::vector<context::Context *> &c, bool convert_input) {
   if (in_.empty())
     return {};
   // match and get classes for format extraction
   std::vector<preprocess::ExtractableType *> cs = this->GetClasses(in_);
   std::unordered_map<std::type_index, std::any> res;
-  std::cout << std::endl << "Classes used:" << std::endl;
+  //std::cout << std::endl << "Classes used:" << std::endl;
   for (auto &el : cs) {
-    std::cout << el->get_feature_id().name() << std::endl;
-    res.merge(el->Extract(format, c));
+    //std::cout << el->get_feature_id().name() << std::endl;
+    res.merge(el->Extract(format, c, convert_input));
   }
-  std::cout << std::endl;
+  //std::cout << std::endl;
   return res;
 }
 

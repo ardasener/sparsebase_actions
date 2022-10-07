@@ -1,7 +1,14 @@
+/*******************************************************
+ * Copyright (c) 2022 SparCity, Amro Alabsi Aljundi, Taha Atahan Akyildiz, Arda Sener
+ * All rights reserved.
+ *
+ * This file is distributed under MIT license.
+ * The complete license agreement can be obtained at:
+ * https://sparcityeu.github.io/sparsebase/pages/license.html
+ ********************************************************/
 #ifndef SPARSEBASE_SPARSEBASE_UTILS_IO_WRITER_H_
 #define SPARSEBASE_SPARSEBASE_UTILS_IO_WRITER_H_
 
-#include <string>
 #include "sparsebase/format/format.h"
 #include "sparsebase/utils/io/reader.h"
 #include <string>
@@ -35,10 +42,11 @@ class WritesCOO {
 //! Interface for writers that can write an Array instance to a file
 template <typename T> class WritesArray {
   //! Writes the given Array instance to a file
-  virtual void WriteArray(format::Array<T>* arr) const = 0;
+  virtual void WriteArray(format::Array<T> *arr) const = 0;
 };
 
-//! Writes files by encoding them in SparseBase's custom binary format (CSR and COO)
+//! Writes files by encoding them in SparseBase's custom binary format (CSR and
+//! COO)
 template <typename IDType, typename NNZType, typename ValueType>
 class BinaryWriterOrderTwo : public Writer,
                              public WritesCOO<IDType, NNZType, ValueType>,
@@ -46,8 +54,8 @@ class BinaryWriterOrderTwo : public Writer,
 public:
   explicit BinaryWriterOrderTwo(std::string filename);
   ~BinaryWriterOrderTwo() override = default;
-  void WriteCOO(format::COO<IDType, NNZType, ValueType> *coo) const;
-  void WriteCSR(format::CSR<IDType, NNZType, ValueType> *csr) const;
+  void WriteCOO(format::COO<IDType, NNZType, ValueType> *coo) const override;
+  void WriteCSR(format::CSR<IDType, NNZType, ValueType> *csr) const override;
 
 private:
   std::string filename_;
@@ -59,7 +67,7 @@ class BinaryWriterOrderOne : public Writer, public WritesArray<T> {
 public:
   explicit BinaryWriterOrderOne(std::string filename);
   ~BinaryWriterOrderOne() override = default;
-  void WriteArray(format::Array<T> *arr) const;
+  void WriteArray(format::Array<T> *arr) const override;
 
 private:
   std::string filename_;
@@ -74,6 +82,5 @@ private:
 #ifdef _HEADER_ONLY
 #include "sparsebase/utils/io/writer.cc"
 #endif
-
 
 #endif // SPARSEBASE_SPARSEBASE_UTILS_IO_WRITER_H_

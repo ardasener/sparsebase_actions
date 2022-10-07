@@ -1,3 +1,11 @@
+/*******************************************************
+ * Copyright (c) 2022 SparCity, Amro Alabsi Aljundi, Taha Atahan Akyildiz, Arda Sener
+ * All rights reserved.
+ *
+ * This file is distributed under MIT license.
+ * The complete license agreement can be obtained at:
+ * https://sparcityeu.github.io/sparsebase/pages/license.html
+ ********************************************************/
 #ifndef SPARSEBASE_SPARSEBASE_UTILS_IO_READER_H_
 #define SPARSEBASE_SPARSEBASE_UTILS_IO_READER_H_
 
@@ -48,30 +56,32 @@ public:
 //! Reader for the Edge List file format
 /*!
  * Reads files of the following format:
- * - Each line contains 2 ids (vertices for a graph, cols/rows for a matrix) followed by an optional weight
+ * - Each line contains 2 ids (vertices for a graph, cols/rows for a matrix)
+ * followed by an optional weight
  * - Delimiters should be spaces or tabs
- * - Each line represents a connection between the specified ids with the given weight
+ * - Each line represents a connection between the specified ids with the given
+ * weight
  */
 template <typename IDType, typename NNZType, typename ValueType>
 class EdgeListReader : public Reader,
                        public ReadsCSR<IDType, NNZType, ValueType>,
-                       public ReadsCOO<IDType, NNZType, ValueType>
-{
+                       public ReadsCOO<IDType, NNZType, ValueType> {
 public:
   /*!
    * Constructor for the EdgeListReader class
    * @param filename path to the file to be read
    * @param weighted should be set to true if the file contains weights
-   * @param remove_duplicates if set to true duplicate connections will be removed
-   * @param remove_self_edges if set to true connections from any vertex to itself will be removed
-   * @param read_undirected_ if set to true for any entry (u,v) both (u,v) and (v,u) will be read
+   * @param remove_duplicates if set to true duplicate connections will be
+   * removed
+   * @param remove_self_edges if set to true connections from any vertex to
+   * itself will be removed
+   * @param read_undirected_ if set to true for any entry (u,v) both (u,v) and
+   * (v,u) will be read
    */
-  explicit EdgeListReader(std::string filename,
-                          bool weighted = false,
-                          bool remove_duplicates=false,
-                          bool remove_self_edges=false,
-                          bool read_undirected_=true,
-                          bool square=false);
+  explicit EdgeListReader(std::string filename, bool weighted = false,
+                          bool remove_duplicates = false,
+                          bool remove_self_edges = false,
+                          bool read_undirected_ = true, bool square = false);
   format::CSR<IDType, NNZType, ValueType> *ReadCSR() const override;
   format::COO<IDType, NNZType, ValueType> *ReadCOO() const override;
   ~EdgeListReader() override;
@@ -94,26 +104,59 @@ private:
 template <typename IDType, typename NNZType, typename ValueType>
 class MTXReader : public Reader,
                   public ReadsCSR<IDType, NNZType, ValueType>,
-                  public ReadsCOO<IDType, NNZType, ValueType> {
+                  public ReadsCOO<IDType, NNZType, ValueType>,
+                  public ReadsArray<ValueType> {
 public:
   /*!
    * Constructor for the MTXReader class
    * @param filename path to the file to be read
-   * @param weighted should be set to true if the file contains weights
-   * @param convert_to_zero_index if set to true the indices will be converted such that they start from 0 instead of 1
+   * @param convert_to_zero_index if set to true the indices will be converted
+   * such that they start from 0 instead of 1
    */
-  explicit MTXReader(std::string filename,
-                     bool weighted = false,
-                     bool convert_to_zero_index = true);
+  explicit MTXReader(std::string filename, bool convert_to_zero_index = true);
   format::COO<IDType, NNZType, ValueType> *ReadCOO() const override;
   format::CSR<IDType, NNZType, ValueType> *ReadCSR() const override;
+  format::Array<ValueType> *ReadArray() const override;
   ~MTXReader() override;
 
 private:
+  enum MTXObjectOptions {
+    matrix,
+    vector
+  };
+  enum MTXFormatOptions {
+    coordinate,
+    array
+  };
+  enum MTXFieldOptions {
+    real,
+    double_field,
+    complex,
+    integer,
+    pattern
+  };
+  enum MTXSymmetryOptions {
+    general = 0,
+    symmetric = 1,
+    skew_symmetric = 2,
+    hermitian = 3
+  };
+  struct MTXOptions {
+    MTXObjectOptions object;
+    MTXFormatOptions format;
+    MTXFieldOptions field;
+    MTXSymmetryOptions symmetry;
+  };
+  MTXOptions ParseHeader(std::string header_line) const;
+  format::Array<ValueType> *ReadCoordinateIntoArray() const;
+  format::Array<ValueType> *ReadArrayIntoArray() const;
+  template <bool weighted>
+  format::COO<IDType, NNZType, ValueType> *ReadArrayIntoCOO() const;
+  template <bool weighted, int symm, bool conv_to_zero>
+  format::COO<IDType, NNZType, ValueType> *ReadCoordinateIntoCOO() const;
   std::string filename_;
-  bool weighted_;
   bool convert_to_zero_index_;
-
+  MTXOptions options_;
 };
 
 /*!
@@ -127,10 +170,11 @@ class PigoMTXReader : public Reader,
                       public ReadsCOO<IDType, NNZType, ValueType>,
                       public ReadsCSR<IDType, NNZType, ValueType> {
 public:
-  PigoMTXReader(std::string filename, bool weighted = false,
+  PigoMTXReader(std::string filename, bool weighted,
                 bool convert_to_zero_index = true);
   format::COO<IDType, NNZType, ValueType> *ReadCOO() const override;
   format::CSR<IDType, NNZType, ValueType> *ReadCSR() const override;
+  //format::Array<ValueType> *ReadArray() const override;
   virtual ~PigoMTXReader() = default;
 
 private:
@@ -150,7 +194,7 @@ class PigoEdgeListReader : public Reader,
                            public ReadsCSR<IDType, NNZType, ValueType>,
                            public ReadsCOO<IDType, NNZType, ValueType> {
 public:
-  PigoEdgeListReader(std::string filename, bool weighted = false);
+  PigoEdgeListReader(std::string filename, bool weighted);
   format::CSR<IDType, NNZType, ValueType> *ReadCSR() const override;
   format::COO<IDType, NNZType, ValueType> *ReadCOO() const override;
   virtual ~PigoEdgeListReader() = default;

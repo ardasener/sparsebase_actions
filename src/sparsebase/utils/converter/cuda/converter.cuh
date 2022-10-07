@@ -1,3 +1,11 @@
+/*******************************************************
+ * Copyright (c) 2022 SparCity, Amro Alabsi Aljundi, Taha Atahan Akyildiz, Arda Sener
+ * All rights reserved.
+ *
+ * This file is distributed under MIT license.
+ * The complete license agreement can be obtained at:
+ * https://sparcityeu.github.io/sparsebase/pages/license.html
+ ********************************************************/
 #include "sparsebase/format/cuda/format.cuh"
 #include "sparsebase/format/format.h"
 #include "sparsebase/utils/converter/converter.h"

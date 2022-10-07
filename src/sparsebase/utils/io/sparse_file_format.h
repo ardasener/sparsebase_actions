@@ -1,3 +1,11 @@
+/*******************************************************
+ * Copyright (c) 2022 SparCity, Amro Alabsi Aljundi, Taha Atahan Akyildiz, Arda Sener
+ * All rights reserved.
+ *
+ * This file is distributed under MIT license.
+ * The complete license agreement can be obtained at:
+ * https://sparcityeu.github.io/sparsebase/pages/license.html
+ ********************************************************/
 #ifndef SPARSEBASE_SPARSEBASE_UTILS_IO_SPARSE_FILE_FORMAT_H_
 #define SPARSEBASE_SPARSEBASE_UTILS_IO_SPARSE_FILE_FORMAT_H_
 
@@ -6,9 +14,9 @@
 #endif
 
 #include "sparsebase/external/json/json.hpp"
+#include <climits>
 #include <iostream>
 #include <string>
-#include <climits>
 #include <type_traits>
 
 namespace sparsebase {
@@ -66,8 +74,6 @@ public:
 };
 
 #endif
-
-
 
 class SbffArray {
 private:
@@ -177,8 +183,7 @@ public:
     return (*least_significant_address == 0x01) ? "little" : "big";
   }
 
-   template <typename T>
-   static T SwapEndian(T u) {
+  template <typename T> static T SwapEndian(T u) {
     static_assert(CHAR_BIT == 8, "CHAR_BIT != 8");
 
     union {
@@ -194,10 +199,6 @@ public:
     return dest.u;
   }
 };
-
-
-
-
 
 struct SbffObject {
 private:
@@ -322,13 +323,10 @@ public:
   std::vector<int> get_dimensions() { return dimensions; }
 };
 
-
-
 } // namespace io
 
 } // namespace utils
 
 } // namespace sparsebase
-
 
 #endif // SPARSEBASE_SPARSEBASE_UTILS_IO_SPARSE_FILE_FORMAT_H_
