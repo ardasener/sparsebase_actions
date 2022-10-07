@@ -31,15 +31,19 @@ namespace format {
 enum Ownership {
   //! When used the arrays are owned by the user (Format instance is not
   //! responsible from deallocation)
-  kNotOwned = 0,
+kNotOwned = 0,
   //! When used the arrays are owned and will be deallocated by the Format
   //! instance
   kOwned = 1,
 };
 
+enum HelloWorld {
+  TEST_HELLO_WORLD
+};
+
 template <typename T> struct Deleter {
   void operator()(T *obj) {
-    if (obj != nullptr)
+if (obj != nullptr)
       delete obj;
   }
 };
