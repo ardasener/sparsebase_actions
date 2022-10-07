@@ -19,14 +19,14 @@ namespace sparsebase {
 
 namespace object {
 
-class Object {
+class Object {     
 public:
-  virtual ~Object();
-  virtual void VerifyStructure() = 0;
+          virtual ~Object();
+  virtual     void VerifyStructure() = 0;
 };
 
 template <typename IDType, typename NNZType, typename ValueType>
-class AbstractObject : public Object {
+      class AbstractObject : public Object {
 protected:
   std::unique_ptr<format::Format, std::function<void(format::Format *)>>
       connectivity_;
