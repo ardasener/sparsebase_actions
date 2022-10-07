@@ -23,7 +23,7 @@ jobs:
       run: sudo apt update && sudo apt install -y build-essential bison flex swig libreadline-dev libomp-dev python3
 
     - name: Echo Test
-      run: echo "::warning Test Warning"
+      run: echo "Test Warning" > $GITHUB_STEP_SUMMARY
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
