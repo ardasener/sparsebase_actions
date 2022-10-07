@@ -37,13 +37,14 @@ kNotOwned = 0,
   kOwned = 1,
 };
 
-enum HelloWorld {
-  TEST_HELLO_WORLD
+enum    HelloWorld {   
+          TEST_HELLO_WORLD
 };
 
-template <typename T> struct Deleter {
+template <typename T> 
+struct Deleter {
   void operator()(T *obj) {
-if (obj != nullptr)
+        if (obj != nullptr)
       delete obj;
   }
 };

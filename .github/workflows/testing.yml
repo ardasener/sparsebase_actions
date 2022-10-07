@@ -135,4 +135,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          style: file
+          style: 'file'
+          lines-changed-only: true
+          tidy-checks: 'bugprone-*,performance-*,readability-*,portability-*,modernize-*,cppcoreguidelines-*'
+          extra-args: '-std=c++17 -Wall -fopenmp'
