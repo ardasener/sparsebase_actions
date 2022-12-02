@@ -1,3 +1,5 @@
+[![CodeQL](https://github.com/ardasener/sparsebase_actions/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/ardasener/sparsebase_actions/actions/workflows/codeql.yml)
+
 # SparseBase
 
 SparseBase is a library built in C++ that encapsulates, preprocesses, and performs I/O operations on sparse data structures seamlessly and optimally to provide a backbone for algorithms that use these structures.
