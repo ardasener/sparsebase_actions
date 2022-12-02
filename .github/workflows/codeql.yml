@@ -68,6 +68,7 @@ jobs:
       run: |
         mkdir build && cd build
         cmake .. -DCMAKE_BUILD_TYPE=Release -D_HEADER_ONLY=ON -DBUILD_EXAMPLES=ON -DRUN_TESTS=ON
+        make -j 2
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
